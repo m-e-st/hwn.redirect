@@ -53,7 +53,7 @@ module.exports = function (eleventyConfig) {
 	return {
 		dir: {
 			input: "src/",
-			output: "docs/",        // !Important - for publishing via Github pages 
+			output: "public/",      
 			includes: "_includes",
 			layouts: "_layouts"
 		},
