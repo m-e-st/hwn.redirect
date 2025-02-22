@@ -1,7 +1,7 @@
 module.exports = {
-	title: "{{project}}",
-	description: "{{project}}",
-	caption: "{{project}}",
+	title: "sprachcafe oranienburg",
+	description: "Sprachcafe Stadtbibliothek Oranienburg",
+	caption: "sprachcafe",
 	version : "0.1.0",
 	mail: "michael@stumpp.name",
 
