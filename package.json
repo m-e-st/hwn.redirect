@@ -1,0 +1,30 @@
+{
+  "name": "sprachcafe",
+  "version": "0.1.0",
+  "description": "Sprachcafe Stadtbibliothek Oranienburg",
+  "main": ".eleventy.js",
+  "scripts": {
+    "clean": "del public",
+    "dev": "eleventy --serve --watch",
+    "build": "ELEVENTY_ENV=production eleventy",
+    "disabled-postbuild": "./deploy-site.sh",
+    "browse": "firefox -p \"localhost\" -new-tab localhost:8080"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/m-e-st/friends.sprachcafe.git"
+  },
+  "author": "Michael Stumpp",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/m-e-st/friends.sprachcafe/issues"
+  },
+  "homepage": "https://github.com/m-e-st/friends.sprachcafe#readme",
+  "dependencies": {
+    "@11ty/eleventy": "^3.0.0",
+    "@grimlink/eleventy-plugin-lucide-icons": "^2.1.3",
+    "del-cli": "^6.0.0",
+    "html-minifier-terser": "^7.2.0"
+  },
+  "keywords": []
+}
