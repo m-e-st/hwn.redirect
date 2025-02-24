@@ -1,13 +1,13 @@
 module.exports = {
-	title: "sprachcafe oranienburg",
-	description: "Sprachcafe Stadtbibliothek Oranienburg",
-	caption: "sprachcafe",
+	title: "sprachcafé oranienburg",
+	description: "Sprachcafé Stadtbibliothek Oranienburg",
+	caption: "Sprachcafé",
 	version : "0.1.0",
 	mail: "michael@stumpp.name",
 
 	scriptdir: "/static",
 	imagedir: "/static/img",
-	pagelogo: "/static/pagelogo.svg",
+	pagelogo: "/static/pagelogo.png",
 
 	author: {
 		name: "Michael Stumpp",

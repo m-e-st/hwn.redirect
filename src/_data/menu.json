@@ -1,0 +1,33 @@
+[{
+	"name": "Original",
+	"tip" : "",
+	"url" : "/"
+}, {
+	"name": "Varianten",
+	"menu":	[{
+				"name": "HTML Poster",
+				"tip" : "⇒ Das originale Poster in HTML nachgebaut.",
+				"url" : "/original"
+			}, {
+				"name": "Platzhalter",
+				"tip" : "⇒ Es gibt noch keine Varianten",
+				"url" : "/dummy.html"
+			}]
+}, {
+	"name": "Alternativen",
+	"menu":	[{
+				"name": "Nette Bilder",
+				"tip" : "",
+				"url" : "/alternate-1"
+			}, {
+				"name": "Leere Seite",
+				"tip" : "",
+				"url" : "/dummy.html"
+			}, {
+				"name": "---"
+			}, {
+				"name": "Gestaltungsvorlage",
+				"tip" : " ⇒ Hier ist das Layout abgekupfert. 😀",
+				"url" : "https://www.aulasconmemoria.com"
+			}]
+}]

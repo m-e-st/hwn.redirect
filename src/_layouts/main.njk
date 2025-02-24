@@ -1,0 +1,110 @@
+---
+type: layout
+layout: base.njk
+version: 2025-01-21
+---
+
+<!-- Spezialversion für Sprachcafé Stadtbibliothek Oranienburg -->
+
+{% macro dropdown_item(caption, url, tooltip='') %}
+	<a href="{{url}}" target="{{ 'external' if (''+url).startsWith('http') else '_self' }}" 
+	   class="w3-tooltip w3-bar-item w3-button theme-header">{{caption|safe}} <span class="w3-text w3-tag"> {{tooltip|safe}}</span></a>
+{% endmacro %}
+
+{% macro tiptext(subitem) %}
+	{% if subitem.lang %}
+		{{subitem.lang}} {{subitem.url|d('')}}
+	{% elif subitem.tip %}
+		{{subitem.tip}}
+	{% elif subitem.tip === '' %}
+	
+	{% else %}
+		{{subitem.url|d('')}}					
+	{% endif %}
+{% endmacro %}
+
+<header class="">
+	<div class="w3-container">
+		<img src="{{site.pagelogo}}" style="float:left;height:120px;margin:12px;"
+			 id="layoutLogo"
+			 onmouseover="document.getElementById('layoutLogo').classList.1dd('w3-spin');"
+			 onmouseout="document.getElementById('layoutLogo').classList.remove('w3-spin');">
+
+		<div style="float:right">
+			<button id="layoutMail" class="w3-btn w3-hide-small" style="margin-top:40px;">
+				{% lucide "mail" ,{ "stroke": "#888", "stroke-width": 1, "size":"40" } %}
+			</button>
+			<button id="layoutLogin" class="w3-btn w3-hide-small" style="margin-top:40px;">
+				{% lucide "user" ,{ "stroke": "#888", "stroke-width": 1, "size":"40" } %}
+			</button>
+			<button id="layoutMenu" class="w3-btn w3-hide-medium w3-hide-large" style="margin-top:40px; overflow:visible">
+				<div class="w3-dropdown-hover w3-white">
+					{% lucide "menu" ,{ "stroke": "#888", "stroke-width": 1, "size":"40" } %}
+					<div class="w3-dropdown-content w3-bar-block w3-black w3-large" style="right:-16px">
+					{% for item in menu %}
+						{% if item.menu %}		
+							<span class="w3-bar-item">{{ item.name | safe }}</span>
+							{% for subitem in item.menu %}
+								{% if subitem.name =='---' %}
+								{% else %}
+							
+								<a href="{{subitem.url|d('#')}}" 
+								   target="{{ 'external' if (''+subitem.url).startsWith('http') else '_self' }}" 
+								   class="w3-bar-item w3-button theme-header">
+										&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{subitem.name|safe}} 
+								</a>
+							{% endif %}								
+							{% endfor %}							
+						{% elif item.url %}
+							<a href="{{item.url}}" target="{{ 'external' if (''+subitem.url).startsWith('http') else '_self' }}" class="w3-bar-item w3-button">{{ item.name | safe }}</a>
+						{% elif item.name %}
+							<a href="#" class="w3-bar-item w3-button">{{ item.name | safe }}</a>
+						{% endif %}						
+					{% endfor %}
+				</div>
+			</button>
+		</div>
+		<!-- Ende Buttons oben rechts-->
+	</div>
+	<div class="w3-panel w3-black w3-small w3-hide-medium w3-hide-large">&nbsp;</div>
+	<nav class="w3-bar w3-black w3-large w3-hide-small">
+		<span class="w3-bar-item"></span>
+		{% for item in menu %}
+			{% if item.menu %}
+				<div class="w3-dropdown-hover">
+					<button class="w3-button">{{ item.name | safe }}</button>
+					<div class="w3-dropdown-content w3-bar-block w3-black">
+					{% for subitem in item.menu %}
+						{% if subitem.name =='---' %}
+							<span class="w3-bar-item"></span>
+						{% else %}
+							{% set tiptext = subitem.lang if subitem.lang else subitem.tip|d(subitem.url) %}
+							<a href="{{subitem.url|d('#')}}" 
+							   target="{{ 'external' if (''+subitem.url).startsWith('http') else '_self' }}" 
+							   class="w3-tooltip w3-bar-item w3-button theme-header">
+									{{subitem.name|safe}} 
+									<span class="w3-text w3-tag"> {{subitem.lang+' '+subitem.url|d('') if subitem.lang else subitem.tip|d(subitem.url)|safe}}</span>
+							</a>								
+						{% endif %}
+					{% endfor %}
+					</div>
+				</div>
+			{% elif item.url %}
+				<a href="{{item.url}}" target="{{ 'external' if (''+subitem.url).startsWith('http') else '_self' }}" class="w3-bar-item w3-button">{{ item.name | safe }}</a>
+			{% elif item.name %}
+				<a href="#" class="w3-bar-item w3-button">{{ item.name | safe }}</a>
+			{% endif %}
+		{% endfor %}
+	</nav>
+</header>
+
+<main class="w3-section w3-container">
+	{{ content | safe }}
+</main>
+
+<footer class="w3-bottom" style="height:48px;">
+
+</footer>
+
+
+
