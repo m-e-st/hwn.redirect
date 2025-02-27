@@ -1,6 +1,8 @@
 ---
 layout: markdown.njk
 permalink: "{{ page.filePathStem }}.html"
+menuitem: termine
+
 ---
 
 ##### Winter 2024/2025
