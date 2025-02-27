@@ -1,27 +1,39 @@
 [{
-	"name": "Original",
-	"tip" : "",
+	"name": "intro",
 	"url" : "/"
 }, {
-	"name": "Varianten",
+	"name": "inhaltsverzeichnis",
 	"menu":	[{
-				"name": "HTML Poster",
+				"name": "poster",
 				"tip" : "⇒ Das originale Poster in HTML nachgebaut.",
-				"url" : "/original"
+				"url" : "/poster"
+			}, {
+				"name": "Termine",
+				"tip" : "⇒ Vorläufiger Kalender 2025",
+				"url" : "/termine-2025.html"
+			}, {
+				"name": "Neuigkeiten",
+				"tip" : "⇒ Aktuelle Hinweise",
+				"url" : "/news-2025.html"
+			}]
+}, {
+	"name": "Sprachspiele",
+	"menu":	[{
+				"name": "Platzhalter",
+				"tip" : "⇒ Leider gibt es hier nichts zu sehen.",
+				"url" : "/dummy.html"
 			}, {
 				"name": "Platzhalter",
-				"tip" : "⇒ Es gibt noch keine Varianten",
+				"tip" : "⇒ Leider gibt es hier nichts zu sehen.",
 				"url" : "/dummy.html"
 			}]
 }, {
-	"name": "Alternativen",
+	"name": "Sandbox",
 	"menu":	[{
 				"name": "Nette Bilder",
-				"tip" : "",
 				"url" : "/alternate-1"
 			}, {
 				"name": "Leere Seite",
-				"tip" : "",
 				"url" : "/dummy.html"
 			}, {
 				"name": "---"

@@ -21,7 +21,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
 	}
 	if (buttonMail) {
 		setLucideStroke(buttonMail, 'transparent', 1);
-		buttonMail.addEventListener('click', sendMail2);
+		buttonMail.addEventListener('click', sendMail_2);
 		setLucideStroke(buttonMail, '#888', 1);
 
 	}
@@ -32,13 +32,15 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
 
 function loginUser() {
+		openModal('popupLogin');
 	const stateColor = [ '#888', '#0C0'];
 	const stateStroke = [1,2];
 	if (++statusLogin > 1) statusLogin = 0;
 	setLucideStroke(buttonLogin, stateColor[statusLogin], stateStroke[statusLogin]);
 }
 
-function sendMail2() {
+function sendMail_2() {
+		openModal('popupMail');
 	const stateColor = [ '#888', '#F00'];
 	const stateStroke = [1,2];
 	if (++statusMail > 1) statusMail = 0;

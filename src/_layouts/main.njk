@@ -4,63 +4,77 @@ layout: base.njk
 version: 2025-01-21
 ---
 
-<!-- Spezialversion für Sprachcafé Stadtbibliothek Oranienburg -->
+<!-- Spezialversion für Sprachcafe -->
+<style>
+@media (max-width:300px){ .w3-hide-tiny{display:none!important} }
 
-{% macro dropdown_item(caption, url, tooltip='') %}
-	<a href="{{url}}" target="{{ 'external' if (''+url).startsWith('http') else '_self' }}" 
-	   class="w3-tooltip w3-bar-item w3-button theme-header">{{caption|safe}} <span class="w3-text w3-tag"> {{tooltip|safe}}</span></a>
-{% endmacro %}
+</style>
 
-{% macro tiptext(subitem) %}
-	{% if subitem.lang %}
-		{{subitem.lang}} {{subitem.url|d('')}}
-	{% elif subitem.tip %}
-		{{subitem.tip}}
-	{% elif subitem.tip === '' %}
-	
-	{% else %}
-		{{subitem.url|d('')}}					
-	{% endif %}
+{% macro attrAnimation(id, effect='spin') %}
+	id="{{id}}"
+	onmouseover="document.getElementById('{{id}}').classList.add('w3-{{effect}}');"
+	onmouseout="document.getElementById('{{id}}').classList.remove('w3-{{effect}}');"
+ {% endmacro %}
+
+{% macro itemlink(caption, url, pos='', tooltip='', language='') %}
+	<a href="{{url|d('#')}}"
+	   target="{{ 'external' if (''+url).startsWith('http') else '_self' }}"
+	   class="w3-bar-item w3-button {{ 'w3-dark-gray' if (caption==menuitem) }} {{ 'w3-tooltip' if (tooltip or language) }} {{ 'w3-right' if (pos == 'right') }}">
+			{%- if (pos=='indent') -%}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{%- endif -%}
+			{{ caption|safe|Upperwords }}
+			{%- if (tooltip or language) -%}<span class="w3-text w3-tag"> {{language+' '+url|d('') if language else tooltip|safe}}</span>{%- endif -%}
+	</a>
 {% endmacro %}
 
 <header class="">
-	<div class="w3-container">
-		<img src="{{site.pagelogo}}" style="float:left;height:120px;margin:12px;"
-			 id="layoutLogo"
-			 onmouseover="document.getElementById('layoutLogo').classList.1dd('w3-spin');"
-			 onmouseout="document.getElementById('layoutLogo').classList.remove('w3-spin');">
-
-		<div style="float:right">
-			<button id="layoutMail" class="w3-btn w3-hide-small" style="margin-top:40px;">
+	<div class="w3-container w3-white">
+		<img src={{site.pagelogo}}
+			 alt="Sprachcafé Logo"
+			 class="w3-left w3-padding w3-hide-tiny"
+			 style="margin:16px 0;height:96px;"
+			 {{ attrAnimation("layoutLogo") }}
+			 onclick="openModal('loginPopup');"
+			 >
+{#
+		<div class="w3-left w3-hide-small">
+			<h2 class="ms-text-red" style="margin-top:32px;">{{ site.title }}</h2>
+			<h6 class="ms-text-red" style="margin-top:-1em">Version {{ pkg.version }}</h6>
+		</div>
+#}
+		<div class="w3-right w3-white" style="margin-top:32px;">
+			<button class="w3-btn w3-hide-small" {{attrAnimation("layoutMail")}} >
 				{% lucide "mail" ,{ "stroke": "#888", "stroke-width": 1, "size":"40" } %}
 			</button>
-			<button id="layoutLogin" class="w3-btn w3-hide-small" style="margin-top:40px;">
+			<button class="w3-btn w3-hide-small" {{attrAnimation("layoutLogin")}}>
 				{% lucide "user" ,{ "stroke": "#888", "stroke-width": 1, "size":"40" } %}
 			</button>
-			<button id="layoutMenu" class="w3-btn w3-hide-medium w3-hide-large" style="margin-top:40px; overflow:visible">
+			<button id="layoutMenu" class="w3-btn w3-hide-medium w3-hide-large" style="overflow:visible">
 				<div class="w3-dropdown-hover w3-white">
 					{% lucide "menu" ,{ "stroke": "#888", "stroke-width": 1, "size":"40" } %}
 					<div class="w3-dropdown-content w3-bar-block w3-black w3-large" style="right:-16px">
-					{% for item in menu %}
-						{% if item.menu %}		
-							<span class="w3-bar-item">{{ item.name | safe }}</span>
-							{% for subitem in item.menu %}
+					{% for item in menu -%}
+						{% if item.menu %}
+							<span class="w3-bar-item">{{ item.name|safe|Upperwords }}</span>
+							{% for subitem in item.menu -%}
 								{% if subitem.name =='---' %}
 								{% else %}
-							
-								<a href="{{subitem.url|d('#')}}" 
-								   target="{{ 'external' if (''+subitem.url).startsWith('http') else '_self' }}" 
-								   class="w3-bar-item w3-button theme-header">
-										&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{subitem.name|safe}} 
+									{{ itemlink(subitem.name, subitem.url, 'indent') }}
+									{#
+								<a href="{{subitem.url|d('#')}}"
+								   target="{{ 'external' if (''+subitem.url).startsWith('http') else '_self' }}"
+								   class="w3-bar-item w3-button {{'ms-back-gray' if (subitem.name==menuitem)}}">
+										&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ subitem.name|safe|Upperwords }}
 								</a>
-							{% endif %}								
-							{% endfor %}							
+									#}
+								{% endif %}
+							{%- endfor %}
 						{% elif item.url %}
-							<a href="{{item.url}}" target="{{ 'external' if (''+subitem.url).startsWith('http') else '_self' }}" class="w3-bar-item w3-button">{{ item.name | safe }}</a>
+							{{ itemlink(item.name, item.url) }}
 						{% elif item.name %}
-							<a href="#" class="w3-bar-item w3-button">{{ item.name | safe }}</a>
-						{% endif %}						
-					{% endfor %}
+							{{ itemlink(item.name, '#') }}
+						{% endif %}
+					{%- endfor %}
+					</div>
 				</div>
 			</button>
 		</div>
@@ -69,32 +83,28 @@ version: 2025-01-21
 	<div class="w3-panel w3-black w3-small w3-hide-medium w3-hide-large">&nbsp;</div>
 	<nav class="w3-bar w3-black w3-large w3-hide-small">
 		<span class="w3-bar-item"></span>
-		{% for item in menu %}
+	{#	<span class="w3-bar-item w3-right"></span>	#}
+		<span class="w3-bar-item w3-small w3-right w3-padding-small" style="margin:6px 8px">Version {{ pkg.version }}</span>
+		{% for item in menu -%}
 			{% if item.menu %}
 				<div class="w3-dropdown-hover">
-					<button class="w3-button">{{ item.name | safe }}</button>
+					<button class="w3-button">{{ item.name|safe|Upperwords }}</button>
 					<div class="w3-dropdown-content w3-bar-block w3-black">
-					{% for subitem in item.menu %}
+					{% for subitem in item.menu -%}
 						{% if subitem.name =='---' %}
 							<span class="w3-bar-item"></span>
 						{% else %}
-							{% set tiptext = subitem.lang if subitem.lang else subitem.tip|d(subitem.url) %}
-							<a href="{{subitem.url|d('#')}}" 
-							   target="{{ 'external' if (''+subitem.url).startsWith('http') else '_self' }}" 
-							   class="w3-tooltip w3-bar-item w3-button theme-header">
-									{{subitem.name|safe}} 
-									<span class="w3-text w3-tag"> {{subitem.lang+' '+subitem.url|d('') if subitem.lang else subitem.tip|d(subitem.url)|safe}}</span>
-							</a>								
+							{{ itemlink(subitem.name, subitem.url, '', subitem.tip, subitem.lang) }}
 						{% endif %}
-					{% endfor %}
+					{%- endfor %}
 					</div>
 				</div>
 			{% elif item.url %}
-				<a href="{{item.url}}" target="{{ 'external' if (''+subitem.url).startsWith('http') else '_self' }}" class="w3-bar-item w3-button">{{ item.name | safe }}</a>
+				{{ itemlink(item.name, item.url, item.pos, item.tip, item.lang)}}
 			{% elif item.name %}
-				<a href="#" class="w3-bar-item w3-button">{{ item.name | safe }}</a>
+				{{ itemlink(item.name, '#') }}
 			{% endif %}
-		{% endfor %}
+		{%- endfor %}
 	</nav>
 </header>
 
@@ -105,6 +115,28 @@ version: 2025-01-21
 <footer class="w3-bottom" style="height:48px;">
 
 </footer>
+
+
+<!-- The Modals -->
+<div id="popupLogin" class="w3-modal">
+  <div class="w3-modal-content w3-pale-green" style="width:400px">
+    <div class="w3-container w3-border-green w3-leftbar w3-rightbar">
+      <span onclick="closeModal('popupLogin');" class="w3-btn w3-display-topright">&times;</span>
+      <div class="w3-display-left" style="padding:16px">{% lucide "triangle-alert",{ "size":"48" } %}</div>
+      <div style="margin-left:64px;margin-right:16px"><p>Der Zugang zum Bereich des Orga-Teams ist noch nicht eingerichtet.</p></div>
+    </div>
+  </div>
+</div>
+<div id="popupMail" class="w3-modal">
+  <div class="w3-modal-content w3-pale-red" style="width:400px">
+    <div class="w3-container w3-border-red w3-leftbar w3-rightbar">
+      <span onclick="closeModal('popupMail');" class="w3-btn w3-display-topright">&times;</span>
+      <div class="w3-display-left" style="padding:16px">{% lucide "triangle-alert",{ "size":"48" } %}</div>
+      <div style="margin-left:64px;margin-right:16px"><p>Mail-Nachrichten an das Orga-Team können derzeit hier nicht versandt werden.</p></div>
+    </div>
+  </div>
+</div>
+	
 
 
 

@@ -1,0 +1,35 @@
+---
+type: layout
+layout: main.njk
+version: 2025-02-27
+---
+
+<style>
+mark-down {
+	& em {
+		font-weight:bolder;
+		font-style: normal;
+	}
+	& strong {
+		font-weight:bolder;
+		color:red;
+	}
+	& h5 {
+		padding:0.2em 16px;
+		margin:16px 0 -8px 0;
+		background-color: #610688;
+		color: #FFF;
+		& + p {
+			margin: 16px;
+			margin-bottom:32px;
+		}
+	}
+}
+</style>
+
+<mark-down>  <!-- Bindestrich für html-5 custom tags erforderlich! -->
+	{{ content | safe }}
+</mark-down>
+
+
+

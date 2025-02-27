@@ -1,3 +1,5 @@
+/** v2.0 - 2025-02-27 **/
+
 const htmlMinifier = require ('html-minifier-terser');
 const lucideIcons = require("@grimlink/eleventy-plugin-lucide-icons");
 
@@ -21,6 +23,10 @@ module.exports = function (eleventyConfig) {
 		for (let i = 0; i < originalChars.length;i++)
 			result = result.replaceAll(originalChars[i], replacementChars[i]);
 		return result;
+	});
+  	eleventyConfig.addFilter("Upperwords", function(value) { 
+		return value.replace(/\b\w/g, char => char.toUpperCase());
+		//~ return str.replace(/(?:^|\s|["'([{])+\S/g, match => match.toUpperCase());
 	});
 	
 	eleventyConfig.addTransform ('htmlMinifier', function(content,outputPath) {
