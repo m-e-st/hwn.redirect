@@ -8,11 +8,11 @@
 				"tip" : "⇒ Das originale Poster in HTML nachgebaut.",
 				"url" : "/poster"
 			}, {
-				"name": "Termine",
+				"name": "termine",
 				"tip" : "⇒ Vorläufiger Kalender 2025",
 				"url" : "/termine-2025.html"
 			}, {
-				"name": "Neuigkeiten",
+				"name": "neuigkeiten",
 				"tip" : "⇒ Aktuelle Hinweise",
 				"url" : "/news-2025.html"
 			}]
