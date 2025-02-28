@@ -120,9 +120,9 @@ version: 2025-01-21
 <!-- The Modals -->
 <div id="popupLogin" class="w3-modal">
   <div class="w3-modal-content w3-pale-green" style="width:400px">
-    <div class="w3-container w3-border-green w3-leftbar w3-rightbar">
+    <div class="w3-container w3-padding w3-border-green w3-leftbar w3-rightbar">
       <span onclick="loginUser();closeModal('popupLogin');" class="w3-btn w3-display-topright">&times;</span>
-      <div class="w3-display-left" style="padding:16px">{% lucide "triangle-alert",{ "size":"48" } %}</div>
+      <div class="w3-display-left" style="padding:16px;margin-left:8px;">{% lucide "triangle-alert",{ "stroke":"#4CAF50", "size":"48" } %}</div>
       <div style="margin-left:64px;margin-right:16px"><p>Der Zugang zum Bereich des Orga-Teams ist noch nicht eingerichtet.</p></div>
     </div>
   </div>
@@ -130,9 +130,9 @@ version: 2025-01-21
 
 <div id="popupMail" class="w3-modal">
   <div class="w3-modal-content w3-pale-red" style="width:400px">
-    <div class="w3-container w3-border-red w3-leftbar w3-rightbar">
+    <div class="w3-container w3-padding w3-border-red w3-leftbar w3-rightbar">
       <span onclick="sendMail_2();closeModal('popupMail');" class="w3-btn w3-display-topright">&times;</span>
-      <div class="w3-display-left" style="padding:16px">{% lucide "triangle-alert",{ "size":"48" } %}</div>
+      <div class="w3-display-left" style="padding:16px;margin-left:8px;">{% lucide "triangle-alert",{ "stroke":"#f44336", "size":"48" } %}</div>
       <div style="margin-left:64px;margin-right:16px"><p>Mail-Nachrichten an das Orga-Team können derzeit hier nicht versandt werden.</p></div>
     </div>
   </div>
