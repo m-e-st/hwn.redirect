@@ -1,6 +1,6 @@
 {
   "name": "sprachcafe",
-  "version": "0.1.7",
+  "version": "0.1.8",
   "description": "Sprachcafe Stadtbibliothek Oranienburg",
   "main": ".eleventy.js",
   "scripts": {
