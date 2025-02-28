@@ -34,10 +34,13 @@
 }, {
 	"name": "Sandbox",
 	"menu":	[{
-				"name": "Nette Bilder",
-				"url" : "/alternate-1"
+				"name": "links ",
+				"url" : "/links.html"
 			}, {
-				"name": "Leere Seite",
+				"name": "nette bilder",
+				"url" : "/sandbox-1.html"
+			}, {
+				"name": "leere seite",
 				"url" : "/dummy.html"
 			}, {
 				"name": "---"

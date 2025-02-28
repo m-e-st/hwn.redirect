@@ -1,6 +1,7 @@
 ---
 layout: main.njk
 permalink: "{{ page.filePathStem }}.html"
+menuitem: "leere seite"
 ---
 
 #### Diese Seite ist leer.  
