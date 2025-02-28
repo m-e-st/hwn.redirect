@@ -32,18 +32,18 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
 
 function loginUser() {
-		openModal('popupLogin');
 	const stateColor = [ '#888', '#0C0'];
 	const stateStroke = [1,2];
 	if (++statusLogin > 1) statusLogin = 0;
 	setLucideStroke(buttonLogin, stateColor[statusLogin], stateStroke[statusLogin]);
+	openModal('popupLogin');
 }
 
 function sendMail_2() {
-		openModal('popupMail');
 	const stateColor = [ '#888', '#F00'];
 	const stateStroke = [1,2];
 	if (++statusMail > 1) statusMail = 0;
 	setLucideStroke(buttonMail, stateColor[statusMail], stateStroke[statusMail]);
+	openModal('popupMail');
 }
 

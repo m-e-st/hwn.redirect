@@ -121,22 +121,22 @@ version: 2025-01-21
 <div id="popupLogin" class="w3-modal">
   <div class="w3-modal-content w3-pale-green" style="width:400px">
     <div class="w3-container w3-border-green w3-leftbar w3-rightbar">
-      <span onclick="closeModal('popupLogin');" class="w3-btn w3-display-topright">&times;</span>
+      <span onclick="loginUser();closeModal('popupLogin');" class="w3-btn w3-display-topright">&times;</span>
       <div class="w3-display-left" style="padding:16px">{% lucide "triangle-alert",{ "size":"48" } %}</div>
       <div style="margin-left:64px;margin-right:16px"><p>Der Zugang zum Bereich des Orga-Teams ist noch nicht eingerichtet.</p></div>
     </div>
   </div>
 </div>
+
 <div id="popupMail" class="w3-modal">
   <div class="w3-modal-content w3-pale-red" style="width:400px">
     <div class="w3-container w3-border-red w3-leftbar w3-rightbar">
-      <span onclick="closeModal('popupMail');" class="w3-btn w3-display-topright">&times;</span>
+      <span onclick="sendMail_2();closeModal('popupMail');" class="w3-btn w3-display-topright">&times;</span>
       <div class="w3-display-left" style="padding:16px">{% lucide "triangle-alert",{ "size":"48" } %}</div>
       <div style="margin-left:64px;margin-right:16px"><p>Mail-Nachrichten an das Orga-Team können derzeit hier nicht versandt werden.</p></div>
     </div>
   </div>
 </div>
-	
 
 
 
