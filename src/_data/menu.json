@@ -15,9 +15,13 @@
 				"name": "neuigkeiten",
 				"tip" : "⇒ Aktuelle Hinweise",
 				"url" : "/news-2025.html"
+			}, {
+				"name": "organisation",
+				"tip" : ": u.a. die Anmeldung zum Telegram Info-Kanal",
+				"url" : "/organisation.html"
 			}]
 }, {
-	"name": "Sprachspiele",
+	"name": "Anregungen",
 	"menu":	[{
 				"name": "Platzhalter",
 				"tip" : "⇒ Leider gibt es hier nichts zu sehen.",
