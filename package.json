@@ -1,7 +1,7 @@
 {
-  "name": "sprachcafe",
-  "version": "0.1.12",
-  "description": "Sprachcafe Stadtbibliothek Oranienburg",
+  "name": "assaf blog",
+  "version": "0.1.0",
+  "description": "Blog von Katja Mareike Assaf",
   "main": ".eleventy.js",
   "scripts": {
     "clean": "del public",
@@ -12,14 +12,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/m-e-st/friends.sprachcafe.git"
+    "url": "git+https://github.com/m-e-st/friends.assaf.git"
   },
   "author": "Michael Stumpp",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/m-e-st/friends.sprachcafe/issues"
+    "url": "https://github.com/m-e-st/friends.assaf/issues"
   },
-  "homepage": "https://github.com/m-e-st/friends.sprachcafe#readme",
+  "homepage": "https://github.com/m-e-st/friends.assaf#readme",
   "dependencies": {
     "@11ty/eleventy": "^3.0.0",
     "@grimlink/eleventy-plugin-lucide-icons": "^2.1.3",

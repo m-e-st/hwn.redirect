@@ -1,61 +1,16 @@
 [{
 	"name": "intro",
-	"menu":	[{
-				"name": "willkommen",
-				"url" : "/"
-			}, {
-				"name": "poster",
-				"url" : "/poster"
-			}, {
-				"name": "PDF-Poster",
-				"url" : "/static/files/sprachcafe-oranienburg-poster.pdf"
-			}]
+	"url" : "/"
 }, {
-	"name": "inhaltsverzeichnis",
-	"menu":	[{
-				"name": "poster",
-				"tip" : "⇒ Das originale Poster in HTML nachgebaut.",
-				"url" : "/poster"
-			}, {
-				"name": "termine",
-				"tip" : "⇒ Vorläufiger Kalender 2025",
-				"url" : "/termine-2025.html"
-			}, {
-				"name": "neuigkeiten",
-				"tip" : "⇒ Aktuelle Hinweise",
-				"url" : "/news-2025.html"
-			}, {
-				"name": "organisation",
-				"tip" : ": u.a. die Anmeldung zum Telegram Info-Kanal",
-				"url" : "/organisation.html"
-			}]
+	"name": "blog",
+	"url": "/blog"
+
 }, {
-	"name": "Anregungen",
-	"menu":	[{
-				"name": "Platzhalter",
-				"tip" : "⇒ Leider gibt es hier nichts zu sehen.",
-				"url" : "/dummy.html"
-			}, {
-				"name": "Platzhalter",
-				"tip" : "⇒ Leider gibt es hier nichts zu sehen.",
-				"url" : "/dummy.html"
-			}]
+	"name": "galerie",
+	"url": "/gallery"
+
 }, {
-	"name": "Sandbox",
-	"menu":	[{
-				"name": "links ",
-				"url" : "/links.html"
-			}, {
-				"name": "nette bilder",
-				"url" : "/sandbox-1.html"
-			}, {
-				"name": "leere seite",
-				"url" : "/dummy.html"
-			}, {
-				"name": "---"
-			}, {
-				"name": "Gestaltungsvorlage",
-				"tip" : " ⇒ Hier ist das Layout abgekupfert. 😀",
-				"url" : "https://www.aulasconmemoria.com"
-			}]
+	"name": "über",
+	"pos" : "right",
+	"url" : "/about.html"
 }]

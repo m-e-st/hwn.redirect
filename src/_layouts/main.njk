@@ -4,7 +4,8 @@ layout: base.njk
 version: 2025-01-21
 ---
 
-<!-- Spezialversion für Sprachcafe -->
+<!-- Adaption für Mariekes Blog März 2025 -->
+
 <style>
 @media (max-width:300px){ .w3-hide-tiny{display:none!important} }
 
@@ -21,27 +22,25 @@ version: 2025-01-21
 	   target="{{ 'external' if (''+url).startsWith('http') else '_self' }}"
 	   class="w3-bar-item w3-button {{ 'w3-dark-gray' if (caption==menuitem) }} {{ 'w3-tooltip' if (tooltip or language) }} {{ 'w3-right' if (pos == 'right') }}">
 			{%- if (pos=='indent') -%}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{%- endif -%}
-			{{ caption|safe|Upperwords }}
+			{{ caption|safe|capitalize }}
 			{%- if (tooltip or language) -%}<span class="w3-text w3-tag"> {{language+' '+url|d('') if language else tooltip|safe}}</span>{%- endif -%}
 	</a>
 {% endmacro %}
 
 <header class="">
-	<div class="w3-container w3-white">
+	<div class="w3-container theme-pale">
 		<img src={{site.pagelogo}}
-			 alt="Sprachcafé Logo"
-			 class="w3-left w3-padding w3-hide-tiny w3-circle"
+			 alt="Koj Temple Shinto Shrine Logo"
+			 class="w3-left w3-padding w3-hide-tiny"
 			 style="margin:0px 0;height:120px;"
 			 {{ attrAnimation("layoutLogo") }}
 			 onclick="openModal('loginPopup');"
 			 >
-{#
 		<div class="w3-left w3-hide-small">
-			<h2 class="ms-text-red" style="margin-top:32px;">{{ site.title }}</h2>
+			<h2 class="ms-text-red" style="margin-top:24px;">{{ site.title }}</h2>
 			<h6 class="ms-text-red" style="margin-top:-1em">Version {{ pkg.version }}</h6>
 		</div>
-#}
-		<div class="w3-right w3-white" style="margin-top:32px;">
+		<div class="w3-right theme-pale" style="margin-top:32px;">
 			<button class="w3-btn w3-hide-small w3-circle" {{attrAnimation("layoutMail")}} >
 				{% lucide "mail" ,{ "stroke": "#888", "stroke-width": 1, "size":"40" } %}
 			</button>
@@ -49,12 +48,12 @@ version: 2025-01-21
 				{% lucide "user" ,{ "stroke": "#888", "stroke-width": 1, "size":"40" } %}
 			</button>
 			<button id="layoutMenu" class="w3-btn w3-hide-medium w3-hide-large" style="overflow:visible">
-				<div class="w3-dropdown-hover w3-white">
+				<div class="w3-dropdown-hover w3-transparent">
 					{% lucide "menu" ,{ "stroke": "#888", "stroke-width": 1, "size":"40" } %}
 					<div class="w3-dropdown-content w3-bar-block w3-black w3-large" style="right:-16px">
 					{% for item in menu -%}
 						{% if item.menu %}
-							<span class="w3-bar-item">{{ item.name|safe|Upperwords }}</span>
+							<span class="w3-bar-item">{{ item.name|safe|capitalize }}</span>
 							{% for subitem in item.menu -%}
 								{% if subitem.name =='---' %}
 								{% else %}
@@ -63,7 +62,7 @@ version: 2025-01-21
 								<a href="{{subitem.url|d('#')}}"
 								   target="{{ 'external' if (''+subitem.url).startsWith('http') else '_self' }}"
 								   class="w3-bar-item w3-button {{'ms-back-gray' if (subitem.name==menuitem)}}">
-										&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ subitem.name|safe|Upperwords }}
+										&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ subitem.name|safe|capitalize }}
 								</a>
 									#}
 								{% endif %}
@@ -83,12 +82,12 @@ version: 2025-01-21
 	<div class="w3-panel w3-black w3-small w3-hide-medium w3-hide-large">&nbsp;</div>
 	<nav class="w3-bar w3-black w3-large w3-hide-small">
 		<span class="w3-bar-item"></span>
-	{#	<span class="w3-bar-item w3-right"></span>	#}
-		<span class="w3-bar-item w3-small w3-right w3-padding-small" style="margin:6px 8px">Version {{ pkg.version }}</span>
+		<span class="w3-bar-item w3-right"></span>
+	{#	<span class="w3-bar-item w3-small w3-right w3-padding-small" style="margin:6px 8px">Version {{ pkg.version }}</span> #}
 		{% for item in menu -%}
 			{% if item.menu %}
 				<div class="w3-dropdown-hover">
-					<button class="w3-button">{{ item.name|safe|Upperwords }}</button>
+					<button class="w3-button">{{ item.name|safe|capitalize }}</button>
 					<div class="w3-dropdown-content w3-bar-block w3-black">
 					{% for subitem in item.menu -%}
 						{% if subitem.name =='---' %}
@@ -112,10 +111,25 @@ version: 2025-01-21
 	{{ content | safe }}
 </main>
 
+{% if not format.nofooter %}
 <footer class="w3-bottom" style="height:48px;">
+	<div class="w3-container w3-transparent w3-padding-large w3-center">
+		<button class="w3-mobile w3-hide-small w3-btn w3-left w3-tooltip" onclick="footerToggleVisibility('layoutCopyright');">
+			&nbsp;<span class="w3-text">{% lucide "toggle-right" %}</span>
+		</button> <!-- was: &#127465;&#127466; -->
 
+
+		<div id="layoutCopyright" class="w3-mobile w3-hide-small">
+			<span class="w3-text-blue-grey">
+				{% if not site.author.hide %}&copy; 2023 {% endif %}
+				<a href="{{ site.url.impressum }}">{{ site.author.name }}</a>
+				<span id="versionstring"></span> <span id="username"></span> <span id="dataversion"></span>
+			</span>
+		</div>
+
+	</div>
 </footer>
-
+{% endif %}
 
 <!-- The Modals -->
 <div id="popupLogin" class="w3-modal">
@@ -123,7 +137,7 @@ version: 2025-01-21
     <div class="w3-container w3-padding w3-border-green w3-leftbar w3-rightbar">
       <span onclick="loginUser();closeModal('popupLogin');" class="w3-btn w3-display-topright">&times;</span>
       <div class="w3-display-left" style="padding:16px;margin-left:8px;">{% lucide "triangle-alert",{ "stroke":"#4CAF50", "size":"48" } %}</div>
-      <div style="margin-left:64px;margin-right:16px"><p>Der Zugang zum Bereich des Orga-Teams ist noch nicht eingerichtet.</p></div>
+      <div style="margin-left:64px;margin-right:16px"><p>Die Anmeldung ist noch nicht eingerichtet.</p></div>
     </div>
   </div>
 </div>
@@ -133,10 +147,19 @@ version: 2025-01-21
     <div class="w3-container w3-padding w3-border-red w3-leftbar w3-rightbar">
       <span onclick="sendMail_2();closeModal('popupMail');" class="w3-btn w3-display-topright">&times;</span>
       <div class="w3-display-left" style="padding:16px;margin-left:8px;">{% lucide "triangle-alert",{ "stroke":"#f44336", "size":"48" } %}</div>
-      <div style="margin-left:64px;margin-right:16px"><p>Mail-Nachrichten an das Orga-Team können derzeit hier nicht versandt werden.</p></div>
+      <div style="margin-left:64px;margin-right:16px"><p>Der Mailversand ist noch nicht eingerichtet..</p></div>
     </div>
   </div>
 </div>
 
-
+<script>
+function footerToggleVisibility(id="copyright") {
+  var domX = document.getElementById(id);
+  if (domX.style.display === "none") {
+    domX.style.display = "block";
+  } else {
+    domX.style.display = "none";
+  }
+}
+</script>
 
