@@ -15,5 +15,6 @@ Diese Linksammlung ist momentan ein unsortierter Zettelkasten im Aufbau!
 
 <!-- 
   -- https://sprache-ist-integration.de/ehrenamt-7-kursarten/
+  -- https://sprache-ist-integration.de/mini-methoden/
   --
   -->

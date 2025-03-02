@@ -1,6 +1,15 @@
 [{
 	"name": "intro",
-	"url" : "/"
+	"menu":	[{
+				"name": "willkommen",
+				"url" : "/"
+			}, {
+				"name": "poster",
+				"url" : "/poster"
+			}, {
+				"name": "PDF-Poster",
+				"url" : "/static/files/sprachcafe-oranienburg-poster.pdf"
+			}]
 }, {
 	"name": "inhaltsverzeichnis",
 	"menu":	[{
