@@ -30,7 +30,7 @@ version: 2025-01-21
 	<div class="w3-container w3-white">
 		<img src={{site.pagelogo}}
 			 alt="Sprachcafé Logo"
-			 class="w3-left w3-padding w3-hide-tiny"
+			 class="w3-left w3-padding w3-hide-tiny w3-circle"
 			 style="margin:0px 0;height:120px;"
 			 {{ attrAnimation("layoutLogo") }}
 			 onclick="openModal('loginPopup');"
@@ -42,10 +42,10 @@ version: 2025-01-21
 		</div>
 #}
 		<div class="w3-right w3-white" style="margin-top:32px;">
-			<button class="w3-btn w3-hide-small" {{attrAnimation("layoutMail")}} >
+			<button class="w3-btn w3-hide-small w3-circle" {{attrAnimation("layoutMail")}} >
 				{% lucide "mail" ,{ "stroke": "#888", "stroke-width": 1, "size":"40" } %}
 			</button>
-			<button class="w3-btn w3-hide-small" {{attrAnimation("layoutLogin")}}>
+			<button class="w3-btn w3-hide-small w3-circle" {{attrAnimation("layoutLogin")}}>
 				{% lucide "user" ,{ "stroke": "#888", "stroke-width": 1, "size":"40" } %}
 			</button>
 			<button id="layoutMenu" class="w3-btn w3-hide-medium w3-hide-large" style="overflow:visible">
