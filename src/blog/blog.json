@@ -1,5 +1,6 @@
 {
 	"layout": "markdown.njk",
 	"permalink": "{{ page.filePathStem }}.html",
+	"menuitem": "blog",
 	"tags": "blog"
 }

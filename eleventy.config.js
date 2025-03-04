@@ -1,15 +1,30 @@
-/** v2.2 - 2025-03-04 **/
+/** v2.3 - 2025-03-04 **/
 
 const htmlMinifier = require ('html-minifier-terser');
 const lucideIcons = require("@grimlink/eleventy-plugin-lucide-icons");
-const markdownItCallouts = require("markdown-it-obsidian-callouts");
-const path = require('path');
+const markdownItCallouts = require("markdown-it-obsidian-callouts");				/* v2.1 */
+const path = require('path');														/* v2.2 */
+const { eleventyImageTransformPlugin } = require("@11ty/eleventy-img");				/* v2.3 */
+
 
 module.exports = function (eleventyConfig) {
-	eleventyConfig.amendLibrary("md", (mdLib) => mdLib.use(markdownItCallouts));
+	eleventyConfig.amendLibrary("md", (mdLib) => mdLib.use(markdownItCallouts));	/* v2.1 */
 	
     eleventyConfig.addPlugin(lucideIcons);
+    eleventyConfig.addPlugin(eleventyImageTransformPlugin, {						/* v2.3 */
+		formats: ["avif", "webp", "jpeg"],				// output image formats
+		widths: ["auto"],								// output image widths
+		htmlOptions: {		// optional, attributes assigned on <img> nodes override these values
+			imgAttributes: {
+				loading: "lazy",
+				decoding: "async",
+			},
+			pictureAttributes: {}
+		},
+	});
+    
   	eleventyConfig.addShortcode("anchor", function setAnchor(anchorName) { return `<a name="${anchorName}"><br><br><hr></a>`; });
+  	
   	eleventyConfig.addFilter("Datum", function(value) {
 		const string = value.toISOString();
 		return string.slice(8,10) +'.' + string.slice(5,7) + '.' + string.slice(0,4);
@@ -28,7 +43,7 @@ module.exports = function (eleventyConfig) {
 			result = result.replaceAll(originalChars[i], replacementChars[i]);
 		return result;
 	});
-  	eleventyConfig.addFilter("Basename", function(value) {
+  	eleventyConfig.addFilter("Basename", function(value) {							/* v2.2 */
 		let result = path.basename(value, ".html");
 		return result;
 	});
