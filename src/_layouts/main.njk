@@ -4,11 +4,12 @@ layout: base.njk
 version: 2025-01-21
 ---
 
-<!-- Adaption für Mariekes Blog März 2025 -->
+<!-- Adaption für Mareikes Blog März 2025 -->
 
 <style>
 @media (max-width:300px){ .w3-hide-tiny{display:none!important} }
-
+main { display:none }
+ms-login { display:block }
 </style>
 
 {% macro attrAnimation(id, effect='spin') %}
@@ -107,7 +108,11 @@ version: 2025-01-21
 	</nav>
 </header>
 
-<main class="w3-section w3-container">
+<ms-login>								<!-- display <ms-login> or ... -->
+	{% include "login.njk" %}
+</ms-login>
+
+<main class="w3-section w3-container">	<!-- display <main>; but never both -->
 	{{ content | safe }}
 </main>
 
@@ -131,21 +136,10 @@ version: 2025-01-21
 </footer>
 {% endif %}
 
-<!-- The Modals -->
-<div id="popupLogin" class="w3-modal">
-  <div class="w3-modal-content w3-pale-green" style="width:400px">
-    <div class="w3-container w3-padding w3-border-green w3-leftbar w3-rightbar">
-      <span onclick="loginUser();closeModal('popupLogin');" class="w3-btn w3-display-topright">&times;</span>
-      <div class="w3-display-left" style="padding:16px;margin-left:8px;">{% lucide "triangle-alert",{ "stroke":"#4CAF50", "size":"48" } %}</div>
-      <div style="margin-left:64px;margin-right:16px"><p>Die Anmeldung ist noch nicht eingerichtet.</p></div>
-    </div>
-  </div>
-</div>
-
 <div id="popupMail" class="w3-modal">
   <div class="w3-modal-content w3-pale-red" style="width:400px">
     <div class="w3-container w3-padding w3-border-red w3-leftbar w3-rightbar">
-      <span onclick="sendMail_2();closeModal('popupMail');" class="w3-btn w3-display-topright">&times;</span>
+      <span onclick="actionMail();closeModal('popupMail');" class="w3-btn w3-display-topright">&times;</span>
       <div class="w3-display-left" style="padding:16px;margin-left:8px;">{% lucide "triangle-alert",{ "stroke":"#f44336", "size":"48" } %}</div>
       <div style="margin-left:64px;margin-right:16px"><p>Der Mailversand ist noch nicht eingerichtet..</p></div>
     </div>
