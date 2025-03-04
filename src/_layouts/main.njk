@@ -22,7 +22,7 @@ version: 2025-01-21
 	   target="{{ 'external' if (''+url).startsWith('http') else '_self' }}"
 	   class="w3-bar-item w3-button {{ 'w3-dark-gray' if (caption==menuitem) }} {{ 'w3-tooltip' if (tooltip or language) }} {{ 'w3-right' if (pos == 'right') }}">
 			{%- if (pos=='indent') -%}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{%- endif -%}
-			{{ caption|safe|capitalize }}
+			{{ caption|safe|title }}
 			{%- if (tooltip or language) -%}<span class="w3-text w3-tag"> {{language+' '+url|d('') if language else tooltip|safe}}</span>{%- endif -%}
 	</a>
 {% endmacro %}
@@ -53,7 +53,7 @@ version: 2025-01-21
 					<div class="w3-dropdown-content w3-bar-block w3-black w3-large" style="right:-16px">
 					{% for item in menu -%}
 						{% if item.menu %}
-							<span class="w3-bar-item">{{ item.name|safe|capitalize }}</span>
+							<span class="w3-bar-item">{{ item.name|safe|title }}</span>
 							{% for subitem in item.menu -%}
 								{% if subitem.name =='---' %}
 								{% else %}
@@ -62,7 +62,7 @@ version: 2025-01-21
 								<a href="{{subitem.url|d('#')}}"
 								   target="{{ 'external' if (''+subitem.url).startsWith('http') else '_self' }}"
 								   class="w3-bar-item w3-button {{'ms-back-gray' if (subitem.name==menuitem)}}">
-										&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ subitem.name|safe|capitalize }}
+										&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ subitem.name|safe|title }}
 								</a>
 									#}
 								{% endif %}
@@ -87,7 +87,7 @@ version: 2025-01-21
 		{% for item in menu -%}
 			{% if item.menu %}
 				<div class="w3-dropdown-hover">
-					<button class="w3-button">{{ item.name|safe|capitalize }}</button>
+					<button class="w3-button">{{ item.name|safe|title }}</button>
 					<div class="w3-dropdown-content w3-bar-block w3-black">
 					{% for subitem in item.menu -%}
 						{% if subitem.name =='---' %}

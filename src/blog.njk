@@ -1,0 +1,76 @@
+---
+layout: main.njk
+description: "Blog"
+menuitem: blog
+---
+<style>
+	.callout-title-icon::before { content:"ddd url('var(--callout-icon)'); }
+</style>
+
+{% set validtypes = ["todo", "success","check","done", "warning","caution","attention", "danger","error", "tip","hint", "example", "abstract","summary","tldr", "quote","cite"] %}
+{% set validicons = ["check-circle-2;", "check", "alert-triangle", "zap", "flame", "list", "clipboard-list", "quote"] %}
+{% macro callout2(type="note", title="", content="") %}
+	<div class="callout" data-callout="{{type}}">
+		<div class="callout-title">
+			<div class="callout-title-icon">{% lucide "quote" ,{ "stroke": "currentColor", "stroke-width":2, "size":24 } %}</div>
+			<div class="callout-title-inner">{{title}}</div>
+		</div>
+		<div class="callout-content">{{content}}</div>
+	</div>
+{% endmacro %}
+
+<style>
+	localBackground {min-height:650px;background: url('{{site.imagedir}}/cherry-blossom-japan.png') no-repeat fixed -0px 200px;}
+</style>
+
+{# <div style="min-height:650px;background: url('{{site.imagedir}}/cherry-blossom-japan.png') no-repeat fixed -0px 200px;" #}
+<div class="localBackground">
+	<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea [rebum](curriculum.md). Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
+</div>
+
+	<h4>Linkliste für Obsidian-Test</h4>
+	<ul>
+		<li><a href="/blog/Japan/Beginn einer Reise/">Beginn einer Reise</a></li> 
+		<li><a href="/blog/Katzen/Kratzbaum/">Kratzbaum</a></li> 
+		<li><a href="/blog/Sandbox/BilderFabrik/">BilderFabrik</a></li> 
+	</ul>
+
+<hr>
+
+<article class="w3-container">
+
+<div class="w3-panel w3-padding-large" style="color:#000;background-color:rgba(230,98,96,0.3)">
+	<div class="w3-left w3-margin-right">{% lucide "house",  { "stroke":"#e66260",  "stroke-width": 3, "size":32} %} </div>
+	Lorem ipsum dolor sit amet, consetetur sadipscing elitr
+</div>
+
+
+
+</article>
+
+{{ callout2("quote", "Titelzeile", "Inhalt inhalt") }}
+
+
+<div class="callout" data-callout="warning">
+	<div class="callout-title">
+<div class="callout-title-icon">
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-alert-triangle"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg>
+</div>
+<div class="callout-title-inner">Bitte beachten:</div>
+</div>
+<div class="callout-content"><p></p>
+<ul>
+<li>Es dürfen nur Dateien im Verzeichnis <code>/blog</code> und in den Unterverzeichnissen
+verändert werden.</li>
+<li>Die Datei <code>blog.json</code> darf <strong>nicht</strong> verändert werden.</li>
+<li>Alle Inhaltsdateien haben die Dateierweiterung <code>.md</code></li>
+<li>Eingebundene Dateien, i.d.R. Bilder und Graphiken, liegen im selben
+Verzeichnis wie die <code>*.md</code> Datei, welche sie einbindet.</li>
+<li>Im Verzeichnis <code>/blog</code> darf <strong>keine</strong> Datei mit dem Namen <code>index.md</code> geben.
+<ul>
+<li>In den Unterverzeichnissen ist <code>index.md</code> erlaubt und ggf. sogar erwünscht.</li>
+<li>Im Hauptverzeichnis <code>/blog</code> führen alle Dateien <code>index.*</code>zu Störungen.</li>
+</ul>
+</li>
+</ul>
+</div></div>

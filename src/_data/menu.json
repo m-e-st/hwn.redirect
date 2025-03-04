@@ -10,6 +10,10 @@
 	"url": "/gallery"
 
 }, {
+	"name": "Dokumentation",
+	"url": "/blog/readme.html"
+
+}, {
 	"name": "über",
 	"pos" : "right",
 	"url" : "/about.html"
