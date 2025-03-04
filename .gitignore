@@ -7,6 +7,10 @@ public
 stash
 assets
 
+# Obsidian
+
+.obsidian
+
 # node.js
 node_modules/
 build/Release

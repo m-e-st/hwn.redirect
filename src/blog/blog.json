@@ -1,0 +1,4 @@
+{
+	"layout": "markdown.njk",
+	"permalink": "{{ page.filePathStem }}.html"
+}
