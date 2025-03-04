@@ -1,8 +1,9 @@
-/** v2.1 - 2025-03-03 **/
+/** v2.2 - 2025-03-04 **/
 
 const htmlMinifier = require ('html-minifier-terser');
 const lucideIcons = require("@grimlink/eleventy-plugin-lucide-icons");
 const markdownItCallouts = require("markdown-it-obsidian-callouts");
+const path = require('path');
 
 module.exports = function (eleventyConfig) {
 	eleventyConfig.amendLibrary("md", (mdLib) => mdLib.use(markdownItCallouts));
@@ -25,6 +26,10 @@ module.exports = function (eleventyConfig) {
 		let result = value;
 		for (let i = 0; i < originalChars.length;i++)
 			result = result.replaceAll(originalChars[i], replacementChars[i]);
+		return result;
+	});
+  	eleventyConfig.addFilter("Basename", function(value) {
+		let result = path.basename(value, ".html");
 		return result;
 	});
   	/* Custom "upperWords" deleted - use "title" instead */

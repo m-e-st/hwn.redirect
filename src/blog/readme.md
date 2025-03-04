@@ -1,6 +1,11 @@
+---
+title: Doku zur Content-Pflege
+menuitem: Dokumentation
+---
+
 # Obsidian-aware Blog
 
-Dieses Verzeichnis ist gleichzeitig das Blog-Verzeichnis einer statischen
+Das Verzeichnis *`/blog`* ist gleichzeitig das Blog-Verzeichnis einer statischen
 Webseite, basierend auf [Eleventy](https://11ty.io) als auch ein Vault
 des Notizenprogramms [Obsidian](https://obsidian.md/) zur Pflege der 
 Inhalte. Damit das Zusammenspiel der beiden Tools reibungslos funktioniert, 
@@ -25,6 +30,7 @@ Verzeichnis wie die `*.md` Datei, welche sie einbindet.
 
  So lange diese Vorgaben eingehalten werden, kann der Blog ohne technische Probleme sowohl lokal getestet werden als auch via Github veröffentlicht werden.
 
+Jede Blog-Datei kann mit einem Titel versehen werden. Dieser steht am Anfang der Datei im Datenabschnitt, getrennt durch eine `---`-Zeile vor und nach den Daten. In Obsidian werden diese Daten als *Property* dargestellt. Der Titel wird im Inhaltsverzeichnis anstelle des Dateinamens angezeigt. Im Dokument selbst kann man damit z.B. die Überschrift setzen.
 
 
 ## Technische Einrichtung

@@ -4,15 +4,9 @@
 }, {
 	"name": "blog",
 	"url": "/blog"
-
 }, {
 	"name": "galerie",
 	"url": "/gallery"
-
-}, {
-	"name": "Dokumentation",
-	"url": "/blog/readme.html"
-
 }, {
 	"name": "über",
 	"pos" : "right",
