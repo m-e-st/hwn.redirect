@@ -6,6 +6,7 @@ dist
 public
 stash
 assets
+.cache
 
 # Obsidian
 
