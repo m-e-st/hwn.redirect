@@ -8,7 +8,12 @@ module.exports = {
 	scriptdir: "/static",
 	imagedir: "/static/img",
 	pagelogo: "/static/pagelogo.png",
-
+	
+	send: {
+		receiver: "507rydbp@anonaddy.com", 
+		subject: "Anfrage zum Blog", 
+		body: "Bodytext direkt in main.js eintragen!"
+	},
 	author: {
 		name: "Michael Stumpp",
 		year: 2025,

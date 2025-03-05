@@ -1,13 +1,12 @@
 /***
- * main.js für friends sprachcafe
+ * main.js für friends assaf
  * 
  *
  */
+ 
  /* das sind die beiden Buttons oben links im Header */
 const buttonLogin = document.getElementById('layoutLogin');
 const buttonMail = document.getElementById('layoutMail');
-let statusLogin = 0;
-let statusMail = 0;
 
 /*** initialization on document ready ***/
 
@@ -23,8 +22,9 @@ document.addEventListener("DOMContentLoaded", function(event) {
 		setLucideStroke(buttonMail, 'transparent', 1);
 		buttonMail.addEventListener('click', actionMail);
 		setLucideStroke(buttonMail, '#888', 1);
+		
 	signIn( user.status());
-	console.log ("user status:", user.name(), user.status() );
+	//~ console.log ("user status:", user.name(), user.status() );
 	}
 
 //	displayMain();
@@ -46,13 +46,12 @@ function actionLogin() {
 }
 
 function actionMail() {
-	sendMail("507rydbp@anonaddy.com", "Anfrage zum Blog", "Hallo!\n\nIch hätte zum Blog mal eine Frage\n\n\nBeste Grüße\n", true);
-	return;
-	//~ const stateColor = [ '#888', '#F00'];
-	//~ const stateStroke = [1,2];
-	//~ if (++statusMail > 1) statusMail = 0;
-	//~ setLucideStroke(buttonMail, stateColor[statusMail], stateStroke[statusMail]);
-	//~ openModal('popupMail');
+	setTimeout(function() {	setLucideStroke(buttonMail, '#F00', 2); }, 500 );		// give mail some time to react
+	sendMail(	"{{ site.send.receiver | d('507rydbp@anonaddy.com') }}",
+				"{{ site.send.subject  | d('Anfrage') }}", 
+				"Hallo!\n\nIch habe zu diesem Blog mal eine Frage\n\n\nBeste Grüße\n",
+				true );
+	setTimeout(function() {	setLucideStroke(buttonMail, '#888', 1); }, 5000 );		// give user some time to find
 }
 
 function setUserStatus() {
