@@ -4,8 +4,22 @@
  *	Copyright 2024 Michael Stumpp (michael@stumpp.name)
  *
  * 07.01.2024 completly new - bundling JS
- * 04.03.2025 displayTag
+ * 04.03.2025 displayTag()
+ * 05.03.2025 displayClass()
+ * 06.03.2025 get random int
+ *
+ * *********************************************************************
+ *	setLucideStroke	Setzen von Farbe und Strichstärke von Lucide Icons
+ *	displayMain		Anzeigen | Verbergen der <main> Sektionen 
+ *	displayTag		Anzeigen | Verbergen getaggter Sektionen 
+ *	displayClass	Anzeigen | Verbergen geclasster Sektionen 
+ *	openModal		Modal-Fenster anzeigen
+ *	closeModal		Modal-Fenster schließen
+ *	sendMail		Senden von Mails über Mail Client
+ *	copyToClipboard	Text ins Clipboard schreiben
+ *	getRandomInt	zufällige Integer-Zahl
  */
+
 
 
 /**
@@ -29,6 +43,8 @@ function setLucideStroke (parentElement, strokeColor = '#FFF', strokeWidth = 2) 
  **	********************************************************************
  *
  *	displayMain		Anzeigen | Verbergen der <main> Sektionen 
+ *	displayTag		Anzeigen | Verbergen getaggter Sektionen 
+ *	displayClass	Anzeigen | Verbergen geclasster Sektionen 
  *	openModal		Modal-Fenster anzeigen
  *	closeModal		Modal-Fenster schließen
  */
@@ -42,6 +58,13 @@ function displayMain(state=true) {
 }
 function displayTag(tagName='main', state=true) {
 	const nodes = document.getElementsByTagName(tagName);
+	for (let i = 0; i < nodes.length; i++) {
+		nodes[i].style.display = (state) ? "block" : "none";
+	}
+}
+
+function displayClass(className='none', state=true) {
+	const nodes = document.getElementsByClassName(className);
 	for (let i = 0; i < nodes.length; i++) {
 		nodes[i].style.display = (state) ? "block" : "none";
 	}
@@ -101,4 +124,16 @@ async function copyToClipboard(textToCopy) {
 	}
 }
 
+/** getRandomInt
+ *
+ *	liefert eine Integer zwischen min und max-1
+ *  würfeön mit getRandomInt(1,7);
+ *
+ */
+
+function getRandomInt(min, max) {
+  const minCeiled = Math.ceil(min);
+  const maxFloored = Math.floor(max);
+  return Math.floor(Math.random() * (maxFloored - minCeiled) + minCeiled); // The maximum is exclusive and the minimum is inclusive
+}
 
