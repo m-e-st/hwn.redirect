@@ -7,6 +7,7 @@ version: 2025-01-21
 <!-- Adaption für Mareikes Blog März 2025 -->
 
 <style>
+@media (max-width:300px){ .w3-hide-tiny{display:none!important} }
 .w3-spin-1{animation:w3-spin-1 4s 1 linear}@keyframes w3-spin-1{0%{transform:rotate(0deg)}100%{transform:rotate(359deg)}}
 .w3-redden{animation:w3-redden 2s 1 linear}@keyframes w3-redden{0%{background-color:inherit)}50%{background-color:#f44336C0}100%{background-color:inherit}}
 .w3-greenen{animation:w3-greenen 2s 1 linear}@keyframes w3-greenen{0%{background-color:inherit)}50%{background-color:#4CAF50C0}100%{background-color:inherit}}
@@ -21,7 +22,7 @@ version: 2025-01-21
 {% macro itemlink(caption, url, pos='', tooltip='', language='') %}
 	<a href="{{url|d('#')}}"
 	   target="{{ 'external' if (''+url).startsWith('http') else '_self' }}"
-	   class="w3-bar-item w3-button {{ 'orgateam' if ((caption=='orga')or(pos=='orga')) }} {{ 'w3-dark-gray' if (caption==menuitem) }} {{ 'w3-tooltip' if (tooltip or language) }} {{ 'w3-right' if (pos == 'right') }}">
+	   class="w3-bar-item w3-button {{ 'w3-dark-gray' if (caption==menuitem) }} {{ 'w3-tooltip' if (tooltip or language) }} {{ 'w3-right' if (pos == 'right') }}">
 			{%- if (pos=='indent') -%}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{%- endif -%}
 			{{ caption|safe|title }}
 			{%- if (tooltip or language) -%}<span class="w3-text w3-tag"> {{language+' '+url|d('') if language else tooltip|safe}}</span>{%- endif -%}
