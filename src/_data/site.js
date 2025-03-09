@@ -4,6 +4,7 @@ module.exports = {
 	caption: "assaf blog",
 	version : "0.1.0",
 	mail: "michael@stumpp.name",
+	language: "de",
 
 	scriptdir: "/static",
 	imagedir: "/static/img",
