@@ -22,7 +22,11 @@ version: 2025-01-21
 {% macro itemlink(caption, url, pos='', tooltip='', language='') %}
 	<a href="{{url|d('#')}}"
 	   target="{{ 'external' if (''+url).startsWith('http') else '_self' }}"
-	   class="w3-bar-item w3-button {{ 'w3-dark-gray' if (caption==menuitem) }} {{ 'w3-tooltip' if (tooltip or language) }} {{ 'w3-right' if (pos == 'right') }}">
+	   class="w3-bar-item w3-button {{ 'w3-dark-gray' if (caption==menuitem) }} 
+									{{ 'w3-tooltip' if (tooltip or language) }} 
+									{{ 'w3-right' if (pos == 'right') or (pos == 'hide-right') }} 
+									{{ 'loggedin' if (pos == 'hide') or (pos == 'hide-right') }} 
+			 ">
 			{%- if (pos=='indent') -%}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{%- endif -%}
 			{{ caption|safe|title }}
 			{%- if (tooltip or language) -%}<span class="w3-text w3-tag"> {{language+' '+url|d('') if language else tooltip|safe}}</span>{%- endif -%}
@@ -109,13 +113,20 @@ version: 2025-01-21
 	</nav>
 </header>
 
-<ms-login>								<!-- display <ms-login> or ... -->
-	{% include "login.njk" %}
-</ms-login>
-
-<main class="w3-section w3-container">	<!-- display <main>; but never both -->
+{% if loginonly %}
+<main>
+	<div class="loggedin w3-section w3-container">
+	{{ content | safe }}
+	</div>
+	<div class="unlogged">
+	{% include "part.unlogged.njk" %}
+	</div>
+</main>
+{% else %}
+<main class="w3-section w3-container">
 	{{ content | safe }}
 </main>
+{% endif %}
 
 {% if not format.nofooter %}
 <footer class="w3-bottom" style="height:48px;">
@@ -135,6 +146,21 @@ version: 2025-01-21
 	</div>
 </footer>
 {% endif %}
+
+<!-- The Modals -->
+<!--
+<div id="popupLogin" class="w3-modal">
+  <div class="w3-modal-content w3-sand" style="width:50%">
+    <div class="w3-container w3-padding w3-border-amber w3-leftbar w3-rightbar">
+      <span onclick="loginUser();closeModal('popupLogin');" class="w3-btn w3-display-topright">&times;</span>
+      <div class="w3-center w3-display-top" style="margin:0 24px"><h3>Anmeldung</h3></div>
+      {# include "part.login.njk" #}
+    </div>
+  </div>
+</div>
+-->
+
+
 
 <script>
 function footerToggleVisibility(id="copyright") {

@@ -2,13 +2,14 @@
 layout: main.njk
 description: "Blog"
 menuitem: blog
+loginonly: true
 ---
 
 <style>
 	.localBackground {min-height:650px;background: url('{{site.imagedir}}/cherry-blossom-japan.png') no-repeat fixed -0px 200px;}
 </style>
 
-<div style="position:relative"></div>
+<div style="position:relative">
 	<img src="{{site.imagedir}}/cherry-blossom-japan.png" alt="Cherry Blossom" style="position:fixed;z-index:-1;opacity:0.3">
 </div>
 <ms-markdown>

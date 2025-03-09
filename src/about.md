@@ -2,6 +2,7 @@
 layout: markdown.njk
 permalink: "{{ page.filePathStem }}.html"
 menuitem: über
+loginonly: true
 ---
 
 [<img src="/static/img/author-face.png" width=180 style="margin:0 16px 8px 0;float:left;" alt="author's portrait">](/static/img/author-face.png)

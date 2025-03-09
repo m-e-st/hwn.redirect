@@ -24,24 +24,24 @@ document.addEventListener("DOMContentLoaded", function(event) {
 		setLucideStroke(buttonMail, '#888', 1);
 		
 	signIn( user.status());
-	//~ console.log ("user status:", user.name(), user.status() );
 	}
-
-//	displayMain();
-  // intervalTimer(true);  --> wird nur in "tim.njk" gestartet
 });
 
 function signIn(state=false) {
 	const stateColor = [ '#888', '#0C0'];
 	const stateStroke = [1,2];
-	displayTag("ms-login", ! state);
-	displayMain(state);
+	//~ displayTag("ms-login", ! state);
+	//~ displayMain(state);
+	displayClass("unlogged", ! state);
+	displayClass("loggedin", state);
 	setLucideStroke(buttonLogin, stateColor[state?1:0], stateStroke[state?1:0]);
+	console.log ("sigIn state=", state, " user=", user.name(), user.status() );
 }
 
 function actionLogin() {
 	//~ signIn( false );
 	if ( user.status() ) user.logoff();
+	else document.getElementById('loginUser').focus();   //openModal('popupLogin');
 	signIn( user.status());
 }
 

@@ -1,11 +1,14 @@
 [{
 	"name": "intro",
+	"tip": "hallo",
 	"url" : "/"
 }, {
 	"name": "blog",
+	"pos":  "hide",
 	"url": "/blog"
 }, {
 	"name": "galerie",
+	"pos":  "hide",
 	"url": "/gallery"
 }, {
 	"name": "über",

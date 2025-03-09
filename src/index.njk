@@ -3,8 +3,10 @@ layout: main.njk
 description: "Startseite"
 menuitem: intro
 language: en
+loginonly: false
 ---
 
+<!--
 <style>
 	localBackground {min-height:950px;background: url('{{site.imagedir}}/japan-map-transparent.png'}
 </style>
@@ -12,3 +14,114 @@ language: en
 <div class="localBackground")>
 	<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea [rebum](curriculum.md). Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
 </div>
+-->
+
+<style>
+	.svgImage {
+		width: 64px;
+		float: right;
+	}
+	.svgIcon {
+		width: 32px;
+		float: left;
+		margin: 8px 16px 8px 0;
+	}
+</style>
+
+<div class="unlogged">
+	{% include "part.login.njk" %}
+	<br>
+	<hr class="w3-border-black">
+</div>
+
+<section class="w3-row w3-large">
+	<article class="w3-third w3-border-0">
+		<div class="w3-container w3-padding-large">
+			<div class="">
+				<div class="svgImage">{% include "icon.united-kingdom-flag.svg" %}</div>
+				<h2 class="">Welcome!</h2>
+			</div>
+			<p>
+				This is a private block about a remarkable journey.
+				The content is only intended for the author's friends and relatives.
+				Only this group of people can receive an access password via the known channels.
+			</p>
+			<p>
+				All strangers are excluded and cannot read along here.
+				For various reasons, this is unfortunately not possible otherwise.
+			</p>
+		</div>
+	</article>
+	
+	<article class="w3-third w3-border-0">
+		<div class="w3-container w3-padding-large">
+			<div class="">
+				<div class="svgImage">{% include "icon.germany-flag.svg" %}</div>
+				<h2 class="">Willkommen!</h2>
+			</div>
+			<p>
+				Dies ist ein privater Block über eine bemerkenswerte Reise.
+				Der Inhalt ist nur für die Freunde und Verwandten der Autorin bestimmt.
+				Nur dieser Personenkreis kann über die bekannten Kanäle ein Zugangskennwort erhalten.
+			</p><p>
+				Alle Fremden bleiben außen vor und können hier nicht mitlesen.
+				Aus verschiedenen Gründen ist dies leider nicht anders möglich.
+			</p>
+		</div>
+	</article>
+	
+	<article class="w3-third w3-border-0">
+		<div class="w3-container w3-padding-large">
+		<div class="">
+			<div class="svgImage">{% include "icon.japan-flag.svg" %}</div>
+			<h2 class="">Willkommen!</h2>
+			</div>
+			<p>
+				これは驚くべき旅についての私的なブロックである。
+				このコンテンツは作者の友人や親族のみを対象としています。
+				このグループの人々だけが、既知のルートを通じてアクセス・パスワードを受け取ることができます。
+			</p>
+			<p>
+				見知らぬ人はすべて除外され、ここで一緒に読むことはできない。
+				残念ながら、これは様々な理由から不可能なのだ。
+			</p>
+		</div>
+	</article>
+</section>
+<br>
+<br>
+<section class="">
+	<article class="w3-border-0 w3-margin">
+		<div class="w3-container">
+			<div class="svgIcon">{% include "icon.united-kingdom-flag.svg" %}</div>
+			<div class="W3-container">
+				The content published here is only intended for a limited group of participants. 
+				Access protection has been set up. 
+				Access to the content of this website is not permitted without authorisation.
+			</div>
+		</div>
+	</article>
+	
+	<article class="w3-border-0 w3-margin">
+		<div class="w3-container">
+			<div class="svgIcon">{% include "icon.germany-flag.svg" %}</div>
+			<div class="W3-container">
+				Die hier veröffentlichten Inhalte sind nur für einen eingeschränkten Teilnehmerkreis bestimmt.
+				Es ist ein Zugangsschutz eingerichtet.
+				Der Zugriff auf die Inhalte dieses Auftritts ist ohne Freigabe unzulässig.
+			</div>
+		</div>
+	</article>
+	
+	<article class="w3-border-0 w3-margin">
+		<div class="w3-container">
+			<div class="svgIcon">{% include "icon.japan-flag.svg" %}</div>
+			<div class="W3-container">
+				ここに掲載されている内容は、
+				限られた参加者のみを対象としています。
+				アクセス保護が設定されています。
+				許可なくこのウェブサイトのコンテンツにアクセスすることはできません。
+			</div>
+		</div>
+	</article>
+</section>
