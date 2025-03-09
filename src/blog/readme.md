@@ -26,7 +26,7 @@ verändert werden.
 Verzeichnis wie die `*.md` Datei, welche sie einbindet.
 >- Im Verzeichnis `/blog` darf **keine** Datei mit dem Namen `index.md` geben.
 >    - In den Unterverzeichnissen ist `index.md` erlaubt und ggf. sogar erwünscht.
->    - Im Hauptverzeichnis `/blog` führen alle Dateien `index.*`zu Störungen.
+>    - Im Hauptverzeichnis `/blog` führen alle Dateien `index.*` zu Störungen.
 
  So lange diese Vorgaben eingehalten werden, kann der Blog ohne technische Probleme sowohl lokal getestet werden als auch via Github veröffentlicht werden.
 

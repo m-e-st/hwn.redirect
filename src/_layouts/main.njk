@@ -40,7 +40,6 @@ version: 2025-01-21
 			 class="w3-left w3-padding w3-hide-tiny"
 			 style="margin:0px 0;height:120px;"
 			 {{ attrAnimation("layoutLogo") }}
-			 onclick="openModal('loginPopup');"
 			 >
 		<div class="w3-left w3-hide-small">
 			<h2 class="ms-text-red" style="margin-top:24px;">{{ site.title }}</h2>
@@ -53,35 +52,35 @@ version: 2025-01-21
 			<button class="w3-btn w3-hide-small w3-circle" {{attrAnimation("layoutLogin", "greenen")}}>
 				{% lucide "user" ,{ "stroke": "#888", "stroke-width": 1, "size":"40" } %}
 			</button>
-			<button id="layoutMenu" class="w3-btn w3-hide-medium w3-hide-large" style="overflow:visible">
-				<div class="w3-dropdown-hover w3-transparent">
+			<div class="w3-dropdown-hover w3-hide-medium w3-hide-large">
+				<button id="layoutMenu" class="w3-btn">
 					{% lucide "menu" ,{ "stroke": "#888", "stroke-width": 1, "size":"40" } %}
-					<div class="w3-dropdown-content w3-bar-block w3-black w3-large" style="right:-16px">
-					{% for item in menu -%}
-						{% if item.menu %}
-							<span class="w3-bar-item">{{ item.name|safe|title }}</span>
-							{% for subitem in item.menu -%}
-								{% if subitem.name =='---' %}
-								{% else %}
-									{{ itemlink(subitem.name, subitem.url, 'indent') }}
-									{#
-								<a href="{{subitem.url|d('#')}}"
-								   target="{{ 'external' if (''+subitem.url).startsWith('http') else '_self' }}"
-								   class="w3-bar-item w3-button {{'ms-back-gray' if (subitem.name==menuitem)}}">
-										&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ subitem.name|safe|title }}
-								</a>
-									#}
-								{% endif %}
-							{%- endfor %}
-						{% elif item.url %}
-							{{ itemlink(item.name, item.url) }}
-						{% elif item.name %}
-							{{ itemlink(item.name, '#') }}
-						{% endif %}
-					{%- endfor %}
-					</div>
+				</button>			
+				<div class="w3-dropdown-content w3-bar-block w3-black w3-large" style="right:-16px">
+				{% for item in menu -%}
+					{% if item.menu %}
+						<span class="w3-bar-item">{{ item.name|safe|title }}</span>
+						{% for subitem in item.menu -%}
+							{% if subitem.name =='---' %}
+							{% else %}
+								{{ itemlink(subitem.name, subitem.url, 'indent') }}
+								{#
+							<a href="{{subitem.url|d('#')}}"
+							   target="{{ 'external' if (''+subitem.url).startsWith('http') else '_self' }}"
+							   class="w3-bar-item w3-button {{'ms-back-gray' if (subitem.name==menuitem)}}">
+									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ subitem.name|safe|title }}
+							</a>
+								#}
+							{% endif %}
+						{%- endfor %}
+					{% elif item.url %}
+						{{ itemlink(item.name, item.url) }}
+					{% elif item.name %}
+						{{ itemlink(item.name, '#') }}
+					{% endif %}
+				{%- endfor %}
 				</div>
-			</button>
+			</div>
 		</div>
 		<!-- Ende Buttons oben rechts-->
 	</div>

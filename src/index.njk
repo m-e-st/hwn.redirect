@@ -26,6 +26,13 @@ loginonly: false
 		float: left;
 		margin: 8px 16px 8px 0;
 	}
+body {
+	background-color: red;
+	background-image: { url('{{site.imagedir}}/cat-sitting.png');
+  background-repeat: no-repeat;
+  background-size: 300px 100px;
+}
+	.localBackground {min-height:650px;background: url('{{site.imagedir}}/cherry-blossom-japan.png') no-repeat fixed -0px 200px;}
 </style>
 
 <div class="unlogged">
@@ -34,7 +41,11 @@ loginonly: false
 	<hr class="w3-border-black">
 </div>
 
-<section class="w3-row w3-large">
+<div style="position:relative">
+	<img src="{{site.imagedir}}/cherry-blossom-japan.png" alt="Cherry Blossom" style="position:fixed;z-index:-1;opacity:0.3">
+</div>
+
+<section class="w3-row w3-large local-background">
 	<article class="w3-third w3-border-0">
 		<div class="w3-container w3-padding-large">
 			<div class="">
