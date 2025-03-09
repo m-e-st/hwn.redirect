@@ -1,6 +1,6 @@
 {
   "name": "assaf blog",
-  "version": "0.3.13",
+  "version": "0.3.14",
   "description": "Blog von Katja Mareike Assaf",
   "main": ".eleventy.js",
   "scripts": {
