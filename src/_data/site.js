@@ -25,5 +25,7 @@ module.exports = {
 	url: {
 		impressum: "/about.html"
 	}, 
+	var: process.env.ELEVENTY_ENV,
+	dev: process.env.ELEVENTY_ENV === 'development',
 	env: process.env.ELEVENTY_ENV === 'production'
 }

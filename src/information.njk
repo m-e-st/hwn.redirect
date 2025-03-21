@@ -22,9 +22,9 @@ loginonly: false
 <div style="position:relative">
 	<img src="{{site.imagedir}}/tech-macintosh.png" alt="A Macintosh Computer" class="w3-display-topmiddle" style="top:170px;height:90%;object-fit:contain;position:fixed;z-index:-1;opacity:0.3">
 </div>
-ENV process.env.ELEVENTY_ENV = "{{process.env.ELEVENTY_ENV}}"<br>
-ENV pkg.ELEVENTY_ENV = "{{pkg.ELEVENTY_ENV}}"<br>
-ENV site.ELEVENTY_ENV = "{{site.env}}"<br>
+ENV site.var = "{{site.var}}"<br>
+ENV site.dev = "{{site.dev}}"<br>
+ENV site.env = "{{site.env}}"<br>
 <section class="loggedin" style="position:relative;z-index:1;opacity:0.6">
 {% if site.env %}	{# ########## PRODUKTION AUF DEM INTERNET SERVER ########## #}
 	<div class="w3-panel kvc-silver w3-sans-serif w3-xxxlarge w3-padding-16 w3-center" style="position:absolute:">

@@ -5,7 +5,7 @@
   "main": ".eleventy.js",
   "scripts": {
     "clean": "del public",
-    "dev": "eleventy --serve --watch",
+    "dev": "ELEVENTY_ENV=development eleventy --serve --watch",
     "build": "ELEVENTY_ENV=production eleventy",
     "disabled-postbuild": "./deploy-site.sh",
     "browse": "firefox -p \"localhost\" -new-tab localhost:8080"
