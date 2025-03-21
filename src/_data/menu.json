@@ -13,4 +13,8 @@
 	"name": "über",
 	"pos" : "right",
 	"url" : "/about.html"
+}, {
+	"name": "info",
+	"pos" : "hide-right",
+	"url" : "/information.html"
 }]

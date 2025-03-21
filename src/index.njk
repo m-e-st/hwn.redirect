@@ -6,43 +6,20 @@ language: en
 loginonly: false
 ---
 
-<!--
 <style>
-	localBackground {min-height:950px;background: url('{{site.imagedir}}/japan-map-transparent.png'}
-</style>
-
-<div class="localBackground")>
-	<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea [rebum](curriculum.md). Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
-</div>
--->
-
-<style>
-	.svgImage {
-		width: 64px;
-		float: right;
-	}
-	.svgIcon {
-		width: 32px;
-		float: left;
-		margin: 8px 16px 8px 0;
-	}
-body {
-	background-color: red;
-	background-image: { url('{{site.imagedir}}/cat-sitting.png');
-  background-repeat: no-repeat;
-  background-size: 300px 100px;
+.svgImage {
+	width: 64px;
+	float: right;
 }
-	.localBackground {min-height:650px;background: url('{{site.imagedir}}/cherry-blossom-japan.png') no-repeat fixed -0px 200px;}
+.svgIcon {
+	width: 32px;
+	float: left;
+	margin: 8px 16px 8px 0;
+}
 </style>
-
-<div class="unlogged">
-	{% include "part.login.njk" %}
-	<br>
-	<hr class="w3-border-black">
-</div>
 
 <div style="position:relative">
-	<img src="{{site.imagedir}}/cherry-blossom-japan.png" alt="Cherry Blossom" style="position:fixed;z-index:-1;opacity:0.3">
+	<img src="{{site.imagedir}}/tree-large-green.png" alt="Large Green Tree" class="w3-display-topmiddle" style="top:170px;height:90%;object-fit:contain;position:fixed;z-index:-1;opacity:0.3">
 </div>
 
 <section class="w3-row w3-large local-background">
@@ -53,13 +30,19 @@ body {
 				<h2 class="">Welcome!</h2>
 			</div>
 			<p>
-				This is a private block about a remarkable journey.
-				The content is only intended for the author's friends and relatives.
-				Only this group of people can receive an access password via the known channels.
-			</p>
-			<p>
-				All strangers are excluded and cannot read along here.
-				For various reasons, this is unfortunately not possible otherwise.
+				Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+				Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+				Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
+				Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+			</p><p class="kvc-text-silver">
+				<b>Lorem ipsum</b> is a dummy or placeholder text commonly used in graphic design, publishing, and web development.
+				Its purpose is to permit a page layout to be designed, independently of the copy that will subsequently populate it, 
+				or to demonstrate various fonts of a typeface without meaningful text that could be distracting. 
+			</p><p class="kvc-text-silver">
+				Lorem ipsum is typically a corrupted version of <i>De finibus bonorum et malorum</i>, 
+				a 1st-century BC text by the Roman statesman and philosopher Cicero, 
+				with words altered, added, and removed to make it nonsensical and improper Latin. 
+				The first two words themselves are a truncation of <i>dolorem ipsum</i>.
 			</p>
 		</div>
 	</article>
@@ -71,12 +54,16 @@ body {
 				<h2 class="">Willkommen!</h2>
 			</div>
 			<p>
-				Dies ist ein privater Block über eine bemerkenswerte Reise.
-				Der Inhalt ist nur für die Freunde und Verwandten der Autorin bestimmt.
-				Nur dieser Personenkreis kann über die bekannten Kanäle ein Zugangskennwort erhalten.
-			</p><p>
-				Alle Fremden bleiben außen vor und können hier nicht mitlesen.
-				Aus verschiedenen Gründen ist dies leider nicht anders möglich.
+				Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+				Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+				Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
+				Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+			</p><p class="kvc-text-silver">
+				<b>„Lorem ipsum dolor sit amet, consectetur adipiscing elit  …“</b> ist ein Blindtext, der nichts bedeuten soll, 
+				sondern als Platzhalter im Layout verwendet wird, um einen Eindruck vom fertigen Schriftstück zu erhalten.
+			</p><p class="kvc-text-silver">
+				Die Verteilung der Buchstaben und der Wortlängen des pseudo-lateinischen Textes entspricht in etwa der natürlichen lateinischen Sprache. 
+				Der Text ist absichtlich unverständlich, damit der Betrachter nicht durch den Inhalt abgelenkt wird. 
 			</p>
 		</div>
 	</article>
@@ -84,17 +71,22 @@ body {
 	<article class="w3-third w3-border-0">
 		<div class="w3-container w3-padding-large">
 		<div class="">
-			<div class="svgImage">{% include "icon.japan-flag.svg" %}</div>
-			<h2 class="">私たちのウェブサイトへようこそ！</h2>
+			<div class="svgImage">{% include "icon.spain-flag.svg" %}</div>
+			<h2 class="">¡Bienvenidos!</h2>
 			</div>
 			<p>
-				これは驚くべき旅についての私的なブロックである。
-				このコンテンツは作者の友人や親族のみを対象としています。
-				このグループの人々だけが、既知のルートを通じてアクセス・パスワードを受け取ることができます。
-			</p>
-			<p>
-				見知らぬ人はすべて除外され、ここで一緒に読むことはできない。
-				残念ながら、これは様々な理由から不可能なのだ。
+				Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+				Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+				Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
+				Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+			</p><p class="kvc-text-silver">
+				<b>Lorem ipsum</b> es el texto que se usa habitualmente en diseño gráfico en demostraciones de tipografías
+				o de borradores de diseño para probar el diseño visual antes de insertar el texto final. 
+			</p><p class="kvc-text-silver">
+				El texto en sí no tiene sentido aparente, aunque no es aleatorio, sino que deriva de un texto de Cicerón en lengua latina,
+				a cuyas palabras se les han eliminado sílabas o letras. 
+				El significado del mismo no tiene importancia, ya que solo es una demostración o prueba. 
+				El texto procede de la obra <i>De finibus bonorum et malorum</i>.
 			</p>
 		</div>
 	</article>
@@ -107,7 +99,6 @@ body {
 			<div class="svgIcon">{% include "icon.united-kingdom-flag.svg" %}</div>
 			<div class="W3-container">
 				The content published here is only intended for a limited group of participants. 
-				Access protection has been set up. 
 				Access to the content of this website is not permitted without authorisation.
 			</div>
 		</div>
@@ -118,7 +109,6 @@ body {
 			<div class="svgIcon">{% include "icon.germany-flag.svg" %}</div>
 			<div class="W3-container">
 				Die hier veröffentlichten Inhalte sind nur für einen eingeschränkten Teilnehmerkreis bestimmt.
-				Es ist ein Zugangsschutz eingerichtet.
 				Der Zugriff auf die Inhalte dieses Auftritts ist ohne Freigabe unzulässig.
 			</div>
 		</div>
@@ -126,12 +116,10 @@ body {
 	
 	<article class="w3-border-0 w3-margin">
 		<div class="w3-container">
-			<div class="svgIcon">{% include "icon.japan-flag.svg" %}</div>
+			<div class="svgIcon">{% include "icon.spain-flag.svg" %}</div>
 			<div class="W3-container">
-				ここに掲載されている内容は、
-				限られた参加者のみを対象としています。
-				アクセス保護が設定されています。
-				許可なくこのウェブサイトのコンテンツにアクセスすることはできません。
+				Los contenidos aquí publicados sólo están destinados a un grupo limitado de participantes. 
+				No se permite el acceso al contenido de este sitio web sin autorización. 
 			</div>
 		</div>
 	</article>

@@ -1,7 +1,7 @@
 {
-  "name": "assaf blog",
-  "version": "0.3.19",
-  "description": "Blog von Katja Mareike Assaf",
+  "name": "stumpp blog",
+  "version": "0.3.20",
+  "description": "Blog von Michael Stumpp",
   "main": ".eleventy.js",
   "scripts": {
     "clean": "del public",
@@ -12,14 +12,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/m-e-st/friends.assaf.git"
+    "url": "git+https://github.com/m-e-st/stumpp.blog.git"
   },
   "author": "Michael Stumpp",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/m-e-st/friends.assaf/issues"
-  },
-  "homepage": "https://github.com/m-e-st/friends.assaf#readme",
   "dependencies": {
     "@11ty/eleventy": "^3.0.0",
     "@11ty/eleventy-img": "^6.0.1",

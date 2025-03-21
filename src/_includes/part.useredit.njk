@@ -1,0 +1,108 @@
+<!-- DB TOOLS SPECIAL
+ --- Registrierung für beschränkte Bereiche
+ --->
+<!-- v4 15.08.2023 file structure changed to "static" dir -->
+<!-- v5 16.08.2023 moved to network -->
+
+
+<style>
+	.login {
+		margin-top:.3em;
+		font-variant: small-caps;
+  	}	
+  	#rDisplay, #rSubmit {
+		cursor: pointer;
+	}
+	input {color:#000!important;background-color:#f4fffc!important}
+	.w3-pale-teal,.w3-hover-pale-teal:hover{color:#000!important;background-color:#82CBB2!important}
+	.w3-section-small{margin-top:8px!important;margin-bottom:8px!important}
+	
+
+.ms-tooltip { position: relative;display: inline-block;border-bottom: 1px dotted black; }
+.ms-tooltip:hover:after {  display: block; }
+.ms-tooltip:after{	position: absolute; top: 0px; right: 0; left: 0; display: none; 
+					line-height:32px; text-align: center;
+					background-color: #82CBB2;  color: #000;
+					border-radius: 4px; padding: 2px; }
+#userButton:after { content: "Automatik"; }
+#passButton:after { content: "Anzeigen";  }
+#hashButton:after { content: "Kopieren";  }
+</style>
+
+<div class="">
+	<div class="w3-container w3-card-4">
+			<div class="xw3-mobile w3-section">
+				<div class="w3-padding w3-bar">
+					<button id="userButton" class="w3-button w3-bar-item w3-teal w3-hover-pale-teal ms-tooltip" 
+							style="width:7em"
+							onclick="automaticPassword()";
+					>Username</button>
+					<input	id="userName" class="w3-input w3-border w3-bar-item" style="100%"
+							name="userName" size="90" required type="text" placeholder="user"
+							pattern="[A-Za-z0-9_]+" 
+							title="Im Benutzernamen sind nur Buchstaben, Zahlen, Bindestrich, Unterstrich oder Punkt erlaubt."
+					>
+				</div>
+				<div class="w3-padding w3-bar">
+					<button id="passButton" class="w3-button w3-bar-item w3-teal w3-hover-pale-teal ms-tooltip" 
+							style="width:7em"
+							onMouseOver="document.getElementById('userPass').setAttribute(`type`, `text`);";
+							onMouseOut="document.getElementById('userPass').setAttribute(`type`, `password`);";
+					>Password</button>
+					<input id="userPass" class="w3-input w3-border w3-bar-item" name="userPass" size="90" required type="password" placeholder="password">
+				</div>
+				<div class="w3-padding w3-bar">
+					<button id="hashButton" class="w3-button w3-bar-item w3-teal w3-hover-pale-teal ms-tooltip" 
+							style="width:7em"
+							onclick="copyHashToClipboard()";
+					>Hashvalue</button>
+					<input id="userHash" class="w3-input w3-border w3-bar-item" name="userHash" size="90" readonly type="text">
+				</div>
+			</div>
+		</div>
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", function(event) {
+	const colInputs = document.getElementsByTagName("input");
+
+	document.getElementById('userPass').addEventListener("change", function(event) {
+		document.getElementById('userHash').value = _hash(document.getElementById('userPass').value);
+	});
+
+	document.getElementById('userName').addEventListener("keydown", function(event) {
+		if (event.code == 'Escape') {
+			const pass = this.value.split("").reverse().join("");
+			const hash = _hash(pass);
+			document.getElementById('userPass').value = pass;
+			document.getElementById('userHash').value = hash;
+			copyToClipboard(hash); /* just to add it to the clipboard */
+			document.getElementById('userName').focus();
+			console.log(pass, " ==> ", hash);
+		}
+	});
+	//~ document.getElementById('userName').value = user.name();
+});
+			
+function automaticPassword() {
+	const user = document.getElementById('userName').value;
+	const pass = user.split("").reverse().join("");
+	const hash = _hash(pass);
+	document.getElementById('userPass').value = pass;
+	document.getElementById('userHash').value = hash;
+	copyToClipboard(hash); /* just to add it to the clipboard */
+	document.getElementById('userName').focus();
+	return false;
+}			
+
+function copyHashToClipboard() {
+	copyToClipboard(document.getElementById('userHash').value);
+	return false;
+}
+
+function _hash(password) {
+	const hashObj = new jsSHA("SHA-512", "TEXT", { encoding: "UTF8"} );
+	hashObj.update(password);
+	return hashObj.getHash("B64");
+}
+</script>

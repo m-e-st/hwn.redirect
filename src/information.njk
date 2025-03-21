@@ -1,0 +1,38 @@
+---
+layout: main.njk
+description: "Informationen"
+permalink: "{{ page.filePathStem }}.html"
+menuitem: info
+language: de
+loginonly: false
+---
+
+<style>
+.svgImage {
+	width: 64px;
+	float: right;
+}
+.svgIcon {
+	width: 32px;
+	float: left;
+	margin: 8px 16px 8px 0;
+}
+</style>
+
+<div style="position:relative">
+	<img src="{{site.imagedir}}/tech-macintosh.png" alt="A Macintosh Computer" class="w3-display-topmiddle" style="top:170px;height:90%;object-fit:contain;position:fixed;z-index:-1;opacity:0.3">
+</div>
+
+<section class="loggedin" style="position:relative;z-index:1;opacity:0.6">
+{% if site.env %}	{# ########## PRODUKTION AUF DEM INTERNET SERVER ########## #}
+	<div class="w3-panel kvc-silver w3-sans-serif w3-xxxlarge w3-padding-16 w3-center" style="position:absolute:">
+		<b class="w3-padding" style="vertical-align:middle;">A Macintosh Computer</b>
+	</div>
+	<div class="w3-panel w3-xlarge kvc-timberwolf w3-justify" style="position:absolute;padding:32px">
+		Die Einstellungen und Funktionen für Benutzerverwaltung und Themenauswahl stehen nur in der lokalen Entwicklungsansicht zur Verfügung.
+	</div>
+{% else %}	{# ########## ENTWICKLUNG AUF https://localhost:8080 ########## #}
+	<h2 class="w3-panel w3-padding w3-teal">Benutzerverwaltung</h2>
+	{% include "part.useredit.njk" %}
+{% endif %}
+</section>

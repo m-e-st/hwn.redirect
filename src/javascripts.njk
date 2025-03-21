@@ -1,8 +1,10 @@
 ---
 permalink: "/static/{{ page.fileSlug | slug }}.js"
 ---
-{% include "./_library/sha.js" %}	<!-- standard lib: SHA Verschlüsselung -->
 {% include "./_library/main.js" %}
-{% include "./_library/login.js" %}
-{% include "./_library/utility.js" %}
+{% include "./_library/blog.js" %}
+{% include "./_library/js/sha.js" %}		// <!-- standard lib: SHA Verschlüsselung -->
+{% include "./_library/js/login.js" %}
+{% include "./_data/user.js" %}				// <!-- user_data Tabelle mit allen Benutzern -->
+{% include "./_library/js/utility.js" %}
 

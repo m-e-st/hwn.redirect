@@ -1,9 +1,15 @@
-# Blog von Katja Mareike Assaf
+# Blog von Michael Stumpp
 
-Der Blog von Katja Mareike Assaf wird als statische Webseite auf
+Der Blog von Michael Stumpp wird als statische Webseite auf
 Cloudflare gehostet. Die Redaktion der Inhalte erfolgt lokal mit
 Dateien im Markdown-Format. Dabei wird der Einsatz von Obsidian
 für die lokale Bearbeitung berücksichtigt.
+
+#### Besonderheiten
+
+- das neue Layout `main.njk` mit Menü, Mailversand und Login
+- das Layout `markdown.njk` mit CSS für die Callouts
+- `eleventy-img` für die Komapitibliäz mit Obsidian
 
 #### Entwicklung
 

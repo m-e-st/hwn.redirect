@@ -1,3 +1,5 @@
+
+
 /***
  * main.js für friends assaf
  * 
@@ -41,7 +43,7 @@ function signIn(state=false) {
 function actionLogin() {
 	//~ signIn( false );
 	if ( user.status() ) user.logoff();
-	else document.getElementById('loginUser').focus();   //openModal('popupLogin');
+	else openModal('popupLogin'); // document.getElementById('loginUser').focus();
 	signIn( user.status());
 }
 

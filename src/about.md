@@ -12,5 +12,5 @@ This is Katja, who went to Japan for a research stay and is now writing a blog b
 
 
 <div style="position:relative">
-	<img src="{{site.imagedir}}/cat-sitting.png" width="400" alt="Sitting Cat" style="position:fixed;bottom:0px;right:0px; z-index:-1;opacity:0.3">
+	<img src="{{site.imagedir}}/flower-tulips.png" width="33%" alt="Abstract Lines" class="w3-display-bottomright" style="position:fixed;z-index:-1;opacity:0.3">
 </div>

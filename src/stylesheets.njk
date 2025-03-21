@@ -1,13 +1,14 @@
 ---
 permalink: "/static/{{ page.fileSlug | slug }}.css"
 ---
-{% include "./_library/w3.css" %}
+{% include "./_library/css/w3.css" %}
 {% include "./_library/main.css" %}
-{% include "./_library/markdown.css" %}
+{% include "./_library/blog.css" %}
+{% include "./_library/css/markdown.css" %}
 
-{% include "./_library/colors.css" %}
-{% include "./_library/karencolor.css" %}
-{% include "./_library/goodies.css" %}
+{% include "./_library/css/colors.css" %}
+{% include "./_library/css/karencolor.css" %}
+{% include "./_library/css/goodies.css" %}
 
 #versionstring::after {
 				content: "Version {{ pkg.version }}";
