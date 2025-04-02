@@ -11,17 +11,17 @@ module.exports = function (eleventyConfig) {
 	eleventyConfig.amendLibrary("md", (mdLib) => mdLib.use(markdownItCallouts));	/* v2.1 */
 	
     eleventyConfig.addPlugin(lucideIcons);
-    eleventyConfig.addPlugin(eleventyImageTransformPlugin, {						/* v2.3 */
-		formats: ["avif", "webp", "jpeg"],				// output image formats
-		widths: ["auto"],								// output image widths
-		htmlOptions: {		// optional, attributes assigned on <img> nodes override these values
-			imgAttributes: {
-				loading: "lazy",
-				decoding: "async",
-			},
-			pictureAttributes: {}
-		},
-	});
+    //~ eleventyConfig.addPlugin(eleventyImageTransformPlugin, {						/* v2.3 */
+		//~ formats: ["avif", "webp", "jpeg"],				// output image formats
+		//~ widths: ["auto"],								// output image widths
+		//~ htmlOptions: {		// optional, attributes assigned on <img> nodes override these values
+			//~ imgAttributes: {
+				//~ loading: "lazy",
+				//~ decoding: "async",
+			//~ },
+			//~ pictureAttributes: {}
+		//~ },
+	//~ });
     
   	eleventyConfig.addShortcode("anchor", function setAnchor(anchorName) { return `<a name="${anchorName}"><br><br><hr></a>`; });
   	

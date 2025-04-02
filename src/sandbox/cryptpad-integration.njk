@@ -1,16 +1,26 @@
 ---
 layout: main.njk
 menuitem: sandbox
----
 
+pictures:
+  - name: John Doe
+    src: "https://files.cryptpad.fr/blob/ba/baaa5c33516967bd18f7e3e821905bf5fb36c304722b959e"
+    key: "cryptpad:c03fzvI/U74HWmeCiJj1YSY1TXXFxfpjGic9QuOba4c="
+
+---
 <script src="https://cryptpad.fr/common/media-tag-nacl.min.js"></script>
 
-<h2>Bilder einbinden</h2>
+<h2>Bilder aus dem Cryptpad</h2>
 
-<media-tag src="https://files.cryptpad.fr/blob/e6/e6a4f6a99a8b7eabdc09c45cc0bb39c2f84165ba0b840542" data-crypto-key="cryptpad:Tf6F03p+r73/i/+FAYzygF4FHG/Bsd6+cKdIn1bQ3B8="></media-tag>
-
-<h6>Ende</h6>
-
-<media-tag src="https://files.cryptpad.fr/blob/ba/baaa5c33516967bd18f7e3e821905bf5fb36c304722b959e" data-crypto-key="cryptpad:c03fzvI/U74HWmeCiJj1YSY1TXXFxfpjGic9QuOba4c="></media-tag>
-
-<h6>Ender</h6>
+<section class="w3-section w3-row">
+	{% for picture in pictures %}
+		<div class="w3-image w3-col s12 m4 i3">
+			<h5>John Doe</h5>
+			<media-tag src="{{picture.src}}" data-crypto-key="{{picture.kay}}"></media-tag>
+		</div>
+	{% endfor %}
+</section>
+<hr>
+<div>
+<iframe src="https://cryptpad.fr/pad/#/2/pad/edit/HFpP9vEOtpjW53xddlS2dkj2/"></iframe>
+</div>
