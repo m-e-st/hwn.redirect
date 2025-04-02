@@ -1,0 +1,7 @@
+{
+	"layout": "markdown.njk",
+	"permalink": "{{ page.filePathStem }}.html",
+	"menuitem": "sandbox",
+	"loginonly": true,
+	"tags": "sandbox"
+}

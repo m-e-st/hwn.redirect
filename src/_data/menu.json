@@ -6,6 +6,10 @@
 	"pos":  "hide",
 	"url": "/blog"
 }, {
+	"name": "sandbox",
+	"pos":  "hide",
+	"url": "/sandbox"
+}, {
 	"name": "galerie",
 	"pos":  "hide",
 	"url": "/gallery"
