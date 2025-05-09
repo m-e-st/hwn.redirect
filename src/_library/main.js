@@ -1,8 +1,8 @@
 
 
 /***
- * main.js für friends assaf
- * 
+ * main.js für stumpp blog
+ *  
  *
  */
  
@@ -37,7 +37,7 @@ function signIn(state=false) {
 	displayClass("unlogged", ! state);
 	displayClass("loggedin", state);
 	setLucideStroke(buttonLogin, stateColor[state?1:0], stateStroke[state?1:0]);
-	console.log ("sigIn state=", state, " user=", user.name(), user.status() );
+	//~ console.log ("sigIn state=", state, " user=", user.name(), user.status() );
 }
 
 function actionLogin() {

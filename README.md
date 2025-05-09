@@ -5,6 +5,11 @@ Cloudflare gehostet. Die Redaktion der Inhalte erfolgt lokal mit
 Dateien im Markdown-Format. Dabei wird der Einsatz von Obsidian
 für die lokale Bearbeitung berücksichtigt.
 
+#### Stand der Dinge
+
+08MAY2025 `_common` Verzeichnis für gemeinsam genutzte Komponenten
+		  `login.js` in der Version 2.0  inkl `code` Feld
+
 #### Besonderheiten
 
 - das neue Layout `main.njk` mit Menü, Mailversand und Login
@@ -24,3 +29,4 @@ Laufzeit:
 Entwicklung
 - eleventy v3.0
 - lucide.dev Icon Sammlung v2.1
+

@@ -77,6 +77,7 @@ module.exports = function (eleventyConfig) {
 	// This allows Eleventy to watch for file changes during local development.
 	//~ eleventyConfig.addWatchTarget("src/**/*.php");
 	eleventyConfig.addWatchTarget("src/_library/");
+	eleventyConfig.addWatchTarget("src/_common/");
 	eleventyConfig.setUseGitIgnore(false);
 
 	return {

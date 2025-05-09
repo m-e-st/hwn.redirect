@@ -3,15 +3,19 @@
  *
  * 11.08.2023 created 
  * 07.01.2024 stumpp.name 
- * 13.01.2024 lgom returns true on success, false on failure 
+ * 13.01.2024 logon returns true on success, false on failure 
  * 21.03.2025 user_data is now included from -/_data/user.js (see javascript.njk)
+ * 13-04-2ß25 trim of username
  */
 
  
 const user =(function () {
 	
 	function _search(username='') {
-		let name = username.toLocaleLowerCase();
+		//~ console.log ("username", "«"+username+"»");
+		//~ console.log ("trim", "«"+username.trim()+"»");
+		//~ console.log ("lowcase", "«"+username.trim().toLocaleLowerCase()+"»");
+		let name = username.trim().toLocaleLowerCase();
 		let hash = ''
 		for (let i = 0; i < user_data.length; i++)
 			if (name.localeCompare(user_data[i].name) == 0) {
