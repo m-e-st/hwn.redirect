@@ -4,7 +4,7 @@ layout: base.njk
 version: 2025-01-21
 ---
 
-<!-- Adaption für stumpp.blog März 2025 -->
+<!-- Adaption für Mareikes Blog März 2025 -->
 
 <style>
 @media (max-width:300px){ .w3-hide-tiny{display:none!important} }
@@ -24,27 +24,30 @@ version: 2025-01-21
 	   target="{{ 'external' if (''+url).startsWith('http') else '_self' }}"
 	   class="w3-bar-item w3-button {{ 'w3-dark-gray' if (caption==menuitem) }} 
 									{{ 'w3-tooltip' if (tooltip or lang) }} 
-									{{ 'w3-right' if (pos == 'right') or (pos == 'hide-right') }} 
-									{{ 'loggedin' if (pos == 'hide') or (pos == 'hide-right') }} 
+									{# 'w3-right' if (pos == 'right') or (pos == 'hide-right') #} 
+									{# 'loggedin' if (pos == 'hide') or (pos == 'hide-right') #} 
+									{{ 'w3-right' if ((''+pos).includes('right')) }} 
+									{{ 'loggedin' if ((''+pos).includes('hide')) }}
+									{{ 'ms-about' if (caption == 'über') or (caption == 'about') }} 
 			 ">
-			{%- if (pos=='indent') -%}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{%- endif -%}
+			{%- if ((''+pos).includes('indent')) -%}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{%- endif -%}
 			{{ caption|safe|title }}
 			{%- if (tooltip or lang) -%}<span class="w3-text w3-tag"> {{lang+' '+url|d('') if lang else tooltip|safe}}</span>{%- endif -%}
 	</a>
 {% endmacro %}
 
+{% if not format.noheader %}
 <header class="">
 	<div class="w3-container theme-pale">
 		<img src={{site.pagelogo}}
-			 alt="MS Logo"
+			 alt="{{site.pagelogotext}}|d('page logo')"
 			 class="w3-left w3-padding w3-hide-tiny"
-			 style="margin:0 16px 0 0;width:120px;height:120px;object-fit:contain"
+			 style="margin:0px 0;height:120px;"
 			 {{ attrAnimation("layoutLogo") }}
-			 onclick="openModal('loginPopup');"
 			 >
 		<div class="w3-left w3-hide-small">
-			<h2 class="theme-text" style="margin-top:24px;">{{ site.title }}</h2>
-			<h6 class="theme-text" style="margin-top:-1em">Version {{ pkg.version }}</h6>
+			<h2 class="ms-text-red" style="margin-top:24px;">{{ site.title }}</h2>
+			<h6 class="ms-text-red" style="margin-top:-1em">Version {{ pkg.version }}</h6>
 		</div>
 		<div class="w3-right theme-pale" style="margin-top:32px;">
 			<button class="w3-btn w3-hide-small w3-circle" {{attrAnimation("layoutMail", "redden")}} >
@@ -64,7 +67,7 @@ version: 2025-01-21
 						{% for subitem in item.menu -%}
 							{% if subitem.name =='---' %}
 							{% else %}
-								{{ itemlink(subitem.name, subitem.url, 'indent') }}
+								{{ itemlink(subitem.name, subitem.url, 'indent-') }}
 								{#
 							<a href="{{subitem.url|d('#')}}"
 							   target="{{ 'external' if (''+subitem.url).startsWith('http') else '_self' }}"
@@ -75,9 +78,9 @@ version: 2025-01-21
 							{% endif %}
 						{%- endfor %}
 					{% elif item.url %}
-						{{ itemlink(item.name, item.url) }}
+						{{ itemlink(item.name, item.url, item.pos) }}
 					{% elif item.name %}
-						{{ itemlink(item.name, '#') }}
+						{{ itemlink(item.name, '#', item.pos) }}
 					{% endif %}
 				{%- endfor %}
 				</div>
@@ -112,9 +115,10 @@ version: 2025-01-21
 		{%- endfor %}
 	</nav>
 </header>
+{% endif %}
 
 {% if loginonly %}
-<main class="">
+<main>
 	<div class="loggedin w3-section w3-container">
 	{{ content | safe }}
 	</div>
@@ -135,10 +139,10 @@ version: 2025-01-21
 			&nbsp;<span class="w3-text">{% lucide "toggle-right" %}</span>
 		</button> <!-- was: &#127465;&#127466; -->
 
-		<div id="layoutCopyright" class="w3-mobile w3-hide-small">
+		<div id="layoutCopyright" class="w3-mobile w3-hide-small"; style="display:none;">
 			<span class="w3-text-blue-grey">
 				{% if not site.author.hide %}&copy; {{ site.author.year }} {% endif %}
-				<a href="{{ site.url.impressum | d('#') }}">{{ site.author.name }}</a>
+				<a href="{{ site.url.impressum }} | d('#')">{{ site.author.name }}</a>
 				<span id="versionstring"></span> <span id="username"></span> <span id="dataversion"></span>
 			</span>
 		</div>
@@ -147,18 +151,19 @@ version: 2025-01-21
 </footer>
 {% endif %}
 
+
+{% if site.modallogin %}
 <!-- The Modals -->
 <div id="popupLogin" class="w3-modal">
-  <div class="w3-modal-content theme-pale" style="width:50%">
-    <div class="w3-container w3-padding w3-border-green w3-leftbar w3-rightbar">
+  <div class="w3-modal-content w3-sand" style="width:50%">
+    <div class="w3-container w3-padding w3-border-amber w3-leftbar w3-rightbar">
       <span onclick="closeModal('popupLogin');" class="w3-btn w3-display-topright">&times;</span>
-      <div class="w3-center w3-display-top w3-text-green" style="margin:0 24px;"><h3><b>Anmeldung</b></h3></div>
+      <div class="w3-center w3-display-top" style="margin:0 24px"><h3>Anmeldung</h3></div>
       {% include "part.login.njk" %}
     </div>
   </div>
 </div>
-
-
+{% endif %}
 
 <script>
 function footerToggleVisibility(id="copyright") {

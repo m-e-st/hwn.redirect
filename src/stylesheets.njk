@@ -1,15 +1,15 @@
 ---
 permalink: "/static/{{ page.fileSlug | slug }}.css"
 ---
-{% include "./_common/css/w3.css" %}
-{% include "./_common/css/markdown.css" %}
+{% include "./_library/common/w3.css" %}
+{% include "./_library/common/markdown.css" %}
 
 {% include "./_library/main.css" %}
 {% include "./_library/blog.css" %}
 
-{% include "./_common/css/colors.css" %}
-{% include "./_common/css/karencolor.css" %}
-{% include "./_common/css/goodies.css" %}
+{% include "./_library/common/colors.css" %}
+{% include "./_library/common/karencolor.css" %}
+{% include "./_library/common/goodies.css" %}
 
 #versionstring::after {
 				content: "Version {{ pkg.version }}";

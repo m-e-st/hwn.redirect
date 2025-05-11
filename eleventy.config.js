@@ -1,32 +1,31 @@
 /** v2.3 - 2025-03-04 **/
+/** v2.4 - 2025-04-07 replace eleventy-img by markdownot-obsidian-images **/
+/** v2.5 - 2025-05-11 encryption by sjcl **/
 
 const htmlMinifier = require ('html-minifier-terser');
 const lucideIcons = require("@grimlink/eleventy-plugin-lucide-icons");
-const markdownItCallouts = require("markdown-it-obsidian-callouts");				/* v2.1 */
-const path = require('path');														/* v2.2 */
-const { eleventyImageTransformPlugin } = require("@11ty/eleventy-img");				/* v2.3 */
-
+const markdownItCallouts = require("markdown-it-obsidian-callouts");					/* v2.1 */
+const markdownObsidianImages = require('markdown-it-obsidian-images');					/* v2.4 */
+const path = require('path');															/* v2.2 */
+const sjcl = require("sjcl");
 
 module.exports = function (eleventyConfig) {
-	eleventyConfig.amendLibrary("md", (mdLib) => mdLib.use(markdownItCallouts));	/* v2.1 */
+	eleventyConfig.amendLibrary("md", (mdLib) => mdLib.use(markdownItCallouts));		/* v2.1 */
+	eleventyConfig.amendLibrary("md", (mdLib) => mdLib.use(markdownObsidianImages({ makeAllLinksAbsolute: true, baseURL: '/blog/img/' })));	/* v2.4 */
 	
     eleventyConfig.addPlugin(lucideIcons);
-    //~ eleventyConfig.addPlugin(eleventyImageTransformPlugin, {						/* v2.3 */
-		//~ formats: ["avif", "webp", "jpeg"],				// output image formats
-		//~ widths: ["auto"],								// output image widths
-		//~ htmlOptions: {		// optional, attributes assigned on <img> nodes override these values
-			//~ imgAttributes: {
-				//~ loading: "lazy",
-				//~ decoding: "async",
-			//~ },
-			//~ pictureAttributes: {}
-		//~ },
-	//~ });
     
   	eleventyConfig.addShortcode("anchor", function setAnchor(anchorName) { return `<a name="${anchorName}"><br><br><hr></a>`; });
-  	
-  	eleventyConfig.addFilter("Datum", function(value) {
+  	eleventyConfig.addPairedShortcode("crypt", function(content, password = "", classList="") { 		/* v2.5 */
+		return `<ms-crypted style='display:none' class='${classList}' `
+			 + "data-content='" + sjcl.encrypt(password, content) + "'>"
+			 + "Content is encrypted.<br>Inhalt ist verschlüsselt.<br>El contenido está encriptado."
+			 + "</ms-crypted>";
+	});  	
+  	eleventyConfig.addFilter("Datum", function(value, lang="de") {
 		const string = value.toISOString();
+		if(lang=="en") return string.slice(5,7) +'/' + string.slice(8,10) + '/' + string.slice(0,4);
+		if(lang=="ja") return string.slice(0,4) +'-' + string.slice(5,7) + '-' + string.slice(8,10);
 		return string.slice(8,10) +'.' + string.slice(5,7) + '.' + string.slice(0,4);
 	});
   	eleventyConfig.addFilter("dateTitle", function(value) {
@@ -45,6 +44,10 @@ module.exports = function (eleventyConfig) {
 	});
   	eleventyConfig.addFilter("Basename", function(value) {							/* v2.2 */
 		let result = path.basename(value, ".html");
+		return result;
+	});
+  	eleventyConfig.addFilter("Paragraphs", function(value) {							/* v2.2 */
+		let result = "<p>" + value.replaceAll("\n", "</p>\n<p>") + "</p>"
 		return result;
 	});
   	/* Custom "upperWords" deleted - use "title" instead */
@@ -70,14 +73,15 @@ module.exports = function (eleventyConfig) {
 	eleventyConfig.addPassthroughCopy("src/static/**");
 	eleventyConfig.addPassthroughCopy("src/favicon.ico");
 	eleventyConfig.addPassthroughCopy("src/**/*.php");
+	
 	eleventyConfig.addPassthroughCopy("src/blog/**/*.png");
 	eleventyConfig.addPassthroughCopy("src/blog/**/*.jpg");
+	eleventyConfig.addPassthroughCopy("src/blog/**/*.jpeg");
 	eleventyConfig.addPassthroughCopy("src/blog/**/*.svg");
 
 	// This allows Eleventy to watch for file changes during local development.
 	//~ eleventyConfig.addWatchTarget("src/**/*.php");
 	eleventyConfig.addWatchTarget("src/_library/");
-	eleventyConfig.addWatchTarget("src/_common/");
 	eleventyConfig.setUseGitIgnore(false);
 
 	return {

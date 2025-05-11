@@ -1,24 +1,23 @@
 [{
-	"name": "intro",
+	"name": "🏠",
 	"url" : "/"
 }, {
 	"name": "blog",
-	"pos":  "hide",
 	"url": "/blog"
 }, {
-	"name": "sandbox",
+	"name": "doku",
 	"pos":  "hide",
-	"url": "/sandbox"
+	"url": "/docs"
 }, {
-	"name": "galerie",
+	"name": "familie",
 	"pos":  "hide",
-	"url": "/gallery"
+	"url": "/family"
+}, {
+	"name": "sonstiges",
+	"pos":  "hide",
+	"url": "/etc"
 }, {
 	"name": "über",
 	"pos" : "right",
 	"url" : "/about.html"
-}, {
-	"name": "info",
-	"pos" : "hide-right",
-	"url" : "/information.html"
 }]

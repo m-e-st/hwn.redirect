@@ -1,0 +1,46 @@
+---
+type: layout
+layout: main.njk
+version: 2025-05-11
+---
+{% if backgroundimage %}
+<div style="position:relative">
+	<img src="{{site.imagedir}}/bg/{{backgroundimage}}" alt="{{backgroundimagetext|d('')}}" 
+	     style="position:fixed;left:z-index:-1;opacity:0.3;
+			{%- if backgroundposition == 'left' -%}top:163px;left:0;
+			{%- elif backgroundposition == 'right' -%}top:163px;right:0;
+			{%- elif backgroundposition == 'bottomleft' -%}left:0;bottom:0;
+			{%- elif backgroundposition == 'bottomright' -%}right:0;bottom:0;
+			{%- else -%}top:163px;left:50%;transform:translate(-50%,0%);-ms-transform:translate(-50%,0%)
+			{%- endif -%}"
+	     >
+</div>
+{% endif %}
+<ms-markdown>  <!-- Bindestrich für html-5 custom tags erforderlich! -->
+	{{ content | safe }}
+<ms-markdown>
+
+<br>	
+<hr>
+<h4>
+{%- if not language %}{% set language = site.language %}{% endif -%}
+{%- if not language %}{% set language = "de" %}{% endif -%}
+{%-   if language == 'en' %}Table of Content
+{%- elif language == 'de' %}Inhaltsverzeichnis
+{%- elif language == 'es' %}Índice
+{%- elif language == 'ja' %}目次
+{%- else %}{% lucide "table-of-contents" %}
+{%- endif %}
+{{ toctitle|d(description) }}
+</h4>
+<section class="w3-section">
+	<ul>
+	{% for item in collections[toc] | reverse %}
+		<li>
+			<a href="{{ item.url | d('#') }}">{{ item.data.title | d(item.page.fileSlug) }}</a> «{{item.date|Datum(language)}}» {{item.data.description}}
+		</li>
+	{% endfor %}
+	</ul>
+</section>
+
+

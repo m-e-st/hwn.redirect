@@ -1,6 +1,4 @@
 ---
-layout: markdown.njk
-menuitem: sandbox
 ---
 
 <style>img { top:0px; max-width:600px; max-height:600px;object-fit:scale-down}</style>

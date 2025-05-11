@@ -2,10 +2,12 @@ module.exports = {
 	title: "Michas Blog",
 	description: "Blog von Michael Stumpp",
 	caption: "michas blog",
-	version : "0.3.20",
+	version : "0.4.0",
 	mail: "michael@stumpp.name",
 	language: "de",
 
+	modallogin: true,
+	
 	scriptdir: "/static",
 	imagedir: "/static/img",
 	pagelogo: "/static/pagelogo.svg",

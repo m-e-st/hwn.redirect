@@ -1,25 +1,14 @@
 ---
-layout: main.njk
+layout: index.njk
 description: "Blog"
 menuitem: blog
-loginonly: true
+loginonly: false
+backgroundimage: flower-tulips.png
+backgroundposition: bottomright
+toc: blog
+toctitle: "Blog"
 ---
 
-<div style="position:relative">
-	<img src="{{site.imagedir}}/cherry-blossom-japan.png" alt="Cherry Blossom" style="position:fixed;z-index:-1;opacity:0.3">
-</div>
-<ms-markdown>
-	<section class="w3-section">
-
-		<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea [rebum](curriculum.md). Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
-	</section>
-
-	<section class="w3-section">
-		<h4>Inhaltsverzeichnis</h4>
-		<ul>
-		{% for blog in collections.blog | reverse %}
-			<li><a href="{{blog.url}}">{{blog.data.title|d(blog.url)|Basename}}</a> vom {{blog.date|Datum}}</li>
-		{% endfor %}
-		</ul>
-	</section>
-</ms-markdown>
+<section class="w3-section">
+	<p>{{ text.lorem }}</p>
+</section>
