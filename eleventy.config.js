@@ -1,6 +1,7 @@
 /** v2.3 - 2025-03-04 **/
-/** v2.4 - 2025-04-07 replace eleventy-img by markdownot-obsidian-images **/
+/** v2.4 - 2025-04-07 replace eleventy-img by markdown-it-obsidian-images **/
 /** v2.5 - 2025-05-11 encryption by sjcl **/
+/** v2.6 - 2025-05-29 js-yaml **/
 
 const htmlMinifier = require ('html-minifier-terser');
 const lucideIcons = require("@grimlink/eleventy-plugin-lucide-icons");
@@ -8,12 +9,14 @@ const markdownItCallouts = require("markdown-it-obsidian-callouts");					/* v2.1
 const markdownObsidianImages = require('markdown-it-obsidian-images');					/* v2.4 */
 const path = require('path');															/* v2.2 */
 const sjcl = require("sjcl");
+const yaml = require("js-yaml");														/* v2.6 */
 
 module.exports = function (eleventyConfig) {
 	eleventyConfig.amendLibrary("md", (mdLib) => mdLib.use(markdownItCallouts));		/* v2.1 */
 	eleventyConfig.amendLibrary("md", (mdLib) => mdLib.use(markdownObsidianImages({ makeAllLinksAbsolute: true, baseURL: '/blog/img/' })));	/* v2.4 */
 	
     eleventyConfig.addPlugin(lucideIcons);
+    eleventyConfig.addDataExtension("yaml", (contents) => yaml.load(contents));
     
   	eleventyConfig.addShortcode("anchor", function setAnchor(anchorName) { return `<a name="${anchorName}"><br><br><hr></a>`; });
   	eleventyConfig.addPairedShortcode("crypt", function(content, password = "", classList="") { 		/* v2.5 */

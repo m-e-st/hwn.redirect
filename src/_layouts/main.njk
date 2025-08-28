@@ -1,7 +1,14 @@
 ---
 type: layout
 layout: base.njk
-version: 2025-01-21
+version: 2025-05-28
+
+# 03.04.2025 - Harmonisierung über alle Layouts
+# 28.05.2025 - Hauptmenü-Punkt ist anklickbar, wenn URL angegeben ist.
+# 28.08.2025 - menu: caption before name
+# 28.08.2025 - background image
+
+buttonActiveClass: w3-dark-gray
 ---
 
 <!-- Adaption für Mareikes Blog März 2025 -->
@@ -22,19 +29,24 @@ version: 2025-01-21
 {% macro itemlink(caption, url, pos='', tooltip='', lang='') %}
 	<a href="{{url|d('#')}}"
 	   target="{{ 'external' if (''+url).startsWith('http') else '_self' }}"
-	   class="w3-bar-item w3-button {{ 'w3-dark-gray' if (caption==menuitem) }} 
-									{{ 'w3-tooltip' if (tooltip or lang) }} 
-									{# 'w3-right' if (pos == 'right') or (pos == 'hide-right') #} 
-									{# 'loggedin' if (pos == 'hide') or (pos == 'hide-right') #} 
-									{{ 'w3-right' if ((''+pos).includes('right')) }} 
-									{{ 'loggedin' if ((''+pos).includes('hide')) }}
-									{{ 'ms-about' if (caption == 'über') or (caption == 'about') }} 
+	   class="w3-button {{ '{{buttonActiveClass}}' if (caption==menuitem) }} 
+						{{ 'w3-bar-item ' if (pos != 'menu') }}
+						{{ 'w3-tooltip' if (tooltip or lang) }} 
+						{{ 'w3-right' if ((''+pos).includes('right')) }} 
+						{{ 'loggedin' if ((''+pos).includes('hide')) }}
+						{{ 'ms-about' if (caption == 'über') or (caption == 'about') }} 
 			 ">
 			{%- if ((''+pos).includes('indent')) -%}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{%- endif -%}
 			{{ caption|safe|title }}
 			{%- if (tooltip or lang) -%}<span class="w3-text w3-tag"> {{lang+' '+url|d('') if lang else tooltip|safe}}</span>{%- endif -%}
 	</a>
 {% endmacro %}
+
+{% if backgroundimage %}
+<div style="position:relative">
+	<img src="{{site.imagedir}}/bg/{{backgroundimage}}" width="50%" alt="Background image" class="w3-display-{{backgroundposition|d('bottommiddle')}}" style="position:fixed;z-index:-1;opacity:0.3">
+</div>
+{% endif %}
 
 {% if not format.noheader %}
 <header class="">
@@ -56,6 +68,10 @@ version: 2025-01-21
 			<button class="w3-btn w3-hide-small w3-circle" {{attrAnimation("layoutLogin", "greenen")}}>
 				{% lucide "user" ,{ "stroke": "#888", "stroke-width": 1, "size":"40" } %}
 			</button>
+
+<!-- ---------------------- -->
+<!-- MENU FOR SMALL SCREENS -->
+<!-- ---------------------- -->					
 			<div class="w3-dropdown-hover w3-hide-medium w3-hide-large">
 				<button id="layoutMenu" class="w3-btn">
 					{% lucide "menu" ,{ "stroke": "#888", "stroke-width": 1, "size":"40" } %}
@@ -63,7 +79,12 @@ version: 2025-01-21
 				<div class="w3-dropdown-content w3-bar-block w3-black w3-large" style="right:-16px">
 				{% for item in menu -%}
 					{% if item.menu %}
-						<span class="w3-bar-item">{{ item.name|safe|title }}</span>
+						{%- if item.url -%}
+							{{ itemlink(item.caption + " &nbsp; " + item.name
+								, item.url) }}
+						{%- else -%}
+							<span class="w3-bar-item">{{ item.name|safe|title }}</span>
+						{%- endif -%}
 						{% for subitem in item.menu -%}
 							{% if subitem.name =='---' %}
 							{% else %}
@@ -78,9 +99,9 @@ version: 2025-01-21
 							{% endif %}
 						{%- endfor %}
 					{% elif item.url %}
-						{{ itemlink(item.name, item.url, item.pos) }}
+						{{ itemlink(item.caption + " &nbsp; " + item.name, item.url, item.pos) }}
 					{% elif item.name %}
-						{{ itemlink(item.name, '#', item.pos) }}
+						{{ itemlink(item.caption + " &nbsp; " + item.name, '#', item.pos) }}
 					{% endif %}
 				{%- endfor %}
 				</div>
@@ -88,6 +109,14 @@ version: 2025-01-21
 		</div>
 		<!-- Ende Buttons oben rechts-->
 	</div>
+
+{% if not format.topics %}
+	<div class="w3-panel w3-black w3-small w3-hide-medium w3-hide-large">&nbsp;</div>
+{% endif %}
+	
+<!-- ---------------------- -->
+<!-- MENU FOR LARGE SCREENS -->
+<!-- ---------------------- -->	
 	<div class="w3-panel w3-black w3-small w3-hide-medium w3-hide-large">&nbsp;</div>
 	<nav class="w3-bar w3-black w3-large w3-hide-small">
 		<span class="w3-bar-item"></span>
@@ -96,11 +125,15 @@ version: 2025-01-21
 		{% for item in menu -%}
 			{% if item.menu %}
 				<div class="w3-dropdown-hover">
-					<button class="w3-button">{{ item.name|safe|title }}</button>
+					{%- if item.url -%}
+						{{ itemlink(item.caption, item.url, "menu", item.tip, item.lang)}}
+					{%- else -%}			
+						<button class="w3-button">{{ item.name|safe|title }}</button>
+					{%- endif -%}
 					<div class="w3-dropdown-content w3-bar-block w3-black">
 					{% for subitem in item.menu -%}
 						{% if subitem.name =='---' %}
-							<span class="w3-bar-item"></span>
+							<span class="w3-bar-item" style="cursor:none"></span>
 						{% else %}
 							{{ itemlink(subitem.name, subitem.url, '', subitem.tip, subitem.lang) }}
 						{% endif %}
@@ -108,9 +141,9 @@ version: 2025-01-21
 					</div>
 				</div>
 			{% elif item.url %}
-				{{ itemlink(item.name, item.url, item.pos, item.tip, item.lang)}}
+				{{ itemlink(item.caption, item.url, item.pos, item.tip, item.lang)}}
 			{% elif item.name %}
-				{{ itemlink(item.name, '#') }}
+				{{ itemlink(item.caption, '#') }}
 			{% endif %}
 		{%- endfor %}
 	</nav>

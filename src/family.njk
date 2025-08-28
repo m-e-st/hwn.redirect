@@ -3,11 +3,21 @@ layout: index.njk
 description: "Familie Stumpp"
 menuitem: familie
 loginonly: true
-backgroundimage: galaxy-purple.png
+backgroundimage: abstract-geometry.png
+backgroundposition: bottommiddle
 toc: family
 ---
 
 <ms-markdown class="w3-section">
-	<h4>{{description}}</h4>
-	<p>{{ text.lorem }}</p>
+	<h2>{{description}}</h2>
+	<p>
+		Dieser Teil des Blogs ist exklusiv für die Familie vorgesehen.
+		Fremde haben hierauf keinen Zugriff.
+		Die Anzeige erfolgt erst nach Anmeldung eines Benutzers.
+	</p>
+
+<!-- ab hier verschlüsselte Inhalte -->
+{% crypt site.cryptkey, "w3-topbar ms-crypted" %}
+	<p>{{ text.lorem }}	</p>
+{% endcrypt %}
 </ms-markdown>

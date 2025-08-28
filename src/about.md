@@ -2,15 +2,38 @@
 layout: markdown.njk
 permalink: "{{ page.filePathStem }}.html"
 menuitem: über
-loginonly: true
+loginonly: false
+backgroundimage: tree-large-green.png
+backgroundposition: bottommiddle
 ---
 
-<img src="/static/img/author-face.png" width=180 style="margin:0 16px 8px 0;float:left;" alt="author's portrait" onclick="alert('Definitely not Katja!');">
-This is Katja, who went to Japan for a research stay and is now writing a blog because that is what people going abroad do.
+<img src="/static/img/gemini-old-computers.png" width=200 style="margin:0 16px 8px 24px;float:right;" alt="author's portrait" onclick="alert('Definitely not Katja!');">
+Dies ist der Blog von Michael Stumpp aus Oranienburg.
+Ich war jahrelang in der IT-Branche tätig und interessiere mich auch heute noch für die aktuellen Entwicklungen.
+Das Entwickeln von einfachen Webseiten ohne große Frameworks ist für mich zum Hobby geworden.
+Dabei ist es nicht mein Ziel, professionelle Webanwendungen zu bauen.
+Da ich weder in Design noch in Web-Technologie allzu bewandert bin, sind hier keine Wunderwerke zu erwarten.
+Aber ich habe jede Menge Freude am Bauen der Websites.
 
-<div class="w3-center"><a class="w3-button w3-blue w3-xlarge w3-center w3-margin-top" href="/blog/readme.html">Anleitung zur Content-Pflege</a></div>
+#### Kontakt
 
+- [Impressum](https://web.stumpp.name/impressum)
+- [Datenschutz](https://web.stumpp.name/datenschutz) <small style="margin-left:20px">Der Aufruf dieser Links verläßt den Blog!</small>
+- [Mastodon](https://mastodon.social/@M_E_ST)
 
-<div style="position:relative">
-	<img src="{{site.imagedir}}/flower-tulips.png" width="33%" alt="Abstract Lines" class="w3-display-bottomright" style="position:fixed;z-index:-1;opacity:0.3">
-</div>
+<!-- ab hier verschlüsselte Inhalte | nur HTML kein Markdown -->
+{% crypt "0217", "w3-topbar w3-section ms-crypted" %}
+<h4>Visitenkarte</h4>
+
+QR-Code
+
+<h4>Fediverse</h4>
+Matrix
+Mastodon
+
+<h4>Mail | Fax | Internet</h4>
+PGP Schlüssel
+
+hallo
+
+{% endcrypt %}

@@ -1,7 +1,10 @@
 ---
 title: Doku zur Content-Pflege
 menuitem: Dokumentation
+target: https://blog.stumpp.name
+editor: obsidian
 ---
+
 
 # Obsidian-aware Blog
 

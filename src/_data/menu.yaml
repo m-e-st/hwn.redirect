@@ -1,0 +1,25 @@
+# Menü für stumpp.blog
+#
+  - name: home
+    caption: "🏠"  # "\U0001F3E0"
+    url: /
+  - name: blog
+    caption: "✍🏻" #  multiole emojis
+    url: /blog
+  - name: familie
+    caption: "🔏" # "\U0001F50F"
+    pos: hide
+    url: /family
+  - name: sonstiges
+    caption: "🕸" # "\U0001F578"
+    pos: hide
+    url: /etc
+  - name: "über"
+    caption: "👨🏻‍🦳" #  multiole emojis
+    pos: right
+    url: /about.html
+  - name: doku
+    caption: "📚" # "\U00014DA"
+    pos: hideright
+    url: /docs
+

@@ -1,0 +1,45 @@
+---
+description: "Grid Buttons Experiment"
+loginonly: true
+backgroundimage: abstract-lines.png
+backgroundposition: bottomleft
+toc: sandbox
+
+cards:
+  - name: 1
+    color: yellow
+    icon: "house"
+  - name: 1
+  - name: 1
+    color: light-blue
+  - name: 1
+  - name: 1
+  - name: 1
+    icon: bomb
+  - name: 1
+  - name: 1
+---
+
+<style>
+	.ms-grid {
+		display: flex;
+		flex-wrap: wrap;
+	}
+	.ms-grid > div {
+		flex: 0 0 400px;
+		margin:0px;
+		padding: 8px;
+		background-color: lightgrey
+	}
+	.ms-icon { vertical-align: top; }
+</style>
+
+<div class="ms-grid">
+	{% for card in cards %}
+	<div class="w3-card-4 w3-{{card.color|d(`sand')}}">
+		<b>{% if card.icon -%}{% lucide card.icon, { size:"28", class:"ms-icon" } %}{%- endif %}
+		{{ card.name }}</b>
+		"{{card.icon|d('bomb')}}"
+	</div>
+	{% endfor %}
+</div>

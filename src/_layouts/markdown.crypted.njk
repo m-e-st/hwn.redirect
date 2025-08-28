@@ -1,12 +1,13 @@
 ---
 type: layout
 layout: main.njk
-version: 2025-08-28
+version: 2025-03-03
 ---
 
+
+{% crypt site.cryptkey, "ms-crypted" %}
 <ms-markdown>  <!-- Bindestrich für html-5 custom tags erforderlich! -->
 	{{ content | safe }}
 <ms-markdown>
-
-{% include "part.index-layout.njk" %}
-
+{% endcrypt %}
+	

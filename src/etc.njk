@@ -1,15 +1,13 @@
 ---
-layout: index.njk
+layout: index.crypted.njk
 description: "Sonstiges"
 menuitem: sonstiges
 loginonly: true
 backgroundimage: abstract-lines.png
 backgroundposition: bottomleft
-toc: etc
 ---
 
-<section class="w3-section">
-	<p>{{ text.lorem }}</p>
-	<p>{{ text.lorem }}</p>
-	<p>{{ text.lorem }}</p>
-</section>
+<ms-markdown class="w3-section">
+	<h2>{{description}}</h2>
+	<p>{{ text.lorem }}	</p>
+</ms-markdown>

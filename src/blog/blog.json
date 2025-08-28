@@ -3,5 +3,7 @@
 	"permalink": "{{ page.filePathStem }}.html",
 	"menuitem": "blog",
 	"loginonly": false,
+	"backgroundimage": "abstract-lines.png",
+	"backgroundposition": "bottomleft",
 	"tags": "blog"
 }

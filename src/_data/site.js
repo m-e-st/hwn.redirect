@@ -5,8 +5,9 @@ module.exports = {
 	version : "0.4.0",
 	mail: "michael@stumpp.name",
 	language: "de",
-
+	
 	modallogin: true,
+	cryptkey: "0217",
 	
 	scriptdir: "/static",
 	imagedir: "/static/img",

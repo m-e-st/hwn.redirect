@@ -7,6 +7,7 @@
  * 04.03.2025 displayTag()
  * 05.03.2025 displayClass()
  * 06.03.2025 get random int
+ * 18.05.2025 fullscreen
  *
  * *********************************************************************
  *	setLucideStroke	Setzen von Farbe und Strichstärke von Lucide Icons
@@ -18,6 +19,7 @@
  *	sendMail		Senden von Mails über Mail Client
  *	copyToClipboard	Text ins Clipboard schreiben
  *	getRandomInt	zufällige Integer-Zahl
+ *	fullScreen		view an element in fullscreen
  */
 
 
@@ -137,3 +139,29 @@ function getRandomInt(min, max) {
   return Math.floor(Math.random() * (maxFloored - minCeiled) + minCeiled); // The maximum is exclusive and the minimum is inclusive
 }
 
+/** fullscreen
+ *
+ *	openFullscreen	views an element or the whole window (if no arg) in full screen 
+ *	closeFullscreen	reduces a window from fullscreen to normal view
+ */
+ 
+function openFullscreen(elem = "") {
+	if (! elem) elem = document.documentElement;
+	if (elem.requestFullscreen) {
+		elem.requestFullscreen();
+	} else if (elem.webkitRequestFullscreen) { /* Safari */
+		elem.webkitRequestFullscreen();
+	} else if (elem.msRequestFullscreen) { /* IE11 */
+		elem.msRequestFullscreen();
+	}
+}
+
+function closeFullscreen() {
+	if (document.exitFullscreen) {
+		document.exitFullscreen();
+	} else if (document.webkitExitFullscreen) { /* Safari */
+		document.webkitExitFullscreen();
+	} else if (document.msExitFullscreen) { /* IE11 */
+		document.msExitFullscreen();
+	}
+}
