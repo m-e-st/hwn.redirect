@@ -12,11 +12,11 @@ Ich möchte jedoch gerne ein paar Anwendungsfälle beschreiben. bei denen
 sich durch die [PDF24 Tools](https://tools.pdf24.org/) eine erhebliche 
 Arbeitserleichterung ergibt.
 
-##### Vorteile:
+##### Vorteile von PDF24 Tools:
 - die Werkzeuge sind dauerhaft kostenloss (verspricht jedenfalls der Hersteller)
 - die Werkzeuge sind sehr umfangreich und vollständig.
 
-##### Nachteile:
+##### Nachteile von PDF24 Tools:
 - die Offline-Alternative PDF24 Creator nur für das Betriebssystem Windows.
 - die PDF24 Tools selbst stehen nur Online zur Verfügung.Man muss seine Dokumente hochladen.
 - Der Anbieter verspricht glaubwürdig erstklassigen Datenschutz. Das mag aber für vertrauliche Dokumente nicht reichen.

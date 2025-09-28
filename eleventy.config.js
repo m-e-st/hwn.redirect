@@ -7,6 +7,7 @@ const htmlMinifier = require ('html-minifier-terser');
 const lucideIcons = require("@grimlink/eleventy-plugin-lucide-icons");
 const markdownItCallouts = require("markdown-it-obsidian-callouts");					/* v2.1 */
 const markdownObsidianImages = require('markdown-it-obsidian-images');					/* v2.4 */
+const markdownWikilinks = require('markdown-it-obsidian-wikilinks');					/* v2.6 */
 const path = require('path');															/* v2.2 */
 const sjcl = require("sjcl");
 const yaml = require("js-yaml");														/* v2.6 */
@@ -14,6 +15,7 @@ const yaml = require("js-yaml");														/* v2.6 */
 module.exports = function (eleventyConfig) {
 	eleventyConfig.amendLibrary("md", (mdLib) => mdLib.use(markdownItCallouts));		/* v2.1 */
 	eleventyConfig.amendLibrary("md", (mdLib) => mdLib.use(markdownObsidianImages({ makeAllLinksAbsolute: true, baseURL: '/blog/img/' })));	/* v2.4 */
+	eleventyConfig.amendLibrary("md", (mdLib) => mdLib.use(markdownWikilinks({ makeAllLinksAbsolute: true, baseURL: '/blog/'})));			/* v2.6 */
 	
     eleventyConfig.addPlugin(lucideIcons);
     eleventyConfig.addDataExtension("yaml", (contents) => yaml.load(contents));
@@ -33,6 +35,7 @@ module.exports = function (eleventyConfig) {
 	});
   	eleventyConfig.addFilter("dateTitle", function(value) {
 		const token = value.split('_')[1];
+		
 		if (! token) return "ERROR 1";
 		const parts = token.split('-');
 		return parts[2] + '-' + parts[1] + '-' + parts[0];
