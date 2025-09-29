@@ -7,8 +7,8 @@ backgroundimage: tree-large-green.png
 backgroundposition: bottommiddle
 ---
 
-<img src="/static/img/author-face.png" height=200 style="margin:0 16px 8px 24px;float:left;" alt="author's portrait" onclick="alert('me');">
-<img src="/static/img/gemini-old-computers.png" height=200 style="margin:0 16px 8px 24px;float:right;" alt="alte Computer";">
+<img src="/static/img/author-face.png" height=200 style="margin:0 16px 8px 24px;float:left;" alt="author's portrait">
+<img src="/static/img/gemini-old-computers.png" height=200 style="margin:0 16px 8px 24px;float:right;" alt="alte Computer">
 Dies ist der Blog von Michael Stumpp aus Oranienburg.
 Ich war jahrelang in der IT-Branche tätig und interessiere mich auch heute noch für die aktuellen Entwicklungen.
 Das Entwickeln von einfachen Webseiten ohne große Frameworks ist für mich zum Hobby geworden.

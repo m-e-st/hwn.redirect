@@ -1,5 +1,5 @@
 <style>
-	img {   border-radius: 28px;float:right; }
+	.img {   border-radius: 28px;float:right; }
 </style>
 
 Das Vorhaben **Michas Blog** konsolidiert alle meine Fragmente, die ich mit verschiedenen Verfahren auf verschiedenen Plattformen zusammengestellt habe. Dabei werde ich die Inhalte nach und nach hier übernehmen. Zuvor werden die Inhalte natürlich gesichtet und aktualisiert.

@@ -78,7 +78,7 @@ buttonActiveClass: w3-dark-gray
 				</button>			
 				<div class="w3-dropdown-content w3-bar-block w3-black w3-large" style="right:-16px">
 				{% for item in menu -%}
-					{% if item.menu %}
+					{% if item.menu -%}
 						{%- if item.url -%}
 							{{ itemlink(item.caption + " &nbsp; " + item.name
 								, item.url) }}
@@ -98,11 +98,11 @@ buttonActiveClass: w3-dark-gray
 								#}
 							{% endif %}
 						{%- endfor %}
-					{% elif item.url %}
+					{% elif item.url -%}
 						{{ itemlink(item.caption + " &nbsp; " + item.name, item.url, item.pos) }}
-					{% elif item.name %}
+					{% elif item.name -%}
 						{{ itemlink(item.caption + " &nbsp; " + item.name, '#', item.pos) }}
-					{% endif %}
+					{%- endif %}
 				{%- endfor %}
 				</div>
 			</div>
@@ -172,7 +172,7 @@ buttonActiveClass: w3-dark-gray
 			&nbsp;<span class="w3-text">{% lucide "toggle-right" %}</span>
 		</button> <!-- was: &#127465;&#127466; -->
 
-		<div id="layoutCopyright" class="w3-mobile w3-hide-small"; style="display:none;">
+		<div id="layoutCopyright" class="w3-mobile w3-hide-small" style="display:none;">
 			<span class="w3-text-blue-grey">
 				{% if not site.author.hide %}&copy; {{ site.author.year }} {% endif %}
 				<a href="{{ site.url.impressum }} | d('#')">{{ site.author.name }}</a>
