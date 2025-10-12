@@ -29,7 +29,7 @@ buttonActiveClass: w3-dark-gray
 {% macro itemlink(caption, url, pos='', tooltip='', lang='') %}
 	<a href="{{url|d('#')}}"
 	   target="{{ 'external' if (''+url).startsWith('http') else '_self' }}"
-	   class="w3-button {{ '{{buttonActiveClass}}' if (caption==menuitem) }} 
+	   class="w3-button {% if caption==menuitem -%} {{format.activebutton}}{%- endif %} 
 						{{ 'w3-bar-item ' if (pos != 'menu') }}
 						{{ 'w3-tooltip' if (tooltip or lang) }} 
 						{{ 'w3-right' if ((''+pos).includes('right')) }} 
