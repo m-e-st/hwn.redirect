@@ -1,1 +1,0 @@
-Der Static Site Generator der Wahl.
