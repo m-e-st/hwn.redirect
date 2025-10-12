@@ -1,6 +1,5 @@
 ---
 type: page
-title: writefreely blogs
 layout: main.njk
 permalink: "{{ page.filePathStem }}.html"
 version: 2025-10-12
@@ -21,7 +20,8 @@ iframe {
 }
 </style>
 
-<iframe id="blog-frame" 
+<iframe id="blogframe"
+		name="blogframe" 
 		src="/text-default.html"
 		style="display:block">
 </iframe>
@@ -33,11 +33,12 @@ document.addEventListener("DOMContentLoaded", function() {
 
 	const source = new URL(window.location).searchParams.get("src");
 	console.log (source, window.location);
-	const frame = document.getElementById("blog-frame");
+	const frame = document.getElementById("blogframe");
 	if (source) {
 		frame.src = source;
 	} else {
 		frame.src = "/text-default.html";
 	}
+	console.log ("frame.src=", frame.src);
 });
 </script>
