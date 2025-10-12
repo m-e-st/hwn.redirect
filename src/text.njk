@@ -1,0 +1,55 @@
+---
+type: page
+title: writefreely blogs
+layout: main.njk
+permalink: "{{ page.filePathStem }}.html"
+version: 2025-10-12
+menuitem: text
+
+buttonclasses: w3-bar-item w3-btn w3-margin-top
+---
+
+<style>
+
+iframe {
+  position: fixed;
+  top: 164px;
+  left: 0;
+  width: 100%;
+  height: calc(100% - 164px);
+  border: none;
+}
+</style>
+
+<iframe id="blog-frame" 
+		src=""
+		style="display:none">
+</iframe>
+
+<div id="blog-cards" style="display:block">
+	<div class="w3-xlarge w3-bar-block w3-light-gray w3-padding" style="width:50%">
+		<a class="{{ buttonclasses }}" href="https://text.tchncs.de/m-e-st/">Michas Blog</a>
+		<a class="{{ buttonclasses }}" href="https://text.tchncs.de/software-werkzeuge/">Software-Werkzeuge</a>
+		<a class="{{ buttonclasses }}" href="https://text.tchncs.de/statische-webseiten">Statische Webseiten</a>
+		<a class="{{ buttonclasses }}" href="https://text.tchncs.de/home-automation/">Home Automation</a>
+	</div>
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+
+	const source = new URL(window.location).searchParams.get("src");
+	console.log (source, window.location);
+	const frame = document.getElementById("blog-frame");
+	const cards = document.getElementById("blog-cards");
+	if (source) {
+		frame.src = source;
+		frame.style.display = "block";
+		cards.style.display = "none";
+	} else {
+		frame.src = "";
+		frame.style.display = "none";
+		cards.style.display = "block";
+	}
+});
+</script>

@@ -3,9 +3,18 @@
   - name: home
     caption: "🏠"  # "\U0001F3E0"
     url: /
-  - name: blog
-    caption: "✍🏻" #  multiole emojis
-    url: /blog
+  - name: text		# Writefreely Blogs
+    caption: "✍🏻"	# multiple emojis
+    url: /text.html
+    menu:
+      - name: Michas Blog
+        url: /text.html?src=https:/text.tchncs.de/m-e-st
+      - name: Software Werkzeuge
+        url: /text.html?src=https:/text.tchncs.de/software-werkzeuge
+      - name: Statische Webseiten
+        url: /text.html?src=https:/text.tchncs.de/statische-webseiten
+      - name: Home Automation
+        url: /text.html?src=https:/text.tchncs.de/home-automation
   - name: familie
     caption: "🔏" # "\U0001F50F"
     pos: hide
@@ -14,8 +23,11 @@
     caption: "🕸" # "\U0001F578"
     pos: hide
     url: /etc
+#  - name: blog		# Obsidian Blog
+#    caption: "✍🏻" #  multiple emojis
+#    url: /blog
   - name: "über"
-    caption: "👨🏻‍🦳" #  multiole emojis
+    caption: "👨🏻‍🦳" #  multiple emojis
     pos: right
     url: /about.html
   - name: doku
