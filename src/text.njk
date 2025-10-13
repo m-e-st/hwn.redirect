@@ -1,9 +1,9 @@
 ---
 type: page
-layout: main.njk
+layout: main-2.njk
 permalink: "{{ page.filePathStem }}.html"
 version: 2025-10-12
-menuitem: text
+menuitem: "✍🏻"
 
 buttonclasses: w3-bar-item w3-btn w3-margin-top
 ---
@@ -12,10 +12,11 @@ buttonclasses: w3-bar-item w3-btn w3-margin-top
 
 iframe {
   position: fixed;
-  top: 164px;
+//~  top: 164px;		// Abstand für großen Header
   left: 0;
   width: 100%;
-  height: calc(100% - 164px);
+  height: 100%;
+//~  height: calc(100% - 164px);		// Höhe für großen Header
   border: none;
 }
 </style>

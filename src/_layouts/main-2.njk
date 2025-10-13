@@ -1,0 +1,222 @@
+---
+type: layout
+layout: base.njk
+version: 2025-05-28
+
+# 03.04.2025 - Harmonisierung über alle Layouts
+# 28.05.2025 - Hauptmenü-Punkt ist anklickbar, wenn URL angegeben ist.
+# 28.08.2025 - menu: caption before name
+# 28.08.2025 - background image
+# 05.10.2025 - main-2 mit dem klassischen schwarzen Layout
+
+format:
+  activebutton: w3-lime
+  keepbuttonsleft: true
+---
+
+<!-- main-2 mit dem klassischen schwarzen Layout -->
+
+<style>
+@media (max-width:300px){ .w3-hide-tiny{display:none!important} }
+.w3-spin-1{animation:w3-spin-1 4s 1 linear}@keyframes w3-spin-1{0%{transform:rotate(0deg)}100%{transform:rotate(359deg)}}
+.w3-redden{animation:w3-redden 2s 1 linear}@keyframes w3-redden{0%{background-color:inherit)}50%{background-color:#f44336C0}100%{background-color:inherit}}
+.w3-greenen{animation:w3-greenen 2s 1 linear}@keyframes w3-greenen{0%{background-color:inherit)}50%{background-color:#4CAF50C0}100%{background-color:inherit}}
+</style>
+
+{% macro attrAnimation(id, effect='spin-1') %}
+	id="{{id}}"
+	onmouseover="document.getElementById('{{id}}').classList.add('w3-{{effect}}');"
+	onmouseout="document.getElementById('{{id}}').classList.remove('w3-{{effect}}');"
+{% endmacro %}
+
+{% macro itemlink(caption, url, pos='', tooltip='', lang='') %}
+	<a href="{{url|d('#')}}"
+	   target="{{ 'external' if (''+url).startsWith('http') else '_self' }}"
+	   class="w3-button {% if caption==menuitem -%} {{format.activebutton}}{%- endif %} 
+						{{ 'w3-bar-item ' if (pos != 'menu') }}
+						{{ 'w3-tooltip' if (tooltip or lang) }} 
+						{{ 'w3-right' if ((''+pos).includes('right') and not format.keepbuttonsleft ) }} 
+						{{ 'loggedin' if ((''+pos).includes('hide')) }} 
+						{{ 'ms-about' if (caption == 'über') or (caption == 'about') }} 
+			 ">
+			{%- if ((''+pos).includes('indent')) -%}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{%- endif -%}
+			{{ caption|safe|title }}
+			{%- if (tooltip or lang) -%}&nbsp;<span class="w3-text w3-tag"> {{lang+' '+url|d('') if lang else tooltip|safe}}</span>{%- endif -%}
+	</a>
+{% endmacro %}
+
+{% if backgroundimage %}
+<div style="position:relative">
+	<img src="{{site.imagedir}}/bg/{{backgroundimage}}" width="50%" alt="Background image" class="w3-display-{{backgroundposition|d('bottommiddle')}}" style="position:fixed;z-index:-1;opacity:0.3">
+</div>
+{% endif %}
+
+{% if not format.noheader %}
+<header class="{{ "w3-top" if not format.topscroll }} w3-black">
+	<div class="w3-cell-row">
+		<div class="w3-mobile w3-container w3-cell w3-cell-middle w3-hover-shadow {{ format.logoclass }}" style="width:15rem">
+			<img src={{site.pagelogo}}
+				 alt="{{site.pagelogotext}}|d('page logo')"
+				 class="w3-left w3-hide-tiny"
+				 style="height:36px;margin-top:8px;margin-right:12px;"
+				 {{ attrAnimation("layoutLogo") }}
+				 >
+			<div class="w3-left w3-hide-small">
+				<h3 class="w3-tooltip" style="xmargin-top:24px;">{{ site.caption | lower }}
+					<span class="w3-text w3-small" style="transform:translateY(-2px)">v.{{ pkg.version }}</span>
+				</h3>
+			</div>
+		</div>
+<!-- ---------------------- -->
+<!-- MENU FOR LARGE SCREENS -->
+<!-- ---------------------- -->
+		<div class="w3-hide-small w3-container w3-cell w3-cell-middle">
+			<nav class="w3-bar w3-black w3-hide-small">
+				{% for item in menu -%}
+					{% if item.menu %}
+						<div class="w3-dropdown-hover">
+							{%- if item.url -%}
+								{{ itemlink(item.caption if(item.caption) else item.name, item.url, "menu", item.tip, item.lang)}}
+							{%- else -%}
+								<button class="w3-button">{{ item.caption|d(item.name)|safe|title }}</button>
+							{%- endif -%}
+							<div class="w3-dropdown-content w3-bar-block w3-black">
+							{% for subitem in item.menu -%}
+								{% if subitem.name =='---' %}
+									<span class="w3-bar-item" style="cursor:none"></span>
+								{% else %}
+									{{ itemlink(item.caption if(subitem.caption) else subitem.name, subitem.url, '', subitem.tip, subitem.lang) }}
+								{% endif %}
+							{%- endfor %}
+							</div>
+						</div>
+					{% elif item.url %}
+						{{ itemlink(item.caption if(item.caption) else item.name, item.url, item.pos, item.tip, item.lang)}}
+					{% elif item.name %}
+						{{ itemlink(item.caption if(item.caption) else item.name, '#') }}
+					{% endif %}
+				{%- endfor %}
+			</nav>
+		</div>	<!--menu for large screens -->
+
+		<!-- Buttons oben rechts-->
+		<div class="w3-right" style="xmargin-top:32px;">
+			<button class="w3-btn w3-hide-small w3-circle" {{attrAnimation("layoutMail", "redden")}} style="margin-right:-16px">
+				{% lucide "mail" ,{ "stroke": "#888", "stroke-width": 1, "size":"32" } %}
+			</button>
+			<button class="w3-btn w3-hide-small w3-circle" {{attrAnimation("layoutLogin", "greenen")}}>
+				{% lucide "user" ,{ "stroke": "#888", "stroke-width": 1, "size":"32" } %}
+			</button>
+		</div>
+		<!-- Ende Buttons oben rechts-->
+
+<!-- ---------------------- -->
+<!-- MENU FOR SMALL SCREENS -->
+<!-- ---------------------- -->
+		<div class="w3-container w3-hide-medium w3-hide-large w3-cell w3-cell-middle" style="position:absolute;top:4px;right:-16px;">
+			<div class="w3-dropdown-hover w3-hide-medium w3-hide-large">
+				<button id="layoutMenu" class="w3-btn w3-black">
+					{% lucide "menu" ,{ "stroke": "#FFF", "stroke-width": 1, "size":"24" } %}
+				</button>
+				<div class="w3-dropdown-content w3-bar-block w3-black" style="right:-16px">
+				{% for item in menu -%}
+					{% set menucaption = item.caption + "&nbsp;" + item.name if(item.caption) else item.name %}
+					{% if item.menu -%}
+						{%- if item.url -%}
+							{{ itemlink(menucaption, item.url) }}
+						{%- else -%}
+							<span class="w3-bar-item">{{ item.name|safe|title }}</span>
+						{%- endif -%}
+						{% for subitem in item.menu -%}
+							{% if subitem.name =='---' %}
+							{% else %}
+								{{ itemlink(subitem.name, subitem.url, 'indent-') }}
+								{#
+							<a href="{{subitem.url|d('#')}}"
+							   target="{{ 'external' if (''+subitem.url).startsWith('http') else '_self' }}"
+							   class="w3-bar-item w3-button {{'ms-back-gray' if (subitem.name==menuitem)}}">
+									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ subitem.name|safe|title }}
+							</a>
+								#}
+							{% endif %}
+						{%- endfor %}
+					{% elif item.url -%}
+						{{ itemlink(menucaption, item.url, item.pos) }}
+					{% elif item.name -%}
+						{{ itemlink(menucaption, '#', item.pos) }}
+					{%- endif %}
+				{%- endfor %}
+				</div>
+			</div>
+		</div> <!--menu for small screens -->
+	</div> <!-- w3-cell-row -->
+
+
+{% if not format.topics %}
+	<div class="w3-panel w3-black w3-small w3-hide-medium w3-hide-large">&nbsp;</div>
+{% endif %}
+
+
+	<hr class="w3-border-white w3-hide-small" style="margin-top:0; border: 1px solid;">
+</header>
+{% endif %}
+
+{% if loginonly %}
+<main style="{{ 'padding-top:64px;' if not format.topscroll }}">
+	<div class="loggedin w3-section w3-container">
+	{{ content | safe }}
+	</div>
+	<div class="unlogged">
+	{% include "part.unlogged.njk" %}
+	</div>
+</main>
+{% else %}
+<main class="w3-section w3-container" style="{{ 'padding-top:64px;' if not format.topscroll }}">
+	{{ content | safe }}
+</main>
+{% endif %}
+
+{% if not format.nofooter %}
+<footer class="w3-bottom" style="height:48px;">
+	<div class="w3-container w3-transparent w3-padding-large w3-center">
+		<button class="w3-mobile w3-hide-small w3-btn w3-left w3-tooltip" onclick="footerToggleVisibility('layoutCopyright');">
+			&nbsp;<span class="w3-text">{% lucide "toggle-right" %}</span>
+		</button> <!-- was: &#127465;&#127466; -->
+
+		<div id="layoutCopyright" class="w3-mobile w3-hide-small" style="display:none;">
+			<span class="w3-text-blue-grey">
+				{% if not site.author.hide %}&copy; {{ site.author.year }} {% endif %}
+				<a href="{{ site.url.impressum }} | d('#')">{{ site.author.name }}</a>
+				<span id="versionstring"></span> <span id="username"></span> <span id="dataversion"></span>
+			</span>
+		</div>
+
+	</div>
+</footer>
+{% endif %}
+
+
+{% if site.modallogin %}
+<!-- The Modals -->
+<div id="popupLogin" class="w3-modal">
+  <div class="w3-modal-content w3-sand" style="width:50%">
+    <div class="w3-container w3-padding w3-border-amber w3-leftbar w3-rightbar">
+      <span onclick="closeModal('popupLogin');" class="w3-btn w3-display-topright">&times;</span>
+      <div class="w3-center w3-display-top" style="margin:0 24px"><h3>Anmeldung</h3></div>
+      {% include "part.login.njk" %}
+    </div>
+  </div>
+</div>
+{% endif %}
+
+<script>
+function footerToggleVisibility(id="copyright") {
+  var domX = document.getElementById(id);
+  if (domX.style.display === "none") {
+    domX.style.display = "block";
+  } else {
+    domX.style.display = "none";
+  }
+}
+</script>
+
