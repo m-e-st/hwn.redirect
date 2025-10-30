@@ -27,7 +27,7 @@ Dabei ist es nicht mein Ziel, professionelle Webanwendungen zu bauen.
 Da ich weder in Design noch in Web-Technologie allzu bewandert bin, sind hier keine Wunderwerke zu erwarten.
 Aber ich habe jede Menge Freude am Bauen der Websites.
 
-<br><br><br><br><br><br>
+<br><br><br>
 #### Angaben zur Webseite
 
  &nbsp;  | &nbsp; 
