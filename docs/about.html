@@ -1,0 +1,537 @@
+<!-- stumpp.name -->
+<!--  v6 07.01.2024 jetzt mit Bundles -->
+<!--  v7 08.01.2024 pkg.version statt site.version -->
+<!--  v8 14.01.2024 redirect statt meta_... -->
+<!--  v9 09.03.2025 language in page or _site or "de" -->
+<!-- v10 21.04.2025 …unchanged… -->
+<!DOCTYPE html>
+<html lang="de">
+    <head>
+		<meta charset="utf-8">											<!-- The following 2 meta tags *must* come first in the <head> -->
+		<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<base href="/">
+		
+		<meta name="robots" content="none">								<!-- Control the behavior of search engine crawling and indexing -->
+		<meta name="googlebot" content="none">							<!-- All Search Engines -->
+		<meta name="google" content="nositelinkssearchbox">				<!-- Tells Google not to show the sitelinks search box -->
+		<meta name="google" content="notranslate">						<!-- Tells Google not to provide a translation for this document -->
+		<meta name="google" content="noimageindex">						<!-- Tells Google not to index images -->
+		<meta name="generator" content="eleventy">						<!-- Identify the software used to build the document, Eleventy ftw! -->
+		<meta name="format-detection" content="telephone=no">			<!-- Disable automatic detection and formatting of possible phone numbers -->
+		<meta name="generator" content="Eleventy v3.0.0">
+
+		<title>Michas Blog</title>
+		<meta name="description" content="Blog von Michael Stumpp">
+
+		<link rel="stylesheet" href="static/stylesheets.css" />			<!-- Alle Stylesheets in include über stylesheets.njk -->
+
+		<script src="static/javascripts.js" defer></script>			<!-- Alle Javascripts in include über javascripts.njk -->
+    </head>
+
+    <body>
+		
+<!-- Adaption für Mareikes Blog März 2025 -->
+
+<style>
+@media (max-width:300px){ .w3-hide-tiny{display:none!important} }
+.w3-spin-1{animation:w3-spin-1 4s 1 linear}@keyframes w3-spin-1{0%{transform:rotate(0deg)}100%{transform:rotate(359deg)}}
+.w3-redden{animation:w3-redden 2s 1 linear}@keyframes w3-redden{0%{background-color:inherit)}50%{background-color:#f44336C0}100%{background-color:inherit}}
+.w3-greenen{animation:w3-greenen 2s 1 linear}@keyframes w3-greenen{0%{background-color:inherit)}50%{background-color:#4CAF50C0}100%{background-color:inherit}}
+</style>
+
+
+
+
+
+
+<div style="position:relative">
+	<img src="/static/img/bg/tree-large-green.png" width="50%" alt="Background image" class="w3-display-bottommiddle" style="position:fixed;z-index:-1;opacity:0.3">
+</div>
+
+
+
+<header class="">
+	<div class="w3-container theme-pale">
+		<img src=/static/pagelogo.svg
+			 alt="|d('page logo')"
+			 class="w3-left w3-padding w3-hide-tiny"
+			 style="margin:0px 0;height:120px;"
+			 
+	id="layoutLogo"
+	onmouseover="document.getElementById('layoutLogo').classList.add('w3-spin-1');"
+	onmouseout="document.getElementById('layoutLogo').classList.remove('w3-spin-1');"
+
+			 >
+		<div class="w3-left w3-hide-small">
+			<h2 class="ms-text-red" style="margin-top:24px;">Michas Blog</h2>
+			<h6 class="ms-text-red" style="margin-top:-1em">Version 0.5.49</h6>
+		</div>
+		<div class="w3-right theme-pale" style="margin-top:32px;">
+			<button class="w3-btn w3-hide-small w3-circle" 
+	id="layoutMail"
+	onmouseover="document.getElementById('layoutMail').classList.add('w3-redden');"
+	onmouseout="document.getElementById('layoutMail').classList.remove('w3-redden');"
+ >
+				<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#888" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2" /><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" /></svg>
+			</button>
+			<button class="w3-btn w3-hide-small w3-circle" 
+	id="layoutLogin"
+	onmouseover="document.getElementById('layoutLogin').classList.add('w3-greenen');"
+	onmouseout="document.getElementById('layoutLogin').classList.remove('w3-greenen');"
+>
+				<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#888" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2" /><circle cx="12" cy="7" r="4" /></svg>
+			</button>
+
+<!-- ---------------------- -->
+<!-- MENU FOR SMALL SCREENS -->
+<!-- ---------------------- -->					
+			<div class="w3-dropdown-hover w3-hide-medium w3-hide-large">
+				<button id="layoutMenu" class="w3-btn">
+					<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#888" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><line x1="4" x2="20" y1="12" y2="12" /><line x1="4" x2="20" y1="6" y2="6" /><line x1="4" x2="20" y1="18" y2="18" /></svg>
+				</button>			
+				<div class="w3-dropdown-content w3-bar-block w3-black w3-large" style="right:-16px">
+				
+	<a href="/"
+	   target="_self"
+	   class="w3-button  
+						w3-bar-item 
+						 
+						 
+						
+						 
+			 ">🏠 &nbsp; Home</a>
+
+					
+	<a href="/text.html"
+	   target="_self"
+	   class="w3-button  
+						w3-bar-item 
+						 
+						 
+						
+						 
+			 ">✍🏻 &nbsp; Text</a>
+
+								
+	<a href="/text.html?src=https://text.tchncs.de/m-e-st"
+	   target="_self"
+	   class="w3-button  
+						w3-bar-item 
+						 
+						 
+						
+						 
+			 ">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Michas Blog</a>
+
+								
+							
+								
+	<a href="/text.html?src=https://text.tchncs.de/software-werkzeuge"
+	   target="_self"
+	   class="w3-button  
+						w3-bar-item 
+						 
+						 
+						
+						 
+			 ">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Software Werkzeuge</a>
+
+								
+							
+								
+	<a href="/text.html?src=https://text.tchncs.de/statische-webseiten"
+	   target="_self"
+	   class="w3-button  
+						w3-bar-item 
+						 
+						 
+						
+						 
+			 ">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Statische Webseiten</a>
+
+								
+							
+								
+	<a href="/text.html?src=https://text.tchncs.de/home-automation"
+	   target="_self"
+	   class="w3-button  
+						w3-bar-item 
+						 
+						 
+						
+						 
+			 ">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Home Automation</a>
+
+								
+							
+					
+	<a href="/family"
+	   target="_self"
+	   class="w3-button  
+						w3-bar-item 
+						 
+						 
+						loggedin
+						 
+			 ">🔏 &nbsp; Familie</a>
+
+					
+	<a href="/etc"
+	   target="_self"
+	   class="w3-button  
+						w3-bar-item 
+						 
+						 
+						loggedin
+						 
+			 ">🕸 &nbsp; Sonstiges</a>
+
+					
+	<a href="/about.html"
+	   target="_self"
+	   class="w3-button  
+						w3-bar-item 
+						 
+						w3-right 
+						
+						 
+			 ">👨🏻‍🦳 &nbsp; Über</a>
+
+					
+	<a href="/docs"
+	   target="_self"
+	   class="w3-button  
+						w3-bar-item 
+						 
+						w3-right 
+						loggedin
+						 
+			 ">📚 &nbsp; Doku</a>
+
+					
+				</div>
+			</div>
+		</div>
+		<!-- Ende Buttons oben rechts-->
+	</div>
+
+
+	<div class="w3-panel w3-black w3-small w3-hide-medium w3-hide-large">&nbsp;</div>
+
+	
+<!-- ---------------------- -->
+<!-- MENU FOR LARGE SCREENS -->
+<!-- ---------------------- -->	
+	<div class="w3-panel w3-black w3-small w3-hide-medium w3-hide-large">&nbsp;</div>
+	<nav class="w3-bar w3-black w3-large w3-hide-small">
+		<span class="w3-bar-item"></span>
+		<span class="w3-bar-item w3-right"></span>
+	
+		
+				
+	<a href="/"
+	   target="_self"
+	   class="w3-button  
+						w3-bar-item 
+						 
+						 
+						
+						 
+			 ">🏠</a>
+
+			
+				<div class="w3-dropdown-hover">
+	<a href="/text.html"
+	   target="_self"
+	   class="w3-button  
+						
+						 
+						 
+						
+						 
+			 ">✍🏻</a>
+<div class="w3-dropdown-content w3-bar-block w3-black">
+					
+							
+	<a href="/text.html?src=https://text.tchncs.de/m-e-st"
+	   target="_self"
+	   class="w3-button  
+						w3-bar-item 
+						 
+						 
+						
+						 
+			 ">Michas Blog</a>
+
+						
+							
+	<a href="/text.html?src=https://text.tchncs.de/software-werkzeuge"
+	   target="_self"
+	   class="w3-button  
+						w3-bar-item 
+						 
+						 
+						
+						 
+			 ">Software Werkzeuge</a>
+
+						
+							
+	<a href="/text.html?src=https://text.tchncs.de/statische-webseiten"
+	   target="_self"
+	   class="w3-button  
+						w3-bar-item 
+						 
+						 
+						
+						 
+			 ">Statische Webseiten</a>
+
+						
+							
+	<a href="/text.html?src=https://text.tchncs.de/home-automation"
+	   target="_self"
+	   class="w3-button  
+						w3-bar-item 
+						 
+						 
+						
+						 
+			 ">Home Automation</a>
+
+						
+					</div>
+				</div>
+			
+				
+	<a href="/family"
+	   target="_self"
+	   class="w3-button  
+						w3-bar-item 
+						 
+						 
+						loggedin
+						 
+			 ">🔏</a>
+
+			
+				
+	<a href="/etc"
+	   target="_self"
+	   class="w3-button  
+						w3-bar-item 
+						 
+						 
+						loggedin
+						 
+			 ">🕸</a>
+
+			
+				
+	<a href="/about.html"
+	   target="_self"
+	   class="w3-button  
+						w3-bar-item 
+						 
+						w3-right 
+						
+						 
+			 ">👨🏻‍🦳</a>
+
+			
+				
+	<a href="/docs"
+	   target="_self"
+	   class="w3-button  
+						w3-bar-item 
+						 
+						w3-right 
+						loggedin
+						 
+			 ">📚</a>
+
+			
+	</nav>
+</header>
+
+
+
+<main class="w3-section w3-container">
+	
+<ms-markdown >  <!-- Bindestrich für html-5 custom tags erforderlich! -->	
+	<img src="/static/img/author-face.png" height=200 style="margin:0 16px 8px 24px;float:left;" alt="author's portrait">
+<img src="/static/img/gemini-old-computers.png" height=200 style="margin:0 16px 8px 24px;float:right;" alt="alte Computer">
+Dies ist der Blog von Michael Stumpp aus Oranienburg.
+Ich war jahrelang in der IT-Branche tätig und interessiere mich auch heute noch für die aktuellen Entwicklungen.
+Das Entwickeln von einfachen Webseiten ohne große Frameworks ist für mich zum Hobby geworden.
+Dabei ist es nicht mein Ziel, professionelle Webanwendungen zu bauen.
+Da ich weder in Design noch in Web-Technologie allzu bewandert bin, sind hier keine Wunderwerke zu erwarten.
+Aber ich habe jede Menge Freude am Bauen der Websites.
+<p><br><br><br><br><br><br></p>
+<h4>Angaben zur Webseite</h4>
+<table>
+<thead>
+<tr>
+<th style="text-align:left"> </th>
+<th style="text-align:left"> </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">Generator</td>
+<td style="text-align:left">Eleventy v3.0.0</td>
+</tr>
+<tr>
+<td style="text-align:left">Host</td>
+<td style="text-align:left">local</td>
+</tr>
+<tr>
+<td style="text-align:left">Erzeugt</td>
+<td style="text-align:left">30.10.2025</td>
+</tr>
+<tr>
+<td style="text-align:left">Version</td>
+<td style="text-align:left">0.5.49</td>
+</tr>
+</tbody>
+</table>
+<h4>Kontakt</h4>
+<ul>
+<li><a href="https://web.stumpp.name/impressum">Impressum</a></li>
+<li><a href="https://web.stumpp.name/datenschutz">Datenschutz</a> <small style="margin-left:20px">Der Aufruf dieser Links verläßt den Blog!</small></li>
+<li><a href="https://mastodon.social/@M_E_ST">Mastodon</a></li>
+</ul>
+<!-- ab hier verschlüsselte Inhalte | nur HTML kein Markdown -->
+<p><ms-crypted style='display:none' class='w3-topbar w3-section ms-crypted' data-content='{"iv":"eqg7HegrqDUc5zGoPW+hvQ==","v":1,"iter":10000,"ks":128,"ts":64,"mode":"ccm","adata":"","cipher":"aes","salt":"e1GlANmCkCo=","ct":"RXsZ6fxQidprVg+AhMOfRtnE6KnC2lJiW4gyURljjmC7tRdm9NttKkNFSW8EOFOSWT/8TPMNbAMkSF7TyDF58G/nxDetWP7bocei0kGszwKOWOfnBIvL4A7J3IBoTaZH1dhr6ehHkJnFH6u+/vhCsXm6+94EoCMXyuIBOP2dbNP9YPQ="}'>Content is encrypted.<br>Inhalt ist verschlüsselt.<br>El contenido está encriptado.</ms-crypted></p>
+
+</ms-markdown>
+	
+
+</main>
+
+
+
+<footer class="w3-bottom" style="height:48px;">
+	<div class="w3-container w3-transparent w3-padding-large w3-center">
+		<button class="w3-mobile w3-hide-small w3-btn w3-left w3-tooltip" onclick="footerToggleVisibility('layoutCopyright');">
+			&nbsp;<span class="w3-text"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="12" x="2" y="6" rx="6" ry="6" /><circle cx="16" cy="12" r="2" /></svg></span>
+		</button> <!-- was: &#127465;&#127466; -->
+
+		<div id="layoutCopyright" class="w3-mobile w3-hide-small" style="display:none;">
+			<span class="w3-text-blue-grey">
+				&copy; 2025 
+				<a href="/about.html | d('#')">Michael Stumpp</a>
+				<span id="versionstring"></span> <span id="username"></span> <span id="dataversion"></span>
+			</span>
+		</div>
+
+	</div>
+</footer>
+
+
+
+
+<!-- The Modals -->
+<div id="popupLogin" class="w3-modal">
+  <div class="w3-modal-content w3-sand" style="width:50%">
+    <div class="w3-container w3-padding w3-border-amber w3-leftbar w3-rightbar">
+      <span onclick="closeModal('popupLogin');" class="w3-btn w3-display-topright">&times;</span>
+      <div class="w3-center w3-display-top" style="margin:0 24px"><h3>Anmeldung</h3></div>
+      <!-- stumpp.name - modal login.njk -->
+<!-- wieder modal im Sprachcafe (05.03.2025) -->
+<!-- nicht modal bei assaf (09.03.2025) -->
+
+<style>
+.topmargin { margin-top:4px; }
+</style>
+<form>
+	<div class="w3-row-padding w3-padding">
+		<div class="w3-col m10">
+			<div class="w3-col m12 l6 topmargin">
+				<input	id="loginUser"
+						onchange="loginExec_Enable();"
+						onblur="loginExec_Enable();"
+						class="w3-input w3-border" type="text" placeholder="Benutzer">
+			</div>
+			<div class="w3-col m12 l6 topmargin">
+				<input	id="loginPass" 
+						onchange="loginExec_Enable();"
+						onblur="loginExec_Enable();"
+						class="w3-input w3-border" type="password" placeholder="Kennwort">
+			</div>
+		</div>
+		<div class="w3-col m2">
+			<div class="w3-right">
+				<button class="w3-button w3-green w3-disabled w3-hover-green topmargin" 
+						id = "loginExec"
+						onclick="loginExec_Click();"
+						onmouseover="loginExec_Enable();"
+						title="Anmelden"><svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4" /><polyline points="10 17 15 12 10 7" /><line x1="15" x2="3" y1="12" y2="12" /></svg></button>
+				<button class="w3-button w3-pale-red w3-hover-red topmargin"   
+						onclick="loginClear_Click()"
+						title="Anmeldung abbrechen"><svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18" /><path d="m6 6 12 12" /></svg></button>
+			</div>
+		</div>
+	</div> 
+</form>
+
+<script>
+var loginRetryCounter = 0;
+
+function loginExec_Click() {
+	const givenUser = document.getElementById('loginUser').value;
+	const givenPass = document.getElementById('loginPass').value;
+	//~ console.log(`user=${givenUser}`,`pass=${givenPass}`);
+	if (user.logon(givenUser, givenPass)) {		/* on successful login  ... */
+		signIn(true);
+		//~ console.log ("success", user.name());
+		
+	} else {									/* if not authenticated ... */
+		if (++loginRetryCounter >= 3) {
+			user.logoff();	/* if logged in before, throw out after three misses */
+			document.getElementById('loginUser').value = '';
+			signIn(false);
+		}
+		/* stay in modal form if less than max retries */
+	}
+	loginRetryCounter = 0;
+	document.getElementById('loginPass').value = '';	/* always clear pass field !! */
+}
+
+function loginClear_Click() {
+	document.getElementById('loginUser').value = '';
+	document.getElementById('loginPass').value = '';
+	loginExec_Enable();
+}
+
+function loginExec_Enable() {
+	const enabled = (document.getElementById('loginUser').value.length > 0) 
+				 && (document.getElementById('loginPass').value.length > 0);
+	const classList = document.getElementById('loginExec').classList
+	if (enabled)
+		 classList.remove('w3-disabled');
+	else classList.add('w3-disabled');
+}
+
+</script>
+
+    </div>
+  </div>
+</div>
+
+
+<script>
+function footerToggleVisibility(id="copyright") {
+  var domX = document.getElementById(id);
+  if (domX.style.display === "none") {
+    domX.style.display = "block";
+  } else {
+    domX.style.display = "none";
+  }
+}
+</script>
+
+
+    </body>
+</html>

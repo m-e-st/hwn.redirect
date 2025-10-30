@@ -28,7 +28,16 @@ module.exports = {
 	url: {
 		impressum: "/about.html"
 	}, 
-	var: process.env.ELEVENTY_ENV,
-	dev: process.env.ELEVENTY_ENV === 'development',
-	env: process.env.ELEVENTY_ENV === 'production'
+	
+	ssg: {
+		name:			"Eleventy",
+		version:		process.env.ELEVENTY_VERSION,
+		root:			process.env.ELEVENTY_ROOT,
+		environment:	process.env.ELEVENTY_ENV
+	},
+	dev:  process.env.ELEVENTY_ENV === 'development',
+	env:  process.env.ELEVENTY_ENV === 'production',
+	host:  process.env.ENVIRONMENT || 'unknown',
+	date: new Date(),
+	built: new Date().toISOString()
 }

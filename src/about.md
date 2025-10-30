@@ -5,6 +5,17 @@ menuitem: über
 loginonly: false
 backgroundimage: tree-large-green.png
 backgroundposition: bottommiddle
+
+eleventyComputed:
+  list:
+    - key: Hello
+      value: World
+    - key: Host
+      value: {{ site.host }}
+    - key: Built
+      value: {{ site.built }}
+    - key: Built
+      value: $ new Date()
 ---
 
 <img src="/static/img/author-face.png" height=200 style="margin:0 16px 8px 24px;float:left;" alt="author's portrait">
@@ -15,6 +26,16 @@ Das Entwickeln von einfachen Webseiten ohne große Frameworks ist für mich zum 
 Dabei ist es nicht mein Ziel, professionelle Webanwendungen zu bauen.
 Da ich weder in Design noch in Web-Technologie allzu bewandert bin, sind hier keine Wunderwerke zu erwarten.
 Aber ich habe jede Menge Freude am Bauen der Websites.
+
+<br><br><br><br><br><br>
+#### Angaben zur Webseite
+
+ &nbsp;  | &nbsp; 
+ :---------|:-------
+ Generator | {{ site.ssg.name }} v{{site.ssg.version }}
+ Host      | {{ site.host }}
+ Erzeugt   | {{ site.date | Datum }}
+ Version   | {{ pkg.version }}
 
 #### Kontakt
 
