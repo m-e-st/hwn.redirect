@@ -2,7 +2,7 @@ module.exports = {
 	title: "Michas Blog",
 	description: "Blog von Michael Stumpp",
 	caption: "michas blog",
-	version : "0.4.0",
+	version : "0.5.0",
 	mail: "michael@stumpp.name",
 	language: "de",
 	

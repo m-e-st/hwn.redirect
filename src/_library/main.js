@@ -9,24 +9,30 @@
  /* das sind die beiden Buttons oben links im Header */
 const buttonLogin = document.getElementById('layoutLogin');
 const buttonMail = document.getElementById('layoutMail');
+const buttonOpen = document.getElementById('layoutOpen');
 
 /*** initialization on document ready ***/
 
 document.addEventListener("DOMContentLoaded", function(event) {
-
 	if (buttonLogin) {
+//~ console.log("Button LOGIN", buttonLogin);
 		setLucideStroke(buttonLogin, 'transparent', 1);
 		buttonLogin.addEventListener('click', actionLogin);
 		setLucideStroke(buttonLogin, '#888', 1);
-
 	}
 	if (buttonMail) {
+//~ console.log("Button MAIL", buttonMail);
 		setLucideStroke(buttonMail, 'transparent', 1);
 		buttonMail.addEventListener('click', actionMail);
 		setLucideStroke(buttonMail, '#888', 1);
-		
-	signIn( user.status());
 	}
+	if (buttonOpen) {
+//~ console.log("Button OPEN", buttonOpen);
+		setLucideStroke(buttonOpen, 'transparent', 1);
+		buttonOpen.addEventListener('click', actionOpen);
+		setLucideStroke(buttonOpen, '#888', 1);
+	}
+	signIn( user.status());
 });
 
 function signIn(state=false) {
@@ -55,6 +61,16 @@ function actionMail() {
 				"Hallo!\n\nIch habe zu diesem Blog mal eine Frage\n\n\nBeste Grüße\n",
 				true );
 	setTimeout(function() {	setLucideStroke(buttonMail, '#888', 1); }, 5000 );		// give user some time to find
+}
+
+function actionOpen() {
+	const iframe = document.querySelector('iframe');
+	if (iframe && iframe.src) {
+		//~ top.location.href = iframe.src;
+		window.top.open(iframe.src, '{{ site.caption | d('_blank')}}');
+	} else {
+		buttonOpen.style.display="none";
+	}
 }
 
 function setUserStatus() {

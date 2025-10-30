@@ -6,28 +6,19 @@ loginonly: false
 backgroundimage: tree-large-green.png
 backgroundposition: bottommiddle
 
-eleventyComputed:
-  list:
-    - key: Hello
-      value: World
-    - key: Host
-      value: {{ site.host }}
-    - key: Built
-      value: {{ site.built }}
-    - key: Built
-      value: $ new Date()
 ---
 
-<img src="/static/img/author-face.png" height=200 style="margin:0 16px 8px 24px;float:left;" alt="author's portrait">
-<img src="/static/img/gemini-old-computers.png" height=200 style="margin:0 16px 8px 24px;float:right;" alt="alte Computer">
+<img src="/static/img/author-face.png" style="height:200px;margin:0 16px 0px 24px;float:left;" alt="author's portrait">
+<img src="/static/img/gemini-old-computers.png" style="height:200px;margin:0 24px 0px 16px;float:right;" alt="alte Computer">
+<p style="min-height:180px;">
 Dies ist der Blog von Michael Stumpp aus Oranienburg.
 Ich war jahrelang in der IT-Branche tätig und interessiere mich auch heute noch für die aktuellen Entwicklungen.
 Das Entwickeln von einfachen Webseiten ohne große Frameworks ist für mich zum Hobby geworden.
 Dabei ist es nicht mein Ziel, professionelle Webanwendungen zu bauen.
 Da ich weder in Design noch in Web-Technologie allzu bewandert bin, sind hier keine Wunderwerke zu erwarten.
 Aber ich habe jede Menge Freude am Bauen der Websites.
+</p>
 
-<br><br><br>
 #### Angaben zur Webseite
 
  &nbsp;  | &nbsp; 

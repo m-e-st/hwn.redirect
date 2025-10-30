@@ -21,6 +21,7 @@ format:
 .w3-spin-1{animation:w3-spin-1 4s 1 linear}@keyframes w3-spin-1{0%{transform:rotate(0deg)}100%{transform:rotate(359deg)}}
 .w3-redden{animation:w3-redden 2s 1 linear}@keyframes w3-redden{0%{background-color:inherit)}50%{background-color:#f44336C0}100%{background-color:inherit}}
 .w3-greenen{animation:w3-greenen 2s 1 linear}@keyframes w3-greenen{0%{background-color:inherit)}50%{background-color:#4CAF50C0}100%{background-color:inherit}}
+.w3-blueen{animation:w3-blueen 2s 1 linear}@keyframes w3-blueen{0%{background-color:inherit)}50%{background-color:#2196F3C0}100%{background-color:inherit}}
 </style>
 
 {% macro attrAnimation(id, effect='spin-1') %}
@@ -101,12 +102,18 @@ format:
 
 		<!-- Buttons oben rechts-->
 		<div class="w3-right" style="xmargin-top:32px;">
+			{% if format.iframe %}
+			<button class="w3-btn w3-hide-small w3-circle" {{attrAnimation("layoutOpen", "blueen")}}>
+				{% lucide "square-arrow-out-up-right" ,{ "stroke": "#888", "stroke-width": 1, "size":"32" } %}
+			</button>
+			{% else %}
 			<button class="w3-btn w3-hide-small w3-circle" {{attrAnimation("layoutMail", "redden")}} style="margin-right:-16px">
 				{% lucide "mail" ,{ "stroke": "#888", "stroke-width": 1, "size":"32" } %}
 			</button>
 			<button class="w3-btn w3-hide-small w3-circle" {{attrAnimation("layoutLogin", "greenen")}}>
 				{% lucide "user" ,{ "stroke": "#888", "stroke-width": 1, "size":"32" } %}
 			</button>
+			{% endif %}
 		</div>
 		<!-- Ende Buttons oben rechts-->
 
