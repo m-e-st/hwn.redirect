@@ -1,3 +1,10 @@
+/***
+ * markdown.css 
+ * 
+ * 03.11.2025 v2 Table Formatting added
+ * 
+ ***/
+
 /**
 	--md-theme:		#36034b;		// == kv-dark-purple
 	--md-theme:		#610688;		// == kv-indigo 
@@ -24,6 +31,14 @@ ms-markdown {
 /*
 	& img { max-width:800px; }
 */
+	table {border-collapse:collapse;border-spacing:0;width:100%;display:table;border:1px solid #ccc;margin-top:8px}
+	table tr{border-bottom:1px solid #ddd}
+	thead tr{background-color:#ccc8}
+/*	table tr:nth-child(odd){background-color:transparent}	*/
+	table tr:nth-child(even){background-color:#eee8}
+	table td, table th {padding:8px 8px;display:table-cell;text-align:left;vertical-align:top}
+	table th:first-child, table td:first-child {padding-left:16px}
+	pre{width:auto;font-size:15px;background-color:#eee8;padding:8px 12px;margin-top:-16px;border:1px solid #ccc;word-wrap:break-word}
 }
 
 /** **************************************************************** **/

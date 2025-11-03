@@ -13,8 +13,11 @@
         url: /text.html?src=https://text.tchncs.de/software-werkzeuge
       - name: Statische Webseiten
         url: /text.html?src=https://text.tchncs.de/statische-webseiten
-      - name: Home Automation
-        url: /text.html?src=https://text.tchncs.de/home-automation
+      - name: Buchprojekt Guerilla IT
+        url: /text.html?src=https://text.tchncs.de/guerilla-it/
+      - name: ---
+      - name: Texte schreiben
+        url: https://text.tchncs.de/login
   - name: familie
     caption: "🔏" # "\U0001F50F"
     pos: hide
