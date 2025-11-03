@@ -59,7 +59,7 @@ buttonActiveClass: w3-dark-gray
 			 >
 		<div class="w3-left w3-hide-small">
 			<h2 class="ms-text-red" style="margin-top:24px;">{{ site.title }}</h2>
-			<h6 class="ms-text-red" style="margin-top:-1em">Version {{ pkg.version }}</h6>
+			<h6 class="ms-text-red w3-tooltip" style="margin-top:-1em">Version {{ pkg.version }} <span class="w3-text w3-text-gray">@ {{ site.host }}</span></h6>
 		</div>
 		<div class="w3-right theme-pale" style="margin-top:32px;">
 			<button class="w3-btn w3-hide-small w3-circle" {{attrAnimation("layoutMail", "redden")}} >
