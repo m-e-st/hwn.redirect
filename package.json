@@ -1,6 +1,6 @@
 {
   "name": "stumpp blog",
-  "version": "0.5.55",
+  "version": "0.5.56",
   "description": "Blog von Michael Stumpp",
   "main": ".eleventy.js",
   "scripts": {
