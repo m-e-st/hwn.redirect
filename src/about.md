@@ -1,11 +1,12 @@
 ---
 layout: markdown.njk
 permalink: "{{ page.filePathStem }}.html"
-menuitem: über
+menuitem: "👨🏻‍🦳"
 loginonly: false
 backgroundimage: tree-large-green.png
 backgroundposition: bottommiddle
 
+localbuttonstyle: "background-color:#d9f99d80; margin:0 2em;border-radius:16px;font: 15px/30px Comic Sans MS;"
 ---
 
 <img src="/static/img/author-face.png" style="height:200px;margin:0 16px 0px 24px;float:left;" alt="author's portrait">
@@ -47,6 +48,11 @@ Mastodon
 <h4>Mail | Fax | Internet</h4>
 PGP Schlüssel
 
-hallo
-
 {% endcrypt %}
+
+---
+
+<div class="w3-padding w3-padding-48 w3-center" style="background:linear-gradient(90deg, #EEE0 20%, #ecfccb80 51%, #EEE0 80%)">
+	<a class="w3-btn" style="{{localbuttonstyle}}" href="/aboutframe.html?src=https://web.stumpp.name/frames/impressum.html">Impressum</a>
+	<a class="w3-btn" style="{{localbuttonstyle}}" href="/aboutframe.html?src=https://web.stumpp.name/frames/datenschutz.html">Datenschutz</a>
+</div>

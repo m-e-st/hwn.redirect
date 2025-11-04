@@ -19,9 +19,13 @@
       - name: Texte schreiben
         url: https://text.tchncs.de/login
   - name: familie
-    caption: "🔏" # "\U0001F50F"
+    caption: "🧒" # "\U???		# 🔏 "\U0001F50F"
     pos: hide
     url: /family
+  - name: doku
+    caption: "📚" # "\U00014DA"
+    pos: hide
+    url: /docs
   - name: sonstiges
     caption: "🕸" # "\U0001F578"
     pos: hide
@@ -33,8 +37,9 @@
     caption: "👨🏻‍🦳" #  multiple emojis
     pos: right
     url: /about.html
-  - name: doku
-    caption: "📚" # "\U00014DA"
-    pos: hideright
-    url: /docs
+##    menu:
+##      - name: impressum
+##        url: /aboutframe.html?src=https://web.stumpp.name/frames/impressum.html
+##      - name: datenschutz
+##        url: /aboutframe.html?src=https://web.stumpp.name/frames/datenschutz.html
 

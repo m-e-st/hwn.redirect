@@ -3,6 +3,7 @@
 /** v2.5 - 2025-05-11 encryption by sjcl **/
 /** v2.6 - 2025-05-29 js-yaml **/
 /** v2.7 - 2025-10-28 dotenvx **/
+/** v2.8 - 2025-11-04 Filter "Caption" using "title" ... **/
 
 const htmlMinifier = require ('html-minifier-terser');
 const lucideIcons = require("@grimlink/eleventy-plugin-lucide-icons");
@@ -54,8 +55,12 @@ module.exports = function (eleventyConfig) {
 		let result = path.basename(value, ".html");
 		return result;
 	});
-  	eleventyConfig.addFilter("Paragraphs", function(value) {							/* v2.2 */
+  	eleventyConfig.addFilter("Paragraphs", function(value) {						/* v2.2 */
 		let result = "<p>" + value.replaceAll("\n", "</p>\n<p>") + "</p>"
+		return result;
+	});
+  	eleventyConfig.addFilter("Caption", function(value) {							/* v2.8 */
+		let result = value.at(0).toLocaleUpperCase() + value.slice(1);
 		return result;
 	});
   	/* Custom "upperWords" deleted - use "title" instead */

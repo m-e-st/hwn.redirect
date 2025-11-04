@@ -1,14 +1,17 @@
 ---
 type: layout
 layout: base.njk
-version: 2025-05-28
+version: 2025-11-03
 
 # 03.04.2025 - Harmonisierung über alle Layouts
 # 28.05.2025 - Hauptmenü-Punkt ist anklickbar, wenn URL angegeben ist.
 # 28.08.2025 - menu: caption before name
 # 28.08.2025 - background image
+# 03.11.2025 - display environment when hovering over version number
 
-buttonActiveClass: w3-dark-gray
+format:
+  activebutton: w3-dark-gray
+  keepbuttonsleft: false
 ---
 
 <!-- Adaption für Mareikes Blog März 2025 -->
@@ -29,15 +32,15 @@ buttonActiveClass: w3-dark-gray
 {% macro itemlink(caption, url, pos='', tooltip='', lang='') %}
 	<a href="{{url|d('#')}}"
 	   target="{{ 'external' if (''+url).startsWith('http') else '_self' }}"
-	   class="w3-button {% if caption==menuitem -%} {{format.activebutton}}{%- endif %} 
+	   class="w3-button {% if caption==menuitem -%} {{format.activebutton}} {%- endif %} 
 						{{ 'w3-bar-item ' if (pos != 'menu') }}
 						{{ 'w3-tooltip' if (tooltip or lang) }} 
 						{{ 'w3-right' if ((''+pos).includes('right')) }} 
 						{{ 'loggedin' if ((''+pos).includes('hide')) }}
-						{{ 'ms-about' if (caption == 'über') or (caption == 'about') }} 
+						{{ 'ms-about' if (caption == 'über') or (caption == 'about') or (caption == '👨🏻‍🦳') }} 
 			 ">
 			{%- if ((''+pos).includes('indent')) -%}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{%- endif -%}
-			{{ caption|safe|title }}
+			{{ caption|safe|Caption }}
 			{%- if (tooltip or lang) -%}<span class="w3-text w3-tag"> {{lang+' '+url|d('') if lang else tooltip|safe}}</span>{%- endif -%}
 	</a>
 {% endmacro %}
@@ -59,7 +62,8 @@ buttonActiveClass: w3-dark-gray
 			 >
 		<div class="w3-left w3-hide-small">
 			<h2 class="ms-text-red" style="margin-top:24px;">{{ site.title }}</h2>
-			<h6 class="ms-text-red w3-tooltip" style="margin-top:-1em">Version {{ pkg.version }} <span class="w3-text w3-text-gray">@ {{ site.host }}</span></h6>
+			<h6 class="ms-text-red w3-tooltip" style="margin-top:-1em">Version {{ pkg.version }} <span class="w3-text w3-text-
+			gray">@ {{ site.host }}</span></h6>
 		</div>
 		<div class="w3-right theme-pale" style="margin-top:32px;">
 			<button class="w3-btn w3-hide-small w3-circle" {{attrAnimation("layoutMail", "redden")}} >
@@ -83,7 +87,7 @@ buttonActiveClass: w3-dark-gray
 							{{ itemlink(item.caption + " &nbsp; " + item.name
 								, item.url) }}
 						{%- else -%}
-							<span class="w3-bar-item">{{ item.name|safe|title }}</span>
+							<span class="w3-bar-item">{{ item.name|safe|Caption }}</span>
 						{%- endif -%}
 						{% for subitem in item.menu -%}
 							{% if subitem.name =='---' %}
@@ -93,7 +97,7 @@ buttonActiveClass: w3-dark-gray
 							<a href="{{subitem.url|d('#')}}"
 							   target="{{ 'external' if (''+subitem.url).startsWith('http') else '_self' }}"
 							   class="w3-bar-item w3-button {{'ms-back-gray' if (subitem.name==menuitem)}}">
-									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ subitem.name|safe|title }}
+									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ subitem.name|safe|Caption }}
 							</a>
 								#}
 							{% endif %}
@@ -128,7 +132,7 @@ buttonActiveClass: w3-dark-gray
 					{%- if item.url -%}
 						{{ itemlink(item.caption, item.url, "menu", item.tip, item.lang)}}
 					{%- else -%}			
-						<button class="w3-button">{{ item.name|safe|title }}</button>
+						<button class="w3-button">{{ item.name|safe|Caption }}</button>
 					{%- endif -%}
 					<div class="w3-dropdown-content w3-bar-block w3-black">
 					{% for subitem in item.menu -%}

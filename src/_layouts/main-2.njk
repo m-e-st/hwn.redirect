@@ -10,7 +10,7 @@ version: 2025-05-28
 # 05.10.2025 - main-2 mit dem klassischen schwarzen Layout
 
 format:
-  activebutton: w3-lime
+  activebutton: w3-dark-gray
   keepbuttonsleft: true
 ---
 
@@ -33,15 +33,15 @@ format:
 {% macro itemlink(caption, url, pos='', tooltip='', lang='') %}
 	<a href="{{url|d('#')}}"
 	   target="{{ 'external' if (''+url).startsWith('http') else '_self' }}"
-	   class="w3-button {% if caption==menuitem -%} {{format.activebutton}}{%- endif %} 
+	   class="w3-button {% if caption==menuitem -%} {{format.activebutton}} {%- endif %} 
 						{{ 'w3-bar-item ' if (pos != 'menu') }}
 						{{ 'w3-tooltip' if (tooltip or lang) }} 
 						{{ 'w3-right' if ((''+pos).includes('right') and not format.keepbuttonsleft ) }} 
 						{{ 'loggedin' if ((''+pos).includes('hide')) }} 
-						{{ 'ms-about' if (caption == 'über') or (caption == 'about') }} 
+						{{ 'xms-about' if (caption == 'über') or (caption == 'about') or (caption == '👨🏻‍🦳') }} 
 			 ">
 			{%- if ((''+pos).includes('indent')) -%}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{%- endif -%}
-			{{ caption|safe|title }}
+			{{ caption|safe|Caption }}
 			{%- if (tooltip or lang) -%}&nbsp;<span class="w3-text w3-tag"> {{lang+' '+url|d('') if lang else tooltip|safe}}</span>{%- endif -%}
 	</a>
 {% endmacro %}
@@ -79,7 +79,7 @@ format:
 							{%- if item.url -%}
 								{{ itemlink(item.caption if(item.caption) else item.name, item.url, "menu", item.tip, item.lang)}}
 							{%- else -%}
-								<button class="w3-button">{{ item.caption|d(item.name)|safe|title }}</button>
+								<button class="w3-button">{{ item.caption|d(item.name)|safe|Caption }}</button>
 							{%- endif -%}
 							<div class="w3-dropdown-content w3-bar-block w3-black">
 							{% for subitem in item.menu -%}
@@ -132,7 +132,7 @@ format:
 						{%- if item.url -%}
 							{{ itemlink(menucaption, item.url) }}
 						{%- else -%}
-							<span class="w3-bar-item">{{ item.name|safe|title }}</span>
+							<span class="w3-bar-item">{{ item.name|safe|Caption }}</span>
 						{%- endif -%}
 						{% for subitem in item.menu -%}
 							{% if subitem.name =='---' %}
@@ -142,7 +142,7 @@ format:
 							<a href="{{subitem.url|d('#')}}"
 							   target="{{ 'external' if (''+subitem.url).startsWith('http') else '_self' }}"
 							   class="w3-bar-item w3-button {{'ms-back-gray' if (subitem.name==menuitem)}}">
-									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ subitem.name|safe|title }}
+									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ subitem.name|safe|Caption }}
 							</a>
 								#}
 							{% endif %}
