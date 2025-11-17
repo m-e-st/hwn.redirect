@@ -1,6 +1,6 @@
 {
   "name": "stumpp blog",
-  "version": "0.5.56",
+  "version": "0.5.57",
   "description": "Blog von Michael Stumpp",
   "main": ".eleventy.js",
   "scripts": {
@@ -21,7 +21,7 @@
     "@grimlink/eleventy-plugin-lucide-icons": "^2.1.9",
     "del-cli": "^7.0.0",
     "dotenv": "^17.2.3",
-    "html-minifier-terser": "^7.2.0"    
+    "html-minifier-terser": "^7.2.0"
   },
   "keywords": []
 }
