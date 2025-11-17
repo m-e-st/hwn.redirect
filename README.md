@@ -1,6 +1,6 @@
-# Redirect für Statichost
+# Redirect für statichost.eu
 
-Die Webseite liegt in einem PUBLCI Github repository 
+Die Webseite liegt in einem 'public' Github repository 
 und leitet die bisher bei statichost.eu gehosteten
 Seiten auf ihre neuen Hosts um.
 

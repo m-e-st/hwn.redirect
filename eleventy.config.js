@@ -4,32 +4,20 @@
 /** v2.6 - 2025-05-29 js-yaml **/
 /** v2.7 - 2025-10-28 dotenvx **/
 /** v2.8 - 2025-11-04 Filter "Caption" using "title" ... **/
+/*** REDUCED VERSION FOR REDIRECT ***/
 
 const htmlMinifier = require ('html-minifier-terser');
 const lucideIcons = require("@grimlink/eleventy-plugin-lucide-icons");
-const markdownItCallouts = require("markdown-it-obsidian-callouts");					/* v2.1 */
-const markdownObsidianImages = require('markdown-it-obsidian-images');					/* v2.4 */
-const markdownWikilinks = require('markdown-it-obsidian');								/* v2.6 */
 const path = require('path');															/* v2.2 */
-const sjcl = require("sjcl");
 const yaml = require("js-yaml");														/* v2.6 */
 require('dotenv').config(); // load .env into process.env								/* v2.7 */
 
 module.exports = function (eleventyConfig) {
-	eleventyConfig.amendLibrary("md", (mdLib) => mdLib.use(markdownItCallouts));		/* v2.1 */
-	eleventyConfig.amendLibrary("md", (mdLib) => mdLib.use(markdownObsidianImages({ makeAllLinksAbsolute: true, baseURL: '/blog/img/' })));	/* v2.4 */
-	eleventyConfig.amendLibrary("md", (mdLib) => mdLib.use(markdownWikilinks()));			/* v2.6 */
 	
     eleventyConfig.addPlugin(lucideIcons);
     eleventyConfig.addDataExtension("yaml", (contents) => yaml.load(contents));
     
   	eleventyConfig.addShortcode("anchor", function setAnchor(anchorName) { return `<a name="${anchorName}"><br><br><hr></a>`; });
-  	eleventyConfig.addPairedShortcode("crypt", function(content, password = "", classList="") { 		/* v2.5 */
-		return `<ms-crypted style='display:none' class='${classList}' `
-			 + "data-content='" + sjcl.encrypt(password, content) + "'>"
-			 + "Content is encrypted.<br>Inhalt ist verschlüsselt.<br>El contenido está encriptado."
-			 + "</ms-crypted>";
-	});  	
   	eleventyConfig.addFilter("Datum", function(value, lang="de") {
 		const string = value.toISOString();
 		if(lang=="en") return string.slice(5,7) +'/' + string.slice(8,10) + '/' + string.slice(0,4);
