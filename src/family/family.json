@@ -1,9 +1,0 @@
-{
-	"layout": "markdown.crypted.njk",
-	"permalink": "{{ page.filePathStem }}.html",
-	"menuitem": "familie",
-	"loginonly": true,
-	"backgroundimage": "abstract-geometry.png",
-	"backgroundposition": "bottommiddle",
-	"tags": "family"
-}

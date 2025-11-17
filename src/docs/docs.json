@@ -1,9 +1,0 @@
-{
-	"layout": "markdown.njk",
-	"permalink": "{{ page.filePathStem }}.html",
-	"menuitem": "doku",
-	"loginonly": true,
-	"backgroundimage": "tech-macintosh.png",
-	"backgroundposition": "bottomright",
-	"tags": "docs"
-}

@@ -1,0 +1,13 @@
+# Redirects away from statichost.eu
+# 17.11.2025
+
+  - name: sprachcafe
+    from: sprachcafe-oranienburg
+    to:   https://sprachcafe-oranienburg.de
+  - name: katjas-blog
+    from: katjas-blog
+    to:   https://katjas-blog.pages.dev
+  - name: norwegen
+    from: stumpp-norwegen
+    to:   https://norwegen.stumpp.name
+    

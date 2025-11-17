@@ -1,17 +1,7 @@
----js
-const layout = "base.njk";
-const language = "en";
 
-const environment = process.env.ENVIRONMENT;
-const destination = process.env.DESTINATION;
 
-const redirect = { 
-	delay: 100, 
-	url: process.env.DESTINATION || "https://www.hwn.de"
-};
----
+/*** ************************************************************** ***/
 
-	<style>
 		.rd_main {	
 			height:100vh; 
 			background-color: #DEF; 
@@ -36,13 +26,4 @@ const redirect = {
 			font-stretch:expanded;
 			font-variant: small-caps;
 			font-weight: bold;
-		}		
-	</style>
-
-	<main class="rd_main rd_image" 
-		 onclick="window.location.replace('{{ redirect.url | d('/') }}');"
-		 oncontextmenu="javascript:history.back();">
-		<div class="rd_text">
-			Sie werden weitergeleitet &hellip;
-		</div>
-	</main>
+		}	

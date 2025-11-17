@@ -1,26 +1,23 @@
-# Blog von Michael Stumpp
+# Redirect für Statichost
 
-Der Blog von Michael Stumpp wird als statische Webseite auf
-Cloudflare gehostet. Die Redaktion der Inhalte erfolgt lokal mit
-Dateien im Markdown-Format. Dabei wird der Einsatz von Obsidian
-für die lokale Bearbeitung berücksichtigt.
+Die Webseite liegt in einem PUBLCI Github repository 
+und leitet die bisher bei statichost.eu gehosteten
+Seiten auf ihre neuen Hosts um.
 
-#### Stand der Dinge
+#### Grund
 
-08MAY2025 `_common` Verzeichnis für gemeinsam genutzte Komponenten
-		  `login.js` in der Version 2.0  inkl `code` Feld
+Ab 1. Dezember 2025 sind Hostings von privaten Repositories
+bei statichost.eu kostenpflichtig. Die Repositories der 
+gehosteten Seiten können aus verschiedenen Gründen nicht
+'public' gestellt werden. Die Kosten für private Repositories
+lohnen sich für diesde Hobby-Projekte nicht.
 
 #### Besonderheiten
 
-- das neue Layout `main.njk` mit Menü, Mailversand und Login
-- das Layout `markdown.njk` mit CSS für die Callouts
-- `eleventy-img` für die Komapitibliäz mit Obsidian
+Das Redirection-Ziel wird aus einer Environment-Variable genommen,
+so dass alle Ziele aus demselben (public) Repository erzeugt werden.
 
-#### Entwicklung
 
- - `npm run dev` zum Start der Entwicklungsumgebung
- - `npm run build` zum Erzeugen der Produktionsumgebung
- 
 #### Softwarebasis
 
 Laufzeit:
