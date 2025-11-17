@@ -6,7 +6,7 @@ const environment = process.env.ENVIRONMENT;
 const destination = process.env.DESTINATION;
 
 const redirect = { 
-	delay: 100, 
+	delay: process.env.DELAY || 1, 
 	url: process.env.DESTINATION || "https://www.hwn.de"
 };
 ---
